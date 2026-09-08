@@ -1,2 +1,17 @@
-import {json} from './_session.js';
-export default function handler(req,res){if(req.method!=='POST')return json(res,405,{error:'Method not allowed'});return json(res,200,{ok:true},{'Set-Cookie':'sggs_admin_session=; Max-Age=0; Path=/; HttpOnly; SameSite=Lax; Secure'})}
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({
+      ok: false,
+      error: 'Method not allowed'
+    });
+  }
+
+  res.setHeader(
+    'Set-Cookie',
+    'sggs_admin_session=; HttpOnly; Path=/; Max-Age=0; SameSite=Lax; Secure'
+  );
+
+  return res.status(200).json({
+    ok: true
+  });
+}
