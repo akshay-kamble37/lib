@@ -1,0 +1,6 @@
+import React,{useMemo,useState} from 'react';
+import {Link,useParams,useSearchParams} from 'react-router-dom';
+import {ArrowRight,ArrowUpRight,BookOpen,Building2,FileText,GraduationCap,LibraryBig,MapPin,PlayCircle,Search,ShieldCheck,Star,BookMarked,Download,ExternalLink,ChevronRight} from 'lucide-react';
+import {useLibrary} from '../../context/LibraryContext';
+import {PageHero,SectionTitle,QuickCard,BookCard,Empty,ResourceCard} from '../../components/site';
+export default function About(){const {site}=useLibrary();return <><PageHero eyebrow="ABOUT THE LIBRARY" title="A gateway to learning and discovery" text={site.about} image="/images/library-building.webp"/><section className="container section"><div className="about-grid"><div><span className="eyebrow">OUR PURPOSE</span><h2>Supporting teaching, learning and research.</h2><p>The Central Library brings together print collections, digital resources, examination archives and institutional publications in one accessible experience.</p></div><div className="about-cards"><div><Star/><b>Learning</b><span>Academic resources for everyday study.</span></div><div><GraduationCap/><b>Research</b><span>Scholarly discovery and faculty works.</span></div><div><LibraryBig/><b>Knowledge</b><span>Preserving institutional knowledge.</span></div></div></div></section></>}

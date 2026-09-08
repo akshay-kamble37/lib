@@ -1,0 +1,6 @@
+import React,{useMemo,useState} from 'react';
+import {Link,useParams,useSearchParams} from 'react-router-dom';
+import {ArrowRight,ArrowUpRight,BookOpen,Building2,FileText,GraduationCap,LibraryBig,MapPin,PlayCircle,Search,ShieldCheck,Star,BookMarked,Download,ExternalLink,ChevronRight} from 'lucide-react';
+import {useLibrary} from '../../context/LibraryContext';
+import {PageHero,SectionTitle,QuickCard,BookCard,Empty,ResourceCard} from '../../components/site';
+export default function Publications(){const {publications}=useLibrary();return <><PageHero eyebrow="FACULTY PUBLICATIONS" title="Faculty Publications" text="Books and scholarly works published by Shri Guru Gobind Singhji Institute faculty members." image="/images/bookshelves.jpg"/><section className="container section"><div className="publication-grid">{publications.map(p=><article className="publication-card" key={p.id}><img src={p.cover} alt=""/><div><span className="chip">{p.department}</span><h3>{p.title}</h3><p>{p.description}</p><div className="pub-meta"><span>{p.author}</span><span>{p.publisher} • {p.year}</span></div><button className="outline-btn">View publication <ArrowUpRight size={15}/></button></div></article>)}</div></section></>}
