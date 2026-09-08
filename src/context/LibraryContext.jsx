@@ -1,77 +1,656 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { defaultAnnouncements, defaultBooks, defaultPapers, defaultResources, defaultPublications, defaultSite, departments, years, semesters } from '../data/defaultData';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+
+import {
+  defaultAnnouncements,
+  defaultBooks,
+  defaultPapers,
+  defaultResources,
+  defaultPublications,
+  defaultSite,
+  departments,
+  years,
+  semesters,
+} from '../data/defaultData';
 
 const Ctx = createContext(null);
-const clone = value => JSON.parse(JSON.stringify(value));
-function load(key, fallback) { try { const stored = localStorage.getItem(key); return stored ? JSON.parse(stored) : clone(fallback); } catch { return clone(fallback); } }
+
+const clone = (value) => JSON.parse(JSON.stringify(value));
+
+function loadLocal(key, fallback) {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : clone(fallback);
+  } catch {
+    return clone(fallback);
+  }
+}
+
+const initialContent = {
+  books: loadLocal('sggs_books', defaultBooks),
+  departments: loadLocal('sggs_departments', departments),
+  resources: loadLocal('sggs_resources', defaultResources),
+  papers: loadLocal('sggs_papers', defaultPapers),
+  announcements: loadLocal(
+    'sggs_announcements',
+    defaultAnnouncements
+  ),
+  publications: loadLocal(
+    'sggs_publications',
+    defaultPublications
+  ),
+  site: loadLocal('sggs_site', defaultSite),
+};
 
 export function LibraryProvider({ children }) {
-  const [books, setBooks] = useState(() => load('sggs_books', defaultBooks));
-  const [departmentsData, setDepartmentsData] = useState(() => load('sggs_departments', departments));
-  const [resources, setResources] = useState(() => load('sggs_resources', defaultResources));
-  const [papers, setPapers] = useState(() => load('sggs_papers', defaultPapers));
-  const [announcements, setAnnouncements] = useState(() => load('sggs_announcements', defaultAnnouncements));
-  const [publications, setPublications] = useState(() => load('sggs_publications', defaultPublications));
-  const [site, setSite] = useState(() => load('sggs_site', defaultSite));
+  const [books, setBooks] = useState(initialContent.books);
+  const [departmentsData, setDepartmentsData] = useState(
+    initialContent.departments
+  );
+  const [resources, setResources] = useState(initialContent.resources);
+  const [papers, setPapers] = useState(initialContent.papers);
+  const [announcements, setAnnouncements] = useState(
+    initialContent.announcements
+  );
+  const [publications, setPublications] = useState(
+    initialContent.publications
+  );
+  const [site, setSite] = useState(initialContent.site);
+
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('sggs_theme') || 'light');
+
+  const [contentReady, setContentReady] = useState(false);
+  const [contentSaving, setContentSaving] = useState(false);
+
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('sggs_theme') || 'light'
+  );
+
   const [toast, setToast] = useState('');
 
-  useEffect(() => localStorage.setItem('sggs_books', JSON.stringify(books)), [books]);
-  useEffect(() => localStorage.setItem('sggs_departments', JSON.stringify(departmentsData)), [departmentsData]);
-  useEffect(() => localStorage.setItem('sggs_resources', JSON.stringify(resources)), [resources]);
-  useEffect(() => localStorage.setItem('sggs_papers', JSON.stringify(papers)), [papers]);
-  useEffect(() => localStorage.setItem('sggs_announcements', JSON.stringify(announcements)), [announcements]);
-  useEffect(() => localStorage.setItem('sggs_publications', JSON.stringify(publications)), [publications]);
-  useEffect(() => localStorage.setItem('sggs_site', JSON.stringify(site)), [site]);
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem('sggs_theme', theme);
-  }, [theme]);
+  /*
+   * =========================================================
+   * AUTH SESSION
+   * =========================================================
+   */
 
   useEffect(() => {
     let active = true;
-    fetch('/api/auth/session', { credentials: 'include' })
-      .then(response => response.ok ? response.json() : { authenticated: false })
-      .then(data => { if (active) setUser(data.user || null); })
-      .catch(() => {
-        if (active) setUser(null);
+
+    fetch('/api/auth/session', {
+      credentials: 'include',
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          return { authenticated: false };
+        }
+
+        return response.json();
       })
-      .finally(() => { if (active) setAuthReady(true); });
-    return () => { active = false; };
+      .then((data) => {
+        if (!active) return;
+
+        setUser(data.user || null);
+      })
+      .catch(() => {
+        if (active) {
+          setUser(null);
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setAuthReady(true);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
+
+  /*
+   * =========================================================
+   * LOAD CONTENT FROM NEON
+   * =========================================================
+   *
+   * Neon is the production source of truth.
+   *
+   * We do NOT automatically POST the initial React state.
+   * This prevents default/empty local data from overwriting
+   * the database.
+   */
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadContentFromServer() {
+      try {
+        const response = await fetch('/api/content', {
+          method: 'GET',
+          credentials: 'include',
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            `Content API returned ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+
+        if (!active) return;
+
+        if (Array.isArray(data.books)) {
+          setBooks(data.books);
+
+          localStorage.setItem(
+            'sggs_books',
+            JSON.stringify(data.books)
+          );
+        }
+
+        if (Array.isArray(data.departments)) {
+          setDepartmentsData(data.departments);
+
+          localStorage.setItem(
+            'sggs_departments',
+            JSON.stringify(data.departments)
+          );
+        }
+
+        if (Array.isArray(data.resources)) {
+          setResources(data.resources);
+
+          localStorage.setItem(
+            'sggs_resources',
+            JSON.stringify(data.resources)
+          );
+        }
+
+        if (Array.isArray(data.papers)) {
+          setPapers(data.papers);
+
+          localStorage.setItem(
+            'sggs_papers',
+            JSON.stringify(data.papers)
+          );
+        }
+
+        if (Array.isArray(data.announcements)) {
+          setAnnouncements(data.announcements);
+
+          localStorage.setItem(
+            'sggs_announcements',
+            JSON.stringify(data.announcements)
+          );
+        }
+
+        if (Array.isArray(data.publications)) {
+          setPublications(data.publications);
+
+          localStorage.setItem(
+            'sggs_publications',
+            JSON.stringify(data.publications)
+          );
+        }
+
+        if (
+          data.site &&
+          typeof data.site === 'object' &&
+          !Array.isArray(data.site)
+        ) {
+          setSite(data.site);
+
+          localStorage.setItem(
+            'sggs_site',
+            JSON.stringify(data.site)
+          );
+        }
+
+        setContentReady(true);
+      } catch (error) {
+        console.error(
+          'Failed to load library content:',
+          error
+        );
+
+        /*
+         * LocalStorage/default data remains available as fallback.
+         */
+
+        if (active) {
+          setContentReady(true);
+        }
+      }
+    }
+
+    loadContentFromServer();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  /*
+   * =========================================================
+   * THEME
+   * =========================================================
+   */
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+
+    localStorage.setItem(
+      'sggs_theme',
+      theme
+    );
+  }, [theme]);
+
+  /*
+   * =========================================================
+   * TOAST
+   * =========================================================
+   */
 
   useEffect(() => {
     if (!toast) return undefined;
-    const timer = setTimeout(() => setToast(''), 2800);
+
+    const timer = setTimeout(
+      () => setToast(''),
+      2800
+    );
+
     return () => clearTimeout(timer);
   }, [toast]);
 
-  const login = async (email, password) => {
-    const response = await fetch('/api/auth/login', {
-      method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.error || 'Invalid administrator credentials');
+  /*
+   * =========================================================
+   * SAVE ALL CONTENT TO NEON
+   * =========================================================
+   *
+   * Admin pages can call:
+   *
+   * await saveContent()
+   *
+   * This sends the current application state to /api/content.
+   */
+
+  const saveContent = async (
+    overrides = {}
+  ) => {
+    setContentSaving(true);
+
+    try {
+      const content = {
+        books:
+          overrides.books !== undefined
+            ? overrides.books
+            : books,
+
+        departments:
+          overrides.departments !== undefined
+            ? overrides.departments
+            : departmentsData,
+
+        resources:
+          overrides.resources !== undefined
+            ? overrides.resources
+            : resources,
+
+        papers:
+          overrides.papers !== undefined
+            ? overrides.papers
+            : papers,
+
+        announcements:
+          overrides.announcements !== undefined
+            ? overrides.announcements
+            : announcements,
+
+        publications:
+          overrides.publications !== undefined
+            ? overrides.publications
+            : publications,
+
+        site:
+          overrides.site !== undefined
+            ? overrides.site
+            : site,
+      };
+
+      const response = await fetch(
+        '/api/content',
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(content),
+        }
+      );
+
+      const data = await response
+        .json()
+        .catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(
+          data.error ||
+            `Save failed with status ${response.status}`
+        );
+      }
+
+      /*
+       * Keep localStorage as a local cache only.
+       */
+
+      localStorage.setItem(
+        'sggs_books',
+        JSON.stringify(content.books)
+      );
+
+      localStorage.setItem(
+        'sggs_departments',
+        JSON.stringify(content.departments)
+      );
+
+      localStorage.setItem(
+        'sggs_resources',
+        JSON.stringify(content.resources)
+      );
+
+      localStorage.setItem(
+        'sggs_papers',
+        JSON.stringify(content.papers)
+      );
+
+      localStorage.setItem(
+        'sggs_announcements',
+        JSON.stringify(content.announcements)
+      );
+
+      localStorage.setItem(
+        'sggs_publications',
+        JSON.stringify(content.publications)
+      );
+
+      localStorage.setItem(
+        'sggs_site',
+        JSON.stringify(content.site)
+      );
+
+      setToast('Changes saved successfully');
+
+      return data.data || content;
+    } catch (error) {
+      console.error(
+        'Failed to save library content:',
+        error
+      );
+
+      setToast(
+        error.message ||
+          'Unable to save changes'
+      );
+
+      throw error;
+    } finally {
+      setContentSaving(false);
+    }
+  };
+
+  /*
+   * =========================================================
+   * UPLOAD MEDIA TO VERCEL BLOB
+   * =========================================================
+   *
+   * Usage:
+   *
+   * const result = await uploadMedia(file);
+   *
+   * result.url = permanent Blob URL
+   */
+
+  const uploadMedia = async (file) => {
+    if (!file) {
+      throw new Error('No file selected');
+    }
+
+    const formData = new FormData();
+
+    formData.append(
+      'file',
+      file
+    );
+
+    const response = await fetch(
+      '/api/upload',
+      {
+        method: 'POST',
+        credentials: 'include',
+        body: formData,
+      }
+    );
+
+    const data = await response
+      .json()
+      .catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(
+        data.error ||
+          `Upload failed with status ${response.status}`
+      );
+    }
+
+    if (!data.url) {
+      throw new Error(
+        'Upload succeeded but no media URL was returned'
+      );
+    }
+
+    setToast('Media uploaded successfully');
+
+    return data;
+  };
+
+  /*
+   * =========================================================
+   * LOGIN
+   * =========================================================
+   */
+
+  const login = async (
+    email,
+    password
+  ) => {
+    const response = await fetch(
+      '/api/auth/login',
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type':
+            'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
+
+    const data = await response
+      .json()
+      .catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(
+        data.error ||
+          'Invalid administrator credentials'
+      );
+    }
+
     setUser(data.user);
+
     return data.user;
   };
 
+  /*
+   * =========================================================
+   * LOGOUT
+   * =========================================================
+   */
+
   const logout = async () => {
-    try { await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }); } catch { }
+    try {
+      await fetch(
+        '/api/auth/logout',
+        {
+          method: 'POST',
+          credentials: 'include',
+        }
+      );
+    } catch {
+      // Ignore logout network errors.
+    }
+
     setUser(null);
   };
 
-  const resetDemo = () => {
-    setBooks(clone(defaultBooks)); setDepartmentsData(clone(departments)); setResources(clone(defaultResources));
-    setPapers(clone(defaultPapers)); setAnnouncements(clone(defaultAnnouncements)); setPublications(clone(defaultPublications)); setSite(clone(defaultSite));
-    setToast('Demo content restored');
+  /*
+   * =========================================================
+   * RESET DEMO CONTENT
+   * =========================================================
+   *
+   * This resets React state and saves the defaults to Neon.
+   */
+
+  const resetDemo = async () => {
+    const nextBooks = clone(defaultBooks);
+    const nextDepartments = clone(departments);
+    const nextResources = clone(defaultResources);
+    const nextPapers = clone(defaultPapers);
+    const nextAnnouncements =
+      clone(defaultAnnouncements);
+    const nextPublications =
+      clone(defaultPublications);
+    const nextSite = clone(defaultSite);
+
+    setBooks(nextBooks);
+    setDepartmentsData(nextDepartments);
+    setResources(nextResources);
+    setPapers(nextPapers);
+    setAnnouncements(nextAnnouncements);
+    setPublications(nextPublications);
+    setSite(nextSite);
+
+    await saveContent({
+      books: nextBooks,
+      departments: nextDepartments,
+      resources: nextResources,
+      papers: nextPapers,
+      announcements: nextAnnouncements,
+      publications: nextPublications,
+      site: nextSite,
+    });
+
+    setToast(
+      'Demo content restored'
+    );
   };
 
-  const value = useMemo(() => ({ books, setBooks, departments: departmentsData, setDepartments: setDepartmentsData, resources, setResources, papers, setPapers, announcements, setAnnouncements, publications, setPublications, site, setSite, user, authReady, login, logout, theme, setTheme, toast, setToast, resetDemo, years, semesters }), [books, departmentsData, resources, papers, announcements, publications, site, user, authReady, theme, toast]);
-  return <Ctx.Provider value={value}>{children}{toast && <div className="toast">✓ {toast}</div>}</Ctx.Provider>;
+  /*
+   * =========================================================
+   * CONTEXT VALUE
+   * =========================================================
+   */
+
+  const value = useMemo(
+    () => ({
+      books,
+      setBooks,
+
+      departments:
+        departmentsData,
+      setDepartments:
+        setDepartmentsData,
+
+      resources,
+      setResources,
+
+      papers,
+      setPapers,
+
+      announcements,
+      setAnnouncements,
+
+      publications,
+      setPublications,
+
+      site,
+      setSite,
+
+      user,
+      authReady,
+
+      contentReady,
+      contentSaving,
+
+      login,
+      logout,
+
+      saveContent,
+      uploadMedia,
+
+      theme,
+      setTheme,
+
+      toast,
+      setToast,
+
+      resetDemo,
+
+      years,
+      semesters,
+    }),
+    [
+      books,
+      departmentsData,
+      resources,
+      papers,
+      announcements,
+      publications,
+      site,
+      user,
+      authReady,
+      contentReady,
+      contentSaving,
+      theme,
+      toast,
+    ]
+  );
+
+  return (
+    <Ctx.Provider value={value}>
+      {children}
+
+      {toast && (
+        <div className="toast">
+          ✓ {toast}
+        </div>
+      )}
+    </Ctx.Provider>
+  );
 }
-export const useLibrary = () => useContext(Ctx);
+
+export const useLibrary = () =>
+  useContext(Ctx);
