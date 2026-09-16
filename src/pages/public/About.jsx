@@ -72,10 +72,14 @@ export default function About() {
 
   return (
     <>
-      <PageHero
+   <PageHero
         eyebrow="ABOUT THE LIBRARY"
-        title="Knowledge Center of SGGSIE&T"
+        title={
+          site?.aboutTitle ||
+          'Knowledge Center of SGGSIE&T'
+        }
         text={
+          site?.aboutDescription ||
           site?.about ||
           'Established in 1981, the Central Library supports engineering discovery, research innovation, and academic scholarship across Nanded.'
         }
@@ -114,18 +118,34 @@ export default function About() {
               the Central Library serves over 3,300 registered students, faculty, and research scholars. 
               The reading hall accommodates up to 250 students with quiet study zones and extended access during examinations.
             </p>
-            <blockquote
-              style={{
-                marginTop: '16px',
-                padding: '12px 16px',
-                borderLeft: '4px solid #0056b3',
-                background: '#f8fafc',
-                color: '#333',
-                fontStyle: 'italic',
-              }}
-            >
-              "To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services."
-            </blockquote>
+              <blockquote
+                style={{
+                  marginTop: '16px',
+                  padding: '12px 16px',
+                  borderLeft: '4px solid #0056b3',
+                  background: '#f8fafc',
+                  color: '#333',
+                  fontStyle: 'italic',
+                }}
+              >
+                {site?.aboutVision ||
+                  'To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services.'}
+              </blockquote>
+              {site?.aboutMission && (
+  <div style={{ marginTop: '20px' }}>
+    <span className="eyebrow">OUR MISSION</span>
+
+    <p
+      style={{
+        marginTop: '10px',
+        lineHeight: 1.7,
+        color: '#444'
+      }}
+    >
+      {site.aboutMission}
+    </p>
+  </div>
+)}
           </div>
 
           <div className="about-cards">

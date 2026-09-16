@@ -29,16 +29,24 @@ export default function Contact() {
 
   // Specific key personnel & desks
   const keyPersonnel = [
+   {
+  role: 'Faculty In-charge (Library)',
+  name: site?.facultyInchargeName || 'Dr. A. B. Gonde',
+  designation:
+    site?.facultyInchargeDesignation ||
+    'Professor & Dean R&D / Library In-charge',
+  phones: [
     {
-      role: 'Faculty In-charge (Library)',
-      name: 'Dr. A. B. Gonde',
-      designation: 'Professor & Dean R&D / Library In-charge',
-      phones: [
-        { label: '02462-269219', href: 'tel:02462269219' },
-        { label: '02462-269335', href: 'tel:02462269335' },
-      ],
-      email: 'dean.rd@sggs.ac.in',
+      label: site?.facultyInchargePhone1 || '02462-269219',
+      href: `tel:${site?.facultyInchargePhone1 || '02462269219'}`,
     },
+    {
+      label: site?.facultyInchargePhone2 || '02462-269335',
+      href: `tel:${site?.facultyInchargePhone2 || '02462269335'}`,
+    },
+  ],
+  email: site?.contactEmail || 'dean.rd@sggs.ac.in',
+},
     {
       role: 'In-charge Librarian',
       name: 'Shri G. M. Narlawar',
