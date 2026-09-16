@@ -1,0 +1,2704 @@
+{
+  "generatedAt": "2026-09-16T16:44:54.508Z",
+  "source": "public/question-paper",
+  "total": 153,
+  "papers": [
+    {
+      "id": "file-1",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "ExamTimeTable Ise2End Chem",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/Exam%20Timetable/ExamTimeTable_Ise2End_Chem.pdf",
+      "filename": "ExamTimeTable_Ise2End_Chem.pdf",
+      "path": "CHEMICAL/Exam Timetable/ExamTimeTable_Ise2End_Chem.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-2",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "B.tech Chemical Eng.ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/Final%20Year/B.tech%20Chemical%20Eng.ISE-1.pdf",
+      "filename": "B.tech Chemical Eng.ISE-1.pdf",
+      "path": "CHEMICAL/Final Year/B.tech Chemical Eng.ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-3",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Chemical Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/Final%20Year/Chemical%20Final%20Year%20ISE%20-1.pdf",
+      "filename": "Chemical Final Year ISE -1.pdf",
+      "path": "CHEMICAL/Final Year/Chemical Final Year ISE -1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-4",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Final yr Chemical ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/Final%20Year/Final%20yr%20Chemical%20ISE-2.pdf",
+      "filename": "Final yr Chemical ISE-2.pdf",
+      "path": "CHEMICAL/Final Year/Final yr Chemical ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-5",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Chemical SY ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/SY/Chemical%20SY%20ISE-1.pdf",
+      "filename": "Chemical SY ISE-1.pdf",
+      "path": "CHEMICAL/SY/Chemical SY ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-6",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "chemical SY summer term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CHEMICAL/SY/chemical%20SY%20summer%20term.pdf",
+      "filename": "chemical SY summer term.pdf",
+      "path": "CHEMICAL/SY/chemical SY summer term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-7",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Sy chemical eng.ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/SY/Sy%20chemical%20eng.ISE-1.pdf",
+      "filename": "Sy chemical eng.ISE-1.pdf",
+      "path": "CHEMICAL/SY/Sy chemical eng.ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-8",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Sy Chemical ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/SY/Sy%20Chemical%20ISE-2.pdf",
+      "filename": "Sy Chemical ISE-2.pdf",
+      "path": "CHEMICAL/SY/Sy Chemical ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-9",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Ty Chemical ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/TY/Ty%20Chemical%20ISE-1.pdf",
+      "filename": "Ty Chemical ISE-1.pdf",
+      "path": "CHEMICAL/TY/Ty Chemical ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-10",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Ty Chemical ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CHEMICAL/TY/Ty%20Chemical%20ISE-2.pdf",
+      "filename": "Ty Chemical ISE-2.pdf",
+      "path": "CHEMICAL/TY/Ty Chemical ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-11",
+      "programme": "B.Tech",
+      "department": "Chemical Engineering",
+      "subject": "Ty summer term chemical eng.",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CHEMICAL/TY/Ty%20summer%20term%20chemical%20eng..pdf",
+      "filename": "Ty summer term chemical eng..pdf",
+      "path": "CHEMICAL/TY/Ty summer term chemical eng..pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-12",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "1 B Tech (Civil Engineering)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/Final%20Year/1%20B-Tech%20(Civil%20Engineering).pdf",
+      "filename": "1 B-Tech (Civil Engineering).pdf",
+      "path": "CIVIL/Final Year/1 B-Tech (Civil Engineering).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-13",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Civil Final Year end term Sem 1 (25 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "1",
+      "semesterLabel": "1",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/Final%20Year/Civil%20Final%20Year%20end%20term%20Sem-1%20(25-26).pdf",
+      "filename": "Civil Final Year end term Sem-1 (25-26).pdf",
+      "path": "CIVIL/Final Year/Civil Final Year end term Sem-1 (25-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-14",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Final yr Civil ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/Final%20Year/Final%20yr%20Civil%20ISE-2.pdf",
+      "filename": "Final yr Civil ISE-2.pdf",
+      "path": "CIVIL/Final Year/Final yr Civil ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-15",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Final yr Civil Summer",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CIVIL/Final%20Year/Final%20yr%20Civil%20Summer.pdf",
+      "filename": "Final yr Civil Summer.pdf",
+      "path": "CIVIL/Final Year/Final yr Civil Summer.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-16",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Final yr civil",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/Final%20Year/Final%20yr%20civil.pdf",
+      "filename": "Final yr civil.pdf",
+      "path": "CIVIL/Final Year/Final yr civil.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-17",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Civil SY End term Sem 1 (25 26)",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "1",
+      "semesterLabel": "1",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/SY/Civil%20SY%20End%20term%20Sem-1%20(25-26).pdf",
+      "filename": "Civil SY End term Sem-1 (25-26).pdf",
+      "path": "CIVIL/SY/Civil SY End term Sem-1 (25-26).pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-18",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "SY Civil (ISE ll Sem ll 2025 26)",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/SY/SY%20Civil%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "SY Civil (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "CIVIL/SY/SY Civil (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-19",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Sy Civil Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CIVIL/SY/Sy%20Civil%20Summer.pdf",
+      "filename": "Sy Civil Summer.pdf",
+      "path": "CIVIL/SY/Sy Civil Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-20",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Sy civil",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/SY/Sy%20civil.pdf",
+      "filename": "Sy civil.pdf",
+      "path": "CIVIL/SY/Sy civil.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-21",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Sy Ty summer civil",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CIVIL/SY/Sy%20Ty%20summer%20civil.pdf",
+      "filename": "Sy Ty summer civil.pdf",
+      "path": "CIVIL/SY/Sy Ty summer civil.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-22",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Civil TY End term Sem 1 (25 26)",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "1",
+      "semesterLabel": "1",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/TY/Civil%20TY%20End%20term%20Sem-1%20(25-26).pdf",
+      "filename": "Civil TY End term Sem-1 (25-26).pdf",
+      "path": "CIVIL/TY/Civil TY End term Sem-1 (25-26).pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-23",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Sy Ty summer civil",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CIVIL/TY/Sy%20Ty%20summer%20civil.pdf",
+      "filename": "Sy Ty summer civil.pdf",
+      "path": "CIVIL/TY/Sy Ty summer civil.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-24",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Ty Civil ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/TY/Ty%20Civil%20ISE-2.pdf",
+      "filename": "Ty Civil ISE-2.pdf",
+      "path": "CIVIL/TY/Ty Civil ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-25",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Ty Civil Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CIVIL/TY/Ty%20Civil%20Summer.pdf",
+      "filename": "Ty Civil Summer.pdf",
+      "path": "CIVIL/TY/Ty Civil Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-26",
+      "programme": "B.Tech",
+      "department": "Civil Engineering",
+      "subject": "Ty civil",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CIVIL/TY/Ty%20civil.pdf",
+      "filename": "Ty civil.pdf",
+      "path": "CIVIL/TY/Ty civil.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-27",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE . Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/Final%20year/CSE%20.%20Final%20Year%20ISE-1.pdf",
+      "filename": "CSE . Final Year ISE-1.pdf",
+      "path": "CSE/Final year/CSE . Final Year ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-28",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE Final Year end term",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/Final%20year/CSE%20Final%20Year%20end%20term.pdf",
+      "filename": "CSE Final Year end term.pdf",
+      "path": "CSE/Final year/CSE Final Year end term.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-29",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/Final%20year/CSE%20Final%20Year%20ISE-1.pdf",
+      "filename": "CSE Final Year ISE-1.pdf",
+      "path": "CSE/Final year/CSE Final Year ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-30",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Final yr CSE ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/Final%20year/Final%20yr%20CSE%20ISE-1.pdf",
+      "filename": "Final yr CSE ISE-1.pdf",
+      "path": "CSE/Final year/Final yr CSE ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-31",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Final yr CSE ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/Final%20year/Final%20yr%20CSE%20ISE-2.pdf",
+      "filename": "Final yr CSE ISE-2.pdf",
+      "path": "CSE/Final year/Final yr CSE ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-32",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE Summer SY",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CSE/SY/CSE%20Summer%20SY.pdf",
+      "filename": "CSE Summer SY.pdf",
+      "path": "CSE/SY/CSE Summer SY.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-33",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE SY End Term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/SY/CSE%20SY%20End%20Term.pdf",
+      "filename": "CSE SY End Term.pdf",
+      "path": "CSE/SY/CSE SY End Term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-34",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Sy CSE ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/SY/Sy%20CSE%20ISE-2.pdf",
+      "filename": "Sy CSE ISE-2.pdf",
+      "path": "CSE/SY/Sy CSE ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-35",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Sy CSE Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CSE/SY/Sy%20CSE%20Summer.pdf",
+      "filename": "Sy CSE Summer.pdf",
+      "path": "CSE/SY/Sy CSE Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-36",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE Summer TY",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CSE/TY/CSE%20%20Summer%20TY.pdf",
+      "filename": "CSE  Summer TY.pdf",
+      "path": "CSE/TY/CSE  Summer TY.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-37",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE TY End term",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/CSE%20TY%20End%20term.pdf",
+      "filename": "CSE TY End term.pdf",
+      "path": "CSE/TY/CSE TY End term.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-38",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE TY ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/CSE%20TY%20ISE%20-1.pdf",
+      "filename": "CSE TY ISE -1.pdf",
+      "path": "CSE/TY/CSE TY ISE -1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-39",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "CSE TY ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/CSE%20TY%20ISE-1.pdf",
+      "filename": "CSE TY ISE-1.pdf",
+      "path": "CSE/TY/CSE TY ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-40",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "TY CS (ISE ll Sem ll 2025 26)",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/TY%20CS%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "TY CS (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "CSE/TY/TY CS (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-41",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Ty CSE ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/Ty%20CSE%20ISE-1.pdf",
+      "filename": "Ty CSE ISE-1.pdf",
+      "path": "CSE/TY/Ty CSE ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-42",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Ty CSE ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/CSE/TY/Ty%20CSE%20ISE-2.pdf",
+      "filename": "Ty CSE ISE-2.pdf",
+      "path": "CSE/TY/Ty CSE ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-43",
+      "programme": "B.Tech",
+      "department": "Computer Science & Engineering",
+      "subject": "Ty CSE Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/CSE/TY/Ty%20CSE%20Summer.pdf",
+      "filename": "Ty CSE Summer.pdf",
+      "path": "CSE/TY/Ty CSE Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-44",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Electrical all years ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/Final%20Year/Electrical%20all%20years%20ISE-1.pdf",
+      "filename": "Electrical all years ISE-1.pdf",
+      "path": "ELECTRICAL/Final Year/Electrical all years ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-45",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Final yr Electrical ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/Final%20Year/Final%20yr%20Electrical%20ISE-1.pdf",
+      "filename": "Final yr Electrical ISE-1.pdf",
+      "path": "ELECTRICAL/Final Year/Final yr Electrical ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-46",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Final yr Electrical ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/Final%20Year/Final%20yr%20Electrical%20ISE-2.pdf",
+      "filename": "Final yr Electrical ISE-2.pdf",
+      "path": "ELECTRICAL/Final Year/Final yr Electrical ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-47",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Electrical all years ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/SY/Electrical%20all%20years%20ISE-1.pdf",
+      "filename": "Electrical all years ISE-1.pdf",
+      "path": "ELECTRICAL/SY/Electrical all years ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-48",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Sy Electrical ISE 1 and Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/ELECTRICAL/SY/Sy%20Electrical%20ISE-1%20and%20Summer.pdf",
+      "filename": "Sy Electrical ISE-1 and Summer.pdf",
+      "path": "ELECTRICAL/SY/Sy Electrical ISE-1 and Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-49",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Sy Electrical ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/SY/Sy%20Electrical%20ISE-2.pdf",
+      "filename": "Sy Electrical ISE-2.pdf",
+      "path": "ELECTRICAL/SY/Sy Electrical ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-50",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Sy Electrical Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/ELECTRICAL/SY/Sy%20Electrical%20Summer.pdf",
+      "filename": "Sy Electrical Summer.pdf",
+      "path": "ELECTRICAL/SY/Sy Electrical Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-51",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Electrical all years ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/TY/Electrical%20all%20years%20ISE-1.pdf",
+      "filename": "Electrical all years ISE-1.pdf",
+      "path": "ELECTRICAL/TY/Electrical all years ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-52",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Ty Electrical ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/TY/Ty%20Electrical%20ISE-1.pdf",
+      "filename": "Ty Electrical ISE-1.pdf",
+      "path": "ELECTRICAL/TY/Ty Electrical ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-53",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Ty Electrical ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/ELECTRICAL/TY/Ty%20Electrical%20ISE-2.pdf",
+      "filename": "Ty Electrical ISE-2.pdf",
+      "path": "ELECTRICAL/TY/Ty Electrical ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-54",
+      "programme": "B.Tech",
+      "department": "Electrical Engineering",
+      "subject": "Ty Electrical Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/ELECTRICAL/TY/Ty%20Electrical%20Summer.pdf",
+      "filename": "Ty Electrical Summer.pdf",
+      "path": "ELECTRICAL/TY/Ty Electrical Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-55",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "B Tech Electrical (ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/Final%20Year/B%20Tech%20Electrical%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B Tech Electrical (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "EXTC/Final Year/B Tech Electrical (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-56",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "B. Tech EXTC ( ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/Final%20Year/B.%20Tech%20EXTC%20(%20ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B. Tech EXTC ( ISE-ll Sem-ll 2025-26).pdf",
+      "path": "EXTC/Final Year/B. Tech EXTC ( ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-57",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "EXTC final year end term",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/Final%20Year/EXTC%20final%20year%20end%20term.pdf",
+      "filename": "EXTC final year end term.pdf",
+      "path": "EXTC/Final Year/EXTC final year end term.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-58",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "EXTC Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/Final%20Year/EXTC%20Final%20Year%20ISE-1.pdf",
+      "filename": "EXTC Final Year ISE-1.pdf",
+      "path": "EXTC/Final Year/EXTC Final Year ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-59",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Final yr ENTC ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/Final%20Year/Final%20yr%20ENTC%20ISE-2.pdf",
+      "filename": "Final yr ENTC ISE-2.pdf",
+      "path": "EXTC/Final Year/Final yr ENTC ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-60",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Final yr EXTC ISE 1 and Summer",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/EXTC/Final%20Year/Final%20yr%20EXTC%20ISE-1%20and%20Summer.pdf",
+      "filename": "Final yr EXTC ISE-1 and Summer.pdf",
+      "path": "EXTC/Final Year/Final yr EXTC ISE-1 and Summer.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-61",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "EXTC SY ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/SY/EXTC%20SY%20ISE-1.pdf",
+      "filename": "EXTC SY ISE-1.pdf",
+      "path": "EXTC/SY/EXTC SY ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-62",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Sy EXTC ISE 1 and Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/EXTC/SY/Sy%20EXTC%20ISE-1%20and%20Summer.pdf",
+      "filename": "Sy EXTC ISE-1 and Summer.pdf",
+      "path": "EXTC/SY/Sy EXTC ISE-1 and Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-63",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Sy EXTC Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/EXTC/SY/Sy%20EXTC%20Summer.pdf",
+      "filename": "Sy EXTC Summer.pdf",
+      "path": "EXTC/SY/Sy EXTC Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-64",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Sy EXTCISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/SY/Sy%20EXTCISE-2.pdf",
+      "filename": "Sy EXTCISE-2.pdf",
+      "path": "EXTC/SY/Sy EXTCISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-65",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "EXTC TY ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/TY/EXTC%20TY%20ISE-1.pdf",
+      "filename": "EXTC TY ISE-1.pdf",
+      "path": "EXTC/TY/EXTC TY ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-66",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Ty EXTC ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/TY/Ty%20EXTC%20ISE-1.pdf",
+      "filename": "Ty EXTC ISE-1.pdf",
+      "path": "EXTC/TY/Ty EXTC ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-67",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Ty EXTC ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/EXTC/TY/Ty%20EXTC%20ISE-2.pdf",
+      "filename": "Ty EXTC ISE-2.pdf",
+      "path": "EXTC/TY/Ty EXTC ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-68",
+      "programme": "B.Tech",
+      "department": "Electronics & Telecommunication Engineering",
+      "subject": "Ty EXTC Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/EXTC/TY/Ty%20EXTC%20Summer.pdf",
+      "filename": "Ty EXTC Summer.pdf",
+      "path": "EXTC/TY/Ty EXTC Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-69",
+      "programme": "B.Tech",
+      "department": "All Departments",
+      "subject": "1st year ISE 2 2025",
+      "year": "First",
+      "yearLabel": "First Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/First%20Year%20All/1st%20%20year%20%20ISE%202%20-%202025.pdf",
+      "filename": "1st  year  ISE 2 - 2025.pdf",
+      "path": "First Year All/1st  year  ISE 2 - 2025.pdf",
+      "allowedSemesters": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "file-70",
+      "programme": "B.Tech",
+      "department": "All Departments",
+      "subject": "first year electrical engineering summer term",
+      "year": "First",
+      "yearLabel": "First Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/First%20Year%20All/first%20year%20%20electrical%20engineering%20summer%20term.pdf",
+      "filename": "first year  electrical engineering summer term.pdf",
+      "path": "First Year All/first year  electrical engineering summer term.pdf",
+      "allowedSemesters": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "file-71",
+      "programme": "B.Tech",
+      "department": "All Departments",
+      "subject": "first year production engineering summer term",
+      "year": "First",
+      "yearLabel": "First Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/First%20Year%20All/first%20year%20production%20engineering%20summer%20term.pdf",
+      "filename": "first year production engineering summer term.pdf",
+      "path": "First Year All/first year production engineering summer term.pdf",
+      "allowedSemesters": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "file-72",
+      "programme": "B.Tech",
+      "department": "All Departments",
+      "subject": "First yr ISE 1",
+      "year": "First",
+      "yearLabel": "First Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/First%20Year%20All/First%20yr%20ISE-1.pdf",
+      "filename": "First yr ISE-1.pdf",
+      "path": "First Year All/First yr ISE-1.pdf",
+      "allowedSemesters": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "file-73",
+      "programme": "B.Tech",
+      "department": "All Departments",
+      "subject": "Fy Summer Term",
+      "year": "First",
+      "yearLabel": "First Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/First%20Year%20All/Fy%20Summer%20Term.pdf",
+      "filename": "Fy Summer Term.pdf",
+      "path": "First Year All/Fy Summer Term.pdf",
+      "allowedSemesters": [
+        "I",
+        "II"
+      ]
+    },
+    {
+      "id": "file-74",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "B Tech Instru (ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/Final%20Year/B%20Tech%20Instru%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B Tech Instru (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "INSTRU/Final Year/B Tech Instru (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-75",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "B.tch instru ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/Final%20Year/B.tch%20instru%20ISE-1.pdf",
+      "filename": "B.tch instru ISE-1.pdf",
+      "path": "INSTRU/Final Year/B.tch instru ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-76",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Final yr Instru ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/Final%20Year/Final%20yr%20Instru%20ISE-2.pdf",
+      "filename": "Final yr Instru ISE-2.pdf",
+      "path": "INSTRU/Final Year/Final yr Instru ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-77",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Instr Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/Final%20Year/Instr%20Final%20Year%20ISE-1.pdf",
+      "filename": "Instr Final Year ISE-1.pdf",
+      "path": "INSTRU/Final Year/Instr Final Year ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-78",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Instr SY summer term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/INSTRU/SY/Instr%20SY%20summer%20term.pdf",
+      "filename": "Instr SY summer term.pdf",
+      "path": "INSTRU/SY/Instr SY summer term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-79",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "instrument SY summer term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/INSTRU/SY/instrument%20SY%20summer%20term.pdf",
+      "filename": "instrument SY summer term.pdf",
+      "path": "INSTRU/SY/instrument SY summer term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-80",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Sy Instru ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/SY/Sy%20Instru%20ISE-2.pdf",
+      "filename": "Sy Instru ISE-2.pdf",
+      "path": "INSTRU/SY/Sy Instru ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-81",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "SY INSTRU SUMMER TERM SEM II",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "2",
+      "semesterLabel": "2",
+      "exam": "Summer",
+      "pdf": "/question-paper/INSTRU/SY/SY%20INSTRU%20SUMMER%20TERM%20SEM-II.pdf",
+      "filename": "SY INSTRU SUMMER TERM SEM-II.pdf",
+      "path": "INSTRU/SY/SY INSTRU SUMMER TERM SEM-II.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-82",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Sy instru summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/INSTRU/SY/Sy%20instru%20summer.pdf",
+      "filename": "Sy instru summer.pdf",
+      "path": "INSTRU/SY/Sy instru summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-83",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "instr TY ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/TY/instr%20TY%20ISE-1.pdf",
+      "filename": "instr TY ISE-1.pdf",
+      "path": "INSTRU/TY/instr TY ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-84",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Ty instru ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/TY/Ty%20instru%20ISE-1.pdf",
+      "filename": "Ty instru ISE-1.pdf",
+      "path": "INSTRU/TY/Ty instru ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-85",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Ty instru ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/INSTRU/TY/Ty%20instru%20ISE-2.pdf",
+      "filename": "Ty instru ISE-2.pdf",
+      "path": "INSTRU/TY/Ty instru ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-86",
+      "programme": "B.Tech",
+      "department": "Instrumentation Engineering",
+      "subject": "Ty instru summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/INSTRU/TY/Ty%20instru%20summer.pdf",
+      "filename": "Ty instru summer.pdf",
+      "path": "INSTRU/TY/Ty instru summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-87",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "B Tech IT (ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/Final%20Year/B%20Tech%20IT%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B Tech IT (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "IT/Final Year/B Tech IT (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-88",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Final yr IT ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/Final%20Year/Final%20yr%20IT%20ISE-1.pdf",
+      "filename": "Final yr IT ISE-1.pdf",
+      "path": "IT/Final Year/Final yr IT ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-89",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Final yr IT ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/Final%20Year/Final%20yr%20IT%20ISE-2.pdf",
+      "filename": "Final yr IT ISE-2.pdf",
+      "path": "IT/Final Year/Final yr IT ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-90",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "IT Final Year ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/Final%20Year/IT%20Final%20Year%20ISE-1.pdf",
+      "filename": "IT Final Year ISE-1.pdf",
+      "path": "IT/Final Year/IT Final Year ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-91",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "IT SY ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/SY/IT%20SY%20ISE-1.pdf",
+      "filename": "IT SY ISE-1.pdf",
+      "path": "IT/SY/IT SY ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-92",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Sy IT ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/SY/Sy%20IT%20ISE-1.pdf",
+      "filename": "Sy IT ISE-1.pdf",
+      "path": "IT/SY/Sy IT ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-93",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Sy IT ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/SY/Sy%20IT%20ISE-2.pdf",
+      "filename": "Sy IT ISE-2.pdf",
+      "path": "IT/SY/Sy IT ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-94",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Sy IT Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/IT/SY/Sy%20IT%20Summer.pdf",
+      "filename": "Sy IT Summer.pdf",
+      "path": "IT/SY/Sy IT Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-95",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "IT TY ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/TY/IT%20TY%20ISE-1.pdf",
+      "filename": "IT TY ISE-1.pdf",
+      "path": "IT/TY/IT TY ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-96",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Ty IT ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/IT/TY/Ty%20IT%20ISE-2.pdf",
+      "filename": "Ty IT ISE-2.pdf",
+      "path": "IT/TY/Ty IT ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-97",
+      "programme": "B.Tech",
+      "department": "Information Technology",
+      "subject": "Ty IT Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/IT/TY/Ty%20IT%20Summer.pdf",
+      "filename": "Ty IT Summer.pdf",
+      "path": "IT/TY/Ty IT Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-98",
+      "programme": "M.Tech",
+      "department": "Civil.  M. Tech  Summer terms.pdf",
+      "subject": "Civil. M. Tech Summer terms",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/M.Tech/Civil.%20%20M.%20Tech%20%20Summer%20terms.pdf",
+      "filename": "Civil.  M. Tech  Summer terms.pdf",
+      "path": "M.Tech/Civil.  M. Tech  Summer terms.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-99",
+      "programme": "M.Tech",
+      "department": "FY. M Tech. Sem l(ISE ll 25 26).pdf",
+      "subject": "FY. M Tech. Sem l(ISE ll 25 26)",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/FY.%20M%20Tech.%20Sem-l(ISE-ll%2025-26).pdf",
+      "filename": "FY. M Tech. Sem-l(ISE-ll 25-26).pdf",
+      "path": "M.Tech/FY. M Tech. Sem-l(ISE-ll 25-26).pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-100",
+      "programme": "M.Tech",
+      "department": "M. Tech  Instrumentation.pdf",
+      "subject": "M. Tech Instrumentation",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.%20Tech%20%20Instrumentation.pdf",
+      "filename": "M. Tech  Instrumentation.pdf",
+      "path": "M.Tech/M. Tech  Instrumentation.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-101",
+      "programme": "M.Tech",
+      "department": "M. Tech CAD CAM.pdf",
+      "subject": "M. Tech CAD CAM",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.%20Tech%20CAD-CAM.pdf",
+      "filename": "M. Tech CAD-CAM.pdf",
+      "path": "M.Tech/M. Tech CAD-CAM.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-102",
+      "programme": "M.Tech",
+      "department": "M. Tech ES&VLSI.pdf",
+      "subject": "M. Tech ES&VLSI",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.%20Tech%20ES%26VLSI.pdf",
+      "filename": "M. Tech ES&VLSI.pdf",
+      "path": "M.Tech/M. Tech ES&VLSI.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-103",
+      "programme": "M.Tech",
+      "department": "M. Tech Mechanical PLM.pdf",
+      "subject": "M. Tech Mechanical PLM",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.%20Tech%20Mechanical%20PLM.pdf",
+      "filename": "M. Tech Mechanical PLM.pdf",
+      "path": "M.Tech/M. Tech Mechanical PLM.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-104",
+      "programme": "M.Tech",
+      "department": "M. Tech Textiles Technology.pdf",
+      "subject": "M. Tech Textiles Technology",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.%20Tech%20Textiles%20Technology.pdf",
+      "filename": "M. Tech Textiles Technology.pdf",
+      "path": "M.Tech/M. Tech Textiles Technology.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-105",
+      "programme": "M.Tech",
+      "department": "M.tech AI ISE 1.pdf",
+      "subject": "M.tech AI ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20AI%20ISE-1.pdf",
+      "filename": "M.tech AI ISE-1.pdf",
+      "path": "M.Tech/M.tech AI ISE-1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-106",
+      "programme": "M.Tech",
+      "department": "M.tech Civil ISE 1.pdf",
+      "subject": "M.tech Civil ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20Civil%20ISE-1.pdf",
+      "filename": "M.tech Civil ISE-1.pdf",
+      "path": "M.Tech/M.tech Civil ISE-1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-107",
+      "programme": "M.Tech",
+      "department": "M.tech CSE ISE 1.pdf",
+      "subject": "M.tech CSE ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20CSE%20ISE-1.pdf",
+      "filename": "M.tech CSE ISE-1.pdf",
+      "path": "M.Tech/M.tech CSE ISE-1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-108",
+      "programme": "M.Tech",
+      "department": "M.Tech FY ISE  1.pdf",
+      "subject": "M.Tech FY ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.Tech%20FY%20ISE%20-1.pdf",
+      "filename": "M.Tech FY ISE -1.pdf",
+      "path": "M.Tech/M.Tech FY ISE -1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-109",
+      "programme": "M.Tech",
+      "department": "M.tech ISE 2.pdf",
+      "subject": "M.tech ISE 2",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20ISE%202.pdf",
+      "filename": "M.tech ISE 2.pdf",
+      "path": "M.Tech/M.tech ISE 2.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-110",
+      "programme": "M.Tech",
+      "department": "M.tech Mechanical ISE 1.pdf",
+      "subject": "M.tech Mechanical ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20Mechanical%20ISE-1.pdf",
+      "filename": "M.tech Mechanical ISE-1.pdf",
+      "path": "M.Tech/M.tech Mechanical ISE-1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-111",
+      "programme": "M.Tech",
+      "department": "M.tech Production ISE 1.pdf",
+      "subject": "M.tech Production ISE 1",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.tech%20Production%20ISE-1.pdf",
+      "filename": "M.tech Production ISE-1.pdf",
+      "path": "M.Tech/M.tech Production ISE-1.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-112",
+      "programme": "M.Tech",
+      "department": "M.TechAI.pdf",
+      "subject": "M.TechAI",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/M.TechAI.pdf",
+      "filename": "M.TechAI.pdf",
+      "path": "M.Tech/M.TechAI.pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-113",
+      "programme": "M.Tech",
+      "department": "PLM",
+      "subject": "FY M Tech (End term Sem ll 2024 25)",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/PLM/FY%20M%20Tech%20(End%20term%20Sem-ll%202024-25).pdf",
+      "filename": "FY M Tech (End term Sem-ll 2024-25).pdf",
+      "path": "M.Tech/PLM/FY M Tech (End term Sem-ll 2024-25).pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-114",
+      "programme": "M.Tech",
+      "department": "PLM",
+      "subject": "FY M Tech (ISE l Sem ll 2024 25)",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/PLM/FY%20M%20Tech%20(ISE-l%20Sem-ll%202024-25).pdf",
+      "filename": "FY M Tech (ISE-l Sem-ll 2024-25).pdf",
+      "path": "M.Tech/PLM/FY M Tech (ISE-l Sem-ll 2024-25).pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-115",
+      "programme": "M.Tech",
+      "department": "PLM",
+      "subject": "FY M Tech (ISE ll Sem ll 2024 25)",
+      "year": "Unknown",
+      "yearLabel": "Year Not Specified",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/M.Tech/PLM/FY%20M%20Tech%20(ISE-ll%20Sem-ll%202024-25).pdf",
+      "filename": "FY M Tech (ISE-ll Sem-ll 2024-25).pdf",
+      "path": "M.Tech/PLM/FY M Tech (ISE-ll Sem-ll 2024-25).pdf",
+      "allowedSemesters": []
+    },
+    {
+      "id": "file-116",
+      "programme": "B.Tech",
+      "department": "Mathematics / Basic Sciences & Humanities",
+      "subject": "Sy BSHM",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MATH%20SY%20AND%20TY%20BSHM/Sy%20BSHM.pdf",
+      "filename": "Sy BSHM.pdf",
+      "path": "MATH SY AND TY BSHM/Sy BSHM.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-117",
+      "programme": "B.Tech",
+      "department": "Mathematics / Basic Sciences & Humanities",
+      "subject": "SY Math (ISE ll Sem ll 2025 26)",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MATH%20SY%20AND%20TY%20BSHM/SY%20Math%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "SY Math (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "MATH SY AND TY BSHM/SY Math (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-118",
+      "programme": "B.Tech",
+      "department": "Mathematics / Basic Sciences & Humanities",
+      "subject": "Sy summer term Mathematics",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/MATH%20SY%20AND%20TY%20BSHM/Sy%20summer%20term%20Mathematics.pdf",
+      "filename": "Sy summer term Mathematics.pdf",
+      "path": "MATH SY AND TY BSHM/Sy summer term Mathematics.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-119",
+      "programme": "B.Tech",
+      "department": "Mathematics / Basic Sciences & Humanities",
+      "subject": "Ty BSHM",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MATH%20SY%20AND%20TY%20BSHM/Ty%20BSHM.pdf",
+      "filename": "Ty BSHM.pdf",
+      "path": "MATH SY AND TY BSHM/Ty BSHM.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-120",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "B Tech Mech & Production (ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/Final%20Year/B%20Tech%20Mech%20%26%20Production%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B Tech Mech & Production (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "MECH/Final Year/B Tech Mech & Production (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-121",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Final yr Mechanical ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/Final%20Year/Final%20yr%20Mechanical%20ISE-1.pdf",
+      "filename": "Final yr Mechanical ISE-1.pdf",
+      "path": "MECH/Final Year/Final yr Mechanical ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-122",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Final yr Mechanical ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/Final%20Year/Final%20yr%20Mechanical%20ISE-2.pdf",
+      "filename": "Final yr Mechanical ISE-2.pdf",
+      "path": "MECH/Final Year/Final yr Mechanical ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-123",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Mech Final Year end term",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/Final%20Year/Mech%20Final%20Year%20end%20term.pdf",
+      "filename": "Mech Final Year end term.pdf",
+      "path": "MECH/Final Year/Mech Final Year end term.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-124",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Mech SY End Term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/SY/Mech%20SY%20%20End%20Term.pdf",
+      "filename": "Mech SY  End Term.pdf",
+      "path": "MECH/SY/Mech SY  End Term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-125",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Sy Mechanical Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/MECH/SY/Sy%20Mechanical%20Summer.pdf",
+      "filename": "Sy Mechanical Summer.pdf",
+      "path": "MECH/SY/Sy Mechanical Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-126",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Sy Ty summer Mechanical",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/MECH/SY/Sy%20Ty%20summer%20Mechanical.pdf",
+      "filename": "Sy Ty summer Mechanical.pdf",
+      "path": "MECH/SY/Sy Ty summer Mechanical.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-127",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Mech TY end term",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/TY/Mech%20TY%20end%20term.pdf",
+      "filename": "Mech TY end term.pdf",
+      "path": "MECH/TY/Mech TY end term.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-128",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Mech. (B. Tech. TY SY 2025 26)",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/TY/Mech.%20(B.%20Tech.%20TY%20SY-%202025-26).pdf",
+      "filename": "Mech. (B. Tech. TY SY- 2025-26).pdf",
+      "path": "MECH/TY/Mech. (B. Tech. TY SY- 2025-26).pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-129",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Ty Mechanical ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/TY/Ty%20Mechanical%20ISE-1.pdf",
+      "filename": "Ty Mechanical ISE-1.pdf",
+      "path": "MECH/TY/Ty Mechanical ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-130",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Ty Mechanical Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/MECH/TY/Ty%20Mechanical%20Summer.pdf",
+      "filename": "Ty Mechanical Summer.pdf",
+      "path": "MECH/TY/Ty Mechanical Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-131",
+      "programme": "B.Tech",
+      "department": "Mechanical Engineering",
+      "subject": "Ty Sy Mechanical ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/MECH/TY/Ty%20Sy%20Mechanical%20ISE-2.pdf",
+      "filename": "Ty Sy Mechanical ISE-2.pdf",
+      "path": "MECH/TY/Ty Sy Mechanical ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-132",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "B Tech Mech & Production (ISE ll Sem ll 2025 26)",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/FINAL%20YEAR/B%20Tech%20Mech%20%26%20Production%20(ISE-ll%20Sem-ll%202025-26).pdf",
+      "filename": "B Tech Mech & Production (ISE-ll Sem-ll 2025-26).pdf",
+      "path": "PROD/FINAL YEAR/B Tech Mech & Production (ISE-ll Sem-ll 2025-26).pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-133",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Final yr Production ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/FINAL%20YEAR/Final%20yr%20Production%20ISE-1.pdf",
+      "filename": "Final yr Production ISE-1.pdf",
+      "path": "PROD/FINAL YEAR/Final yr Production ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-134",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Final yr Production ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/FINAL%20YEAR/Final%20yr%20Production%20ISE-2.pdf",
+      "filename": "Final yr Production ISE-2.pdf",
+      "path": "PROD/FINAL YEAR/Final yr Production ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-135",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "production engi. final year end term",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/FINAL%20YEAR/production%20engi.%20final%20year%20%20end%20term.pdf",
+      "filename": "production engi. final year  end term.pdf",
+      "path": "PROD/FINAL YEAR/production engi. final year  end term.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-136",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy, Ty, B.tech , Production ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/FINAL%20YEAR/Sy%2C%20Ty%2C%20B.tech%20%2C%20Production%20ISE-1.pdf",
+      "filename": "Sy, Ty, B.tech , Production ISE-1.pdf",
+      "path": "PROD/FINAL YEAR/Sy, Ty, B.tech , Production ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-137",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "production engi. SY end term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/SY/production%20engi.%20SY%20end%20term.pdf",
+      "filename": "production engi. SY end term.pdf",
+      "path": "PROD/SY/production engi. SY end term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-138",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy Production ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/SY/Sy%20Production%20ISE-1.pdf",
+      "filename": "Sy Production ISE-1.pdf",
+      "path": "PROD/SY/Sy Production ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-139",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy Production ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/SY/Sy%20Production%20ISE-2.pdf",
+      "filename": "Sy Production ISE-2.pdf",
+      "path": "PROD/SY/Sy Production ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-140",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "SY Production Summer Term",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/PROD/SY/SY%20Production%20Summer%20Term.pdf",
+      "filename": "SY Production Summer Term.pdf",
+      "path": "PROD/SY/SY Production Summer Term.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-141",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy Production Summer",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/PROD/SY/Sy%20Production%20Summer.pdf",
+      "filename": "Sy Production Summer.pdf",
+      "path": "PROD/SY/Sy Production Summer.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-142",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy, Ty, B.tech , Production ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/SY/Sy%2C%20Ty%2C%20B.tech%20%2C%20Production%20ISE-1.pdf",
+      "filename": "Sy, Ty, B.tech , Production ISE-1.pdf",
+      "path": "PROD/SY/Sy, Ty, B.tech , Production ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-143",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "production engi. TY end term",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/TY/production%20engi.%20TY%20end%20term.pdf",
+      "filename": "production engi. TY end term.pdf",
+      "path": "PROD/TY/production engi. TY end term.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-144",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Sy, Ty, B.tech , Production ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/TY/Sy%2C%20Ty%2C%20B.tech%20%2C%20Production%20ISE-1.pdf",
+      "filename": "Sy, Ty, B.tech , Production ISE-1.pdf",
+      "path": "PROD/TY/Sy, Ty, B.tech , Production ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-145",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Ty Production ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/TY/Ty%20Production%20ISE-1.pdf",
+      "filename": "Ty Production ISE-1.pdf",
+      "path": "PROD/TY/Ty Production ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-146",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Ty Production ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/PROD/TY/Ty%20Production%20ISE-2.pdf",
+      "filename": "Ty Production ISE-2.pdf",
+      "path": "PROD/TY/Ty Production ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-147",
+      "programme": "B.Tech",
+      "department": "Production Engineering",
+      "subject": "Ty Production Summer",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Summer",
+      "pdf": "/question-paper/PROD/TY/Ty%20Production%20Summer.pdf",
+      "filename": "Ty Production Summer.pdf",
+      "path": "PROD/TY/Ty Production Summer.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-148",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Final yr Textile ISE 1",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/Final%20Year/Final%20yr%20Textile%20ISE-1.pdf",
+      "filename": "Final yr Textile ISE-1.pdf",
+      "path": "TEXTILE/Final Year/Final yr Textile ISE-1.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-149",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Final yr Textile ISE 2",
+      "year": "Final",
+      "yearLabel": "Final Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/Final%20Year/Final%20yr%20Textile%20ISE-2.pdf",
+      "filename": "Final yr Textile ISE-2.pdf",
+      "path": "TEXTILE/Final Year/Final yr Textile ISE-2.pdf",
+      "allowedSemesters": [
+        "VII",
+        "VIII"
+      ]
+    },
+    {
+      "id": "file-150",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Sy Textile ISE 1",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/SY/Sy%20Textile%20ISE-1.pdf",
+      "filename": "Sy Textile ISE-1.pdf",
+      "path": "TEXTILE/SY/Sy Textile ISE-1.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-151",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Sy Textile ISE 2",
+      "year": "Second",
+      "yearLabel": "Second Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/SY/Sy%20Textile%20ISE-2.pdf",
+      "filename": "Sy Textile ISE-2.pdf",
+      "path": "TEXTILE/SY/Sy Textile ISE-2.pdf",
+      "allowedSemesters": [
+        "III",
+        "IV"
+      ]
+    },
+    {
+      "id": "file-152",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Ty Textile ISE 1",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/TY/Ty%20Textile%20ISE-1.pdf",
+      "filename": "Ty Textile ISE-1.pdf",
+      "path": "TEXTILE/TY/Ty Textile ISE-1.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    },
+    {
+      "id": "file-153",
+      "programme": "B.Tech",
+      "department": "Textile Engineering",
+      "subject": "Ty Textile ISE 2",
+      "year": "Third",
+      "yearLabel": "Third Year",
+      "semester": "Unknown",
+      "semesterLabel": "Not specified",
+      "exam": "Question Paper",
+      "pdf": "/question-paper/TEXTILE/TY/Ty%20Textile%20ISE-2.pdf",
+      "filename": "Ty Textile ISE-2.pdf",
+      "path": "TEXTILE/TY/Ty Textile ISE-2.pdf",
+      "allowedSemesters": [
+        "V",
+        "VI"
+      ]
+    }
+  ]
+}
