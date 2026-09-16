@@ -36,7 +36,52 @@ export const defaultAnnouncements=[
 {id:'a2',title:'Reading Hall Timings',text:'The reading hall is available from 09:30 AM to 10:00 PM.',date:'05 Sep 2026',tag:'Library',image:'/images/reading-corner.webp',pinned:false},
 {id:'a3',title:'Institute Faculty Publications',text:'Explore books and scholarly works published by Shri Guru Gobind Singhji Institute faculty members.',date:'01 Sep 2026',tag:'Publication',image:'/images/bookshelves.jpg',pinned:false}
 ];
-export const defaultSite={
-heroTitle:'Knowledge. Discovery. Innovation.',heroSubtitle:'The Central Library of Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded is a modern academic gateway for books, digital resources, examination archives and faculty publications.',heroImage:'/images/library-hero.webp',logo:'/images/sggs-logo.jpeg',video:'/library-tour.mp4',contactPhone:'02462 269234',contactEmail:'library@sggs.ac.in',address:'Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606',about:'The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources.'
+export const defaultSite = {
+  heroTitle: 'Knowledge. Discovery. Innovation.',
+
+  heroSubtitle:
+    'The Central Library of Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded is a modern academic gateway for books, digital resources, examination archives and faculty publications.',
+
+  heroImage: '/images/library-hero.webp',
+
+  logo: '/images/sggs-logo.jpeg',
+
+  video: '/library-tour.mp4',
+
+  // Existing Contact Information
+  contactPhone: '02462 269234',
+
+  contactEmail: 'library@sggs.ac.in',
+
+  address:
+    'Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606',
+
+  // Existing About Information
+  about:
+    'The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources.',
+
+  // Dynamic About Us Information
+  aboutTitle: 'About the Central Library',
+
+  aboutDescription:
+    'The Central Library supports teaching, learning and research by providing access to print and digital knowledge resources for students, faculty and researchers.',
+
+  aboutVision:
+    'To provide an accessible, technology-enabled and learner-centric environment that supports academic excellence, research and lifelong learning.',
+
+  aboutMission:
+    'To provide quality information resources and services to students, faculty and researchers and support the academic and research activities of the institute.',
+
+  // Dynamic Faculty In-charge Information
+  facultyInchargeName: 'Dr. A. B. Gonde',
+
+  facultyInchargeDesignation:
+    'Faculty In-charge, Library',
+
+  facultyInchargePhone1:
+    '02462-269219',
+
+  facultyInchargePhone2:
+    '02462-269335'
 };
 export const defaultUsers=[{id:'u1',name:'Library Admin',email:'library@sggs.ac.in',role:'admin'}];
