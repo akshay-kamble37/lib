@@ -10,7 +10,8 @@ const navItems = [
   ['/question-papers', 'Question Papers'],
   ['/departments', 'Departments'],
   ['/publications', 'Publications'],
-  ['/announcements', "What's New"]
+  ['/about', 'About Us'],
+  ['/contact', 'Contact Us']
 ];
 
 export default function Header() {
@@ -21,38 +22,77 @@ export default function Header() {
     <>
       <div className="top-strip">
         <div className="container top-strip-inner">
-          <span>Shri Guru Gobind Singhji Institute of Engineering &amp; Technology, Nanded</span>
-          <span>Central Library • Vishnupuri, Nanded, Maharashtra</span>
+          <span>
+            Shri Guru Gobind Singhji Institute of Engineering &amp; Technology, Nanded
+          </span>
+
+          <span>
+            Central Library • Vishnupuri, Nanded, Maharashtra
+          </span>
         </div>
       </div>
 
       <header className="site-header">
         <div className="container nav-shell">
-          <Link to="/" className="brand" onClick={() => setOpen(false)}>
-            <img src={site?.logo || '/images/sggs-logo.jpeg'} alt="SGGS Institute logo" />
-            <span>
-              <strong>Shri Guru Gobind Singhji</strong>
-              <small>Institute of Engineering &amp; Technology · Nanded</small>
-            </span>
+
+          <Link
+            to="/"
+            className="brand"
+            onClick={() => setOpen(false)}
+          >
+            <img
+              src="/images/image.webp"
+              alt="Shri Guru Gobind Singhji Institute of Engineering and Technology, Nanded"
+            />
           </Link>
 
-          <button className="mobile-toggle" onClick={() => setOpen(value => !value)} aria-label="Toggle navigation">
+          <button
+            className="mobile-toggle"
+            onClick={() => setOpen(value => !value)}
+            aria-label="Toggle navigation"
+            aria-expanded={open}
+          >
             {open ? <X /> : <Menu />}
           </button>
 
-          <nav className={open ? 'main-nav open' : 'main-nav'}>
+          <nav
+            className={open ? 'main-nav open' : 'main-nav'}
+          >
             {navItems.map(([to, label]) => (
-              <NavLink key={to} to={to} end={to === '/'} onClick={() => setOpen(false)}>
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                onClick={() => setOpen(false)}
+              >
                 {label}
               </NavLink>
             ))}
+
             <div className="nav-actions">
-              <Link className="icon-btn" title="Search catalogue" to="/catalogue" onClick={() => setOpen(false)}><Search /></Link>
-              <button className="icon-btn" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} title="Toggle theme">
+              <Link
+                className="icon-btn"
+                title="Search catalogue"
+                to="/catalogue"
+                onClick={() => setOpen(false)}
+                aria-label="Search catalogue"
+              >
+                <Search />
+              </Link>
+
+              <button
+                className="icon-btn"
+                onClick={() =>
+                  setTheme(theme === 'dark' ? 'light' : 'dark')
+                }
+                title="Toggle theme"
+                aria-label="Toggle theme"
+              >
                 {theme === 'dark' ? <Sun /> : <Moon />}
               </button>
             </div>
           </nav>
+
         </div>
       </header>
     </>
