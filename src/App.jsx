@@ -33,6 +33,7 @@ import ManagePapers from './pages/admin/ManagePapers';
 import ManageAnnouncements from './pages/admin/ManageAnnouncements';
 import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
+import ManageContacts from './pages/admin/ManageContacts';
 
 
 function Protected({ children }) {
@@ -141,6 +142,7 @@ export default function App() {
           </Protected>
         }
       >
+
         <Route
           index
           element={<AdminOverview />}
