@@ -9,9 +9,7 @@
     "preview": "vite preview",
     "api": "node server/index.js",
     "dev:api": "node server/index.js",
-    "check": "node scripts/check-project.mjs",
-    "predev": "node scripts/generate-question-paper-index.mjs",
-    "prebuild": "node scripts/generate-question-paper-index.mjs"
+    "check": "node scripts/check-project.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
