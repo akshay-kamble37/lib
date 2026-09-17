@@ -1,5 +1,10 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
+
 import Layout from './components/Layout';
 import { useLibrary } from './context/LibraryContext';
 
@@ -29,6 +34,7 @@ import ManagePapers from './pages/admin/ManagePapers';
 import ManageAnnouncements from './pages/admin/ManageAnnouncements';
 import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
+import ManageContacts from './pages/admin/ManageContacts';
 
 function Protected({ children }) {
   const { user, authReady } = useLibrary();
