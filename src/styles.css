@@ -4010,3 +4010,391 @@ body{
   }
 
 }
+/* =========================================================
+   E-RESOURCE DETAILS PAGE
+   ========================================================= */
+
+.resource-details-page {
+  background: #f7f9fb;
+  min-height: 70vh;
+}
+
+.resource-details-page .section {
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+
+/* Back button */
+
+.resource-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 22px;
+  transition: transform .25s ease, color .25s ease;
+}
+
+.resource-back-link:hover {
+  transform: translateX(-3px);
+  color: var(--primary2);
+}
+
+/* Main details card */
+
+.resource-details-card {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 18px 55px rgba(17, 42, 68, .08);
+}
+
+/* Header */
+
+.resource-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.resource-details-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.resource-details-icon {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 16px;
+  background: #edf4fa;
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+}
+
+.resource-details-brand .chip {
+  margin-bottom: 10px;
+}
+
+.resource-details-brand h1 {
+  font: 800 clamp(30px, 4vw, 42px)/1.12 Manrope, sans-serif;
+  letter-spacing: -.035em;
+  color: var(--heading, #16324f);
+  margin: 0;
+}
+
+.resource-details-external-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #8795a5;
+}
+
+/* Content sections */
+
+.resource-details-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.resource-section-label {
+  display: block;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  margin-bottom: 15px;
+}
+
+.resource-details-description {
+  max-width: 850px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 15px;
+}
+
+.resource-details-description:last-child {
+  margin-bottom: 0;
+}
+
+/* Resource information */
+
+.resource-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.resource-info-item {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 86px;
+}
+
+.resource-info-item span {
+  color: #7a8797;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.resource-info-item strong {
+  color: var(--ink);
+  font: 700 14px/1.4 Manrope, sans-serif;
+}
+
+/* Access box */
+
+.resource-access-box {
+  margin-top: 32px;
+  background: linear-gradient(
+    135deg,
+    #edf4fa 0%,
+    #f7fafc 100%
+  );
+  border: 1px solid #dbe6ef;
+  border-radius: 16px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.resource-access-icon {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  border: 1px solid #dbe5ee;
+}
+
+.resource-access-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-access-content h2 {
+  color: var(--heading, #16324f);
+  font: 800 20px/1.25 Manrope, sans-serif;
+  margin: 0 0 6px;
+}
+
+.resource-access-content p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 650px;
+}
+
+.resource-visit-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid var(--primary);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.resource-visit-button:hover {
+  background: #0a3156;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(13, 59, 102, .18);
+}
+
+/* Resource not found */
+
+.resource-not-found {
+  text-align: center;
+  max-width: 650px;
+  padding: 60px 40px;
+}
+
+.resource-not-found .resource-details-icon {
+  margin: 0 auto 20px;
+}
+
+.resource-not-found .chip {
+  margin-bottom: 12px;
+}
+
+.resource-not-found h1 {
+  font: 800 30px Manrope, sans-serif;
+  margin: 0 0 10px;
+}
+
+.resource-not-found p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 25px;
+}
+
+.resource-not-found .resource-back-link {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   E-RESOURCE DETAILS — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .resource-details-page .section {
+    padding-top: 35px;
+    padding-bottom: 55px;
+  }
+
+  .resource-details-card {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+
+  .resource-details-header {
+    gap: 18px;
+    padding-bottom: 25px;
+  }
+
+  .resource-details-brand {
+    gap: 14px;
+  }
+
+  .resource-details-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 13px;
+  }
+
+  .resource-details-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .resource-details-brand h1 {
+    font-size: 28px;
+  }
+
+  .resource-details-external-icon {
+    display: none;
+  }
+
+  .resource-details-section {
+    padding: 25px 0;
+  }
+
+  .resource-details-description {
+    font-size: 14px;
+  }
+
+  .resource-info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .resource-access-box {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .resource-access-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .resource-visit-button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+/* =========================================================
+   E-RESOURCE DETAILS — DARK MODE
+   ========================================================= */
+
+html[data-theme="dark"] .resource-details-page {
+  background: #0d1925;
+}
+
+html[data-theme="dark"] .resource-details-card {
+  background: #101c29;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .resource-details-brand h1,
+html[data-theme="dark"] .resource-access-content h2 {
+  color: #e8eef5;
+}
+
+html[data-theme="dark"] .resource-details-icon {
+  background: #17344f;
+  color: #d9e7f4;
+}
+
+html[data-theme="dark"] .resource-details-external-icon {
+  background: #101c29;
+  border-color: var(--line);
+  color: #9aaabd;
+}
+
+html[data-theme="dark"] .resource-info-item {
+  background: #0d1925;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .resource-info-item strong {
+  color: #e8eef5;
+}
+
+html[data-theme="dark"] .resource-access-box {
+  background: linear-gradient(
+    135deg,
+    #102536 0%,
+    #142c40 100%
+  );
+  border-color: #294256;
+}
+
+html[data-theme="dark"] .resource-access-icon {
+  background: #101c29;
+  border-color: #344657;
+}
+
+html[data-theme="dark"] .resource-not-found {
+  background: #101c29;
+}

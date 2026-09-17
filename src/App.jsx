@@ -1,17 +1,17 @@
 import React from 'react';
-import {
-  Navigate,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import { useLibrary } from './context/LibraryContext';
 
+// Public Pages
 import Home from './pages/public/Home';
 import Catalogue from './pages/public/Catalogue';
 import BookDetails from './pages/public/BookDetails';
+
 import EResources from './pages/public/EResources';
+import EResourceDetails from './pages/public/EResourceDetails';
+
 import QuestionPapers from './pages/public/QuestionPapers';
 import Departments from './pages/public/Departments';
 import DepartmentDetails from './pages/public/DepartmentDetails';
@@ -20,8 +20,10 @@ import Announcements from './pages/public/Announcements';
 import About from './pages/public/About';
 import Contact from './pages/public/Contact';
 
+// Authentication
 import Login from './pages/Auth';
 
+// Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminOverview from './pages/admin/AdminOverview';
 import HomepageEditor from './pages/admin/HomepageEditor';
@@ -33,17 +35,14 @@ import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
 import ManageContacts from './pages/admin/ManageContacts';
 
+
 function Protected({ children }) {
-  const {
-    user,
-    authReady,
-  } = useLibrary();
+  const { user, authReady } = useLibrary();
 
   if (!authReady) {
     return (
       <div className="route-loading">
         <span className="loading-spinner" />
-
         Checking administrator session…
       </div>
     );
@@ -51,13 +50,9 @@ function Protected({ children }) {
 
   return user?.role === 'admin'
     ? children
-    : (
-      <Navigate
-        to="/login"
-        replace
-      />
-    );
+    : <Navigate to="/login" replace />;
 }
+
 
 export default function App() {
   return (
@@ -65,14 +60,11 @@ export default function App() {
 
       {/* =========================
           PUBLIC WEBSITE
-      ========================== */}
+          ========================= */}
 
       <Route element={<Layout />}>
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        <Route path="/" element={<Home />} />
 
         <Route
           path="/catalogue"
@@ -84,9 +76,15 @@ export default function App() {
           element={<BookDetails />}
         />
 
+        {/* E-Resources */}
         <Route
           path="/e-resources"
           element={<EResources />}
+        />
+
+        <Route
+          path="/e-resources/:id"
+          element={<EResourceDetails />}
         />
 
         <Route
@@ -134,7 +132,7 @@ export default function App() {
 
       {/* =========================
           ADMIN PANEL
-      ========================== */}
+          ========================= */}
 
       <Route
         path="/admin"
@@ -185,26 +183,16 @@ export default function App() {
           element={<ManageDepartments />}
         />
 
-        <Route
-          path="contacts"
-          element={<ManageContacts />}
-        />
-
       </Route>
 
 
       {/* =========================
           FALLBACK
-      ========================== */}
+          ========================= */}
 
       <Route
         path="*"
-        element={
-          <Navigate
-            to="/"
-            replace
-          />
-        }
+        element={<Navigate to="/" replace />}
       />
 
     </Routes>
