@@ -139,12 +139,12 @@ export const defaultBooks = [
 export const defaultResources = [
   {
     id: 'r1',
-    name: 'IEEE Xplore',
+    name: 'IEEE IEL Online',
     category: 'Engineering Database',
     description:
-      'IEEE journals, conference papers and standards.',
+      'IEEE IEL Online provides access to IEEE journals, conference papers, standards and technical research resources.',
     detailedDescription:
-      'IEEE Xplore is a digital research platform providing access to scholarly literature and technical information in engineering, technology and related fields.',
+      'IEEE IEL Online is a digital research resource providing access to scholarly and technical content in engineering, technology and related fields.',
     features: [
       'IEEE journals',
       'Conference papers',
@@ -154,16 +154,18 @@ export const defaultResources = [
     audience:
       'Engineering students, faculty members and researchers',
     accessInfo:
-      'Visit the official IEEE Xplore platform to explore available academic and technical resources.',
+      'Access IEEE IEL Online through the official IEEE Xplore platform.',
+    itemCount: 464,
+    itemLabel: 'E-Journals',
     url: 'https://ieeexplore.ieee.org'
   },
 
   {
     id: 'r2',
-    name: 'ASME Digital Collection',
+    name: 'ASME',
     category: 'Engineering Database',
     description:
-      'Journals, proceedings and technical content from ASME.',
+      'ASME Digital Collection provides journals, conference proceedings and technical publications in mechanical engineering.',
     detailedDescription:
       'ASME Digital Collection provides access to scholarly journals, conference proceedings and technical publications covering mechanical engineering and related engineering disciplines.',
     features: [
@@ -175,16 +177,18 @@ export const defaultResources = [
     audience:
       'Mechanical engineering students, faculty members and researchers',
     accessInfo:
-      'Visit the official ASME Digital Collection platform to access its available academic content.',
+      'Access the ASME Digital Collection through the official ASME platform.',
+    itemCount: 22,
+    itemLabel: 'E-Journals',
     url: 'https://asmedigitalcollection.asme.org'
   },
 
   {
     id: 'r3',
-    name: 'ASCE Library',
+    name: 'ASCE',
     category: 'Engineering Database',
     description:
-      'Civil engineering journals, proceedings and research.',
+      'ASCE Library provides civil engineering journals, proceedings and technical research publications.',
     detailedDescription:
       'ASCE Library provides access to scholarly publications and technical research related to civil engineering and the built environment.',
     features: [
@@ -196,18 +200,20 @@ export const defaultResources = [
     audience:
       'Civil engineering students, faculty members and researchers',
     accessInfo:
-      'Visit the official ASCE Library platform to explore its available publications and research resources.',
+      'Access the ASCE Library through the official ASCE platform.',
+    itemCount: 30,
+    itemLabel: 'E-Journals',
     url: 'https://ascelibrary.org'
   },
 
   {
     id: 'r4',
-    name: 'ScienceDirect',
+    name: 'Elsevier (ScienceDirect)',
     category: 'Academic Database',
     description:
-      'Research articles, journals and books across disciplines.',
+      'ScienceDirect provides research articles, journals and books across engineering, science and related disciplines.',
     detailedDescription:
-      'ScienceDirect provides access to a broad collection of academic research articles, journals and books covering engineering, science and other academic disciplines.',
+      'ScienceDirect is an academic research platform providing access to scholarly articles, journals, books and book chapters across a wide range of disciplines.',
     features: [
       'Research articles',
       'Academic journals',
@@ -217,50 +223,102 @@ export const defaultResources = [
     audience:
       'Students, faculty members and researchers across disciplines',
     accessInfo:
-      'Visit the official ScienceDirect platform to search and explore available academic content.',
+      'Access ScienceDirect through the official Elsevier platform.',
+    itemCount: 252,
+    itemLabel: 'E-Journals',
     url: 'https://www.sciencedirect.com'
   },
 
   {
     id: 'r5',
-    name: 'NDLI',
-    category: 'Discovery',
+    name: 'ACM Digital Library',
+    category: 'Computing Database',
     description:
-      'National Digital Library of India discovery platform.',
+      'ACM Digital Library provides computing and information technology research publications.',
     detailedDescription:
-      'The National Digital Library of India is a digital discovery platform that brings together learning and academic resources from different sources.',
+      'The ACM Digital Library provides access to research literature and technical publications covering computing, computer science and information technology.',
     features: [
-      'Digital learning resources',
-      'Academic content discovery',
-      'Multidisciplinary resources',
-      'Educational materials'
+      'Computer science journals',
+      'Conference proceedings',
+      'Technical articles',
+      'Computing research'
     ],
     audience:
-      'Students, teachers, researchers and academic users',
+      'Computer science students, faculty members and researchers',
     accessInfo:
-      'Visit the official NDLI platform to discover available digital learning and research resources.',
-    url: 'https://ndl.iitkgp.ac.in'
+      'Access the ACM Digital Library through the official ACM platform.',
+    itemCount: 44,
+    itemLabel: 'E-Journals',
+    url: 'https://dl.acm.org'
   },
 
   {
     id: 'r6',
-    name: 'DELNET',
-    category: 'Discovery',
+    name: 'Springer Link',
+    category: 'Academic Database',
     description:
-      'Union catalogue and resource sharing services.',
+      'SpringerLink provides access to scholarly journals, books and research publications across disciplines.',
     detailedDescription:
-      'DELNET supports resource discovery and sharing through a network of libraries and provides access to bibliographic information and library resources.',
+      'SpringerLink is an academic platform providing access to journals, books, reference works and research publications across science, technology, engineering and other disciplines.',
     features: [
-      'Union catalogues',
-      'Resource discovery',
-      'Library resource sharing',
-      'Bibliographic databases'
+      'Academic journals',
+      'Research articles',
+      'E-books',
+      'Scientific publications'
     ],
     audience:
-      'Students, faculty members, researchers and library users',
+      'Students, faculty members and researchers',
     accessInfo:
-      'Visit the official DELNET platform to explore available library discovery and resource-sharing services.',
-    url: 'https://delnet.in'
+      'Access SpringerLink through the official Springer Nature platform.',
+    itemCount: 586,
+    itemLabel: 'E-Journals',
+    url: 'https://link.springer.com'
+  },
+
+  {
+    id: 'r7',
+    name: 'IEEE Wiley E-Books',
+    category: 'E-Books',
+    description:
+      'IEEE and Wiley engineering and technology e-books for academic learning and research.',
+    detailedDescription:
+      'The IEEE Wiley eBooks collection provides digital books covering engineering, technology and related academic subjects for students, faculty members and researchers.',
+    features: [
+      'Engineering e-books',
+      'Technology books',
+      'Academic reference material',
+      'Research-oriented books'
+    ],
+    audience:
+      'Engineering students, faculty members and researchers',
+    accessInfo:
+      'Access the IEEE Wiley eBook collection through the official IEEE Xplore platform.',
+    itemCount: 550,
+    itemLabel: 'E-Books',
+    url: 'https://ieeexplore.ieee.org'
+  },
+
+  {
+    id: 'r8',
+    name: 'Springer E-Books',
+    category: 'E-Books',
+    description:
+      'Springer e-books covering engineering, science, technology and other academic disciplines.',
+    detailedDescription:
+      'Springer eBooks provide digital access to academic books and reference material across science, engineering, technology and related disciplines.',
+    features: [
+      'Engineering e-books',
+      'Science e-books',
+      'Technology publications',
+      'Academic reference books'
+    ],
+    audience:
+      'Students, faculty members and researchers',
+    accessInfo:
+      'Access Springer eBooks through the official Springer Nature platform.',
+    itemCount: 2080,
+    itemLabel: 'E-Books',
+    url: 'https://link.springer.com'
   }
 ];
 

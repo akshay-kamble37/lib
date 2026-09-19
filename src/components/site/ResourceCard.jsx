@@ -18,7 +18,14 @@ export default function ResourceCard({ resource }) {
 
       <p>{resource.description}</p>
 
-      <strong>
+      {resource.itemCount && (
+        <div className="resource-count">
+          <strong>{resource.itemCount}</strong>
+          <span>{resource.itemLabel || 'Resources'}</span>
+        </div>
+      )}
+
+      <strong className="resource-card-action">
         View details <ArrowUpRight size={15} />
       </strong>
     </Link>
