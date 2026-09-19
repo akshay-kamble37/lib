@@ -81,7 +81,7 @@ export default function Home() {
             <div className="hero-mini">
               <div><b>10</b><span>Departments</span></div>
               <div><b>8</b><span>Semesters</span></div>
-              <div><b>{papers.length}</b><span>Papers</span></div>
+              <div><b>4</b><span>Years</span></div>
             </div>
             <span className="hero-location"><MapPin size={14} /> Vishnupuri, Nanded, Maharashtra</span>
           </div>
