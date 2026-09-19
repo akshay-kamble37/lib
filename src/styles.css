@@ -4010,3 +4010,37 @@ body{
   }
 
 }
+/* =========================================================
+   FOOTER ADDITIONS ONLY
+   Existing footer sections are preserved.
+   Adds the college image/logo presentation only.
+   ========================================================= */
+
+.footer-brand{
+  align-items:flex-start;
+}
+
+.footer-brand img{
+  width:100%;
+  max-width:375px;
+  height:96px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:7px;
+  background:#fff;
+  padding:7px 12px;
+}
+
+.footer-brand > div{
+  display:none;
+}
+
+.footer-main > p{
+  max-width:430px;
+}
+
+@media(max-width:760px){
+  .footer-brand img{
+    max-width:100%;
+  }
+}
