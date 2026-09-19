@@ -22,12 +22,16 @@ export default function Header() {
     <>
       <div className="top-strip">
         <div className="container top-strip-inner">
-          <span>
+          <a
+            href="https://sggs.ac.in"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Shri Guru Gobind Singhji Institute of Engineering &amp; Technology, Nanded
-          </span>
+          </a>
 
           <span>
-            Central Library • Vishnupuri, Nanded, Maharashtra
+            Central Library
           </span>
         </div>
       </div>
