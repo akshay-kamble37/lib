@@ -49,18 +49,30 @@ const initialContent = {
 
 export function LibraryProvider({ children }) {
   const [books, setBooks] = useState(initialContent.books);
+
   const [departmentsData, setDepartmentsData] = useState(
     initialContent.departments
   );
-  const [resources, setResources] = useState(initialContent.resources);
-  const [papers, setPapers] = useState(initialContent.papers);
+
+  const [resources, setResources] = useState(
+    initialContent.resources
+  );
+
+  const [papers, setPapers] = useState(
+    initialContent.papers
+  );
+
   const [announcements, setAnnouncements] = useState(
     initialContent.announcements
   );
+
   const [publications, setPublications] = useState(
     initialContent.publications
   );
-  const [site, setSite] = useState(initialContent.site);
+
+  const [site, setSite] = useState(
+    initialContent.site
+  );
 
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
@@ -528,6 +540,29 @@ export function LibraryProvider({ children }) {
 
   /*
    * =========================================================
+   * UPDATE E-RESOURCES ONLY
+   * =========================================================
+   *
+   * This updates only the E-Resources collection.
+   * Other library content remains unchanged.
+   */
+
+  const resetResources = async () => {
+    const nextResources = clone(defaultResources);
+
+    setResources(nextResources);
+
+    await saveContent({
+      resources: nextResources,
+    });
+
+    setToast(
+      'E-Resources updated successfully'
+    );
+  };
+
+  /*
+   * =========================================================
    * RESET DEMO CONTENT
    * =========================================================
    *
@@ -618,6 +653,7 @@ export function LibraryProvider({ children }) {
       setToast,
 
       resetDemo,
+      resetResources,
 
       years,
       semesters,
