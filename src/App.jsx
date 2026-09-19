@@ -183,6 +183,11 @@ export default function App() {
           element={<ManageDepartments />}
         />
 
+        <Route
+          path="contacts"
+          element={<ManageContacts/>}
+        />
+
       </Route>
 
 
