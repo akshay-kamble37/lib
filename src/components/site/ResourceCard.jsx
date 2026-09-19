@@ -1,4 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {ArrowUpRight,BookOpen,CheckCircle2,MapPin} from 'lucide-react';
-export default function ResourceCard({resource}){return <a className="resource-card" href={resource.url} target="_blank" rel="noreferrer"><span className="resource-icon">↗</span><span className="chip">{resource.category}</span><h3>{resource.name}</h3><p>{resource.description}</p><strong>Open resource <ArrowUpRight size={15}/></strong></a>}
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
+
+export default function ResourceCard({ resource }) {
+  return (
+    <Link
+      className="resource-card"
+      to={`/e-resources/${resource.id}`}
+    >
+      <span className="resource-icon">↗</span>
+
+      <span className="chip">
+        {resource.category}
+      </span>
+
+      <h3>{resource.name}</h3>
+
+      <p>{resource.description}</p>
+
+      <strong>
+        View details <ArrowUpRight size={15} />
+      </strong>
+    </Link>
+  );
+}
