@@ -34,125 +34,105 @@ export default function ManagePublications() {
 
   const [saving, setSaving] = useState(false);
 
-  /* -----------------------------------------
-     FORM UPDATE
-  ----------------------------------------- */
-  const updateForm = (field, value) => {
+  const updateField = (field, value) => {
     setForm((current) => ({
       ...current,
       [field]: value,
     }));
   };
 
-  /* -----------------------------------------
-     ADD PUBLICATION
-  ----------------------------------------- */
-  const add = async (e) => {
-    e.preventDefault();
+  const addPublication = async (event) => {
+    event.preventDefault();
 
     if (!form.title.trim()) {
-      setToast('Book title is required');
+      setToast('Publication title is required');
       return;
     }
 
-    setSaving(true);
+    const newPublication = {
+      id: `pub${Date.now()}`,
+      title: form.title.trim(),
+      author: form.author.trim(),
+      department: form.department.trim(),
+      year: form.year,
+      publisher: form.publisher.trim(),
+      description: form.description.trim(),
+      cover: form.cover.trim() || '/images/bookshelves.jpg',
+    };
+
+    const nextPublications = [
+      newPublication,
+      ...publications,
+    ];
 
     try {
-      const newPublication = {
-        id: `pub${Date.now()}`,
-        title: form.title.trim(),
-        author: form.author.trim(),
-        department: form.department.trim(),
-        year: form.year,
-        publisher: form.publisher.trim(),
-        description: form.description.trim(),
-        cover: form.cover.trim(),
-      };
+      setSaving(true);
 
-      const nextPublications = [
-        newPublication,
-        ...publications,
-      ];
-
-      /* Update screen immediately */
-      setPublications(nextPublications);
-
-      /* Save permanently to database */
+      /*
+       * Save to the backend first.
+       * The React state is updated only after the backend
+       * confirms that the complete publication list was saved.
+       */
       await saveContent({
         publications: nextPublications,
       });
 
-      /* Clear only the title */
-      setForm((current) => ({
-        ...current,
+      setPublications(nextPublications);
+
+      setForm({
         title: '',
-      }));
+        author: 'SGGS Faculty',
+        department: 'Computer Science & Engineering',
+        year: 2026,
+        publisher: '',
+        description: '',
+        cover: '/images/bookshelves.jpg',
+      });
 
-      setToast('Publication added successfully');
+      setToast('Publication added and saved successfully');
     } catch (error) {
-      console.error(
-        'Publication add failed:',
-        error
-      );
-
+      console.error('Failed to add publication:', error);
       setToast(
         error?.message ||
-          'Unable to add publication'
+          'Publication could not be saved'
       );
     } finally {
       setSaving(false);
     }
   };
 
-  /* -----------------------------------------
-     DELETE PUBLICATION
-  ----------------------------------------- */
-  const removePublication = async (id) => {
-    const publication = publications.find(
-      (item) => item.id === id
+  const deletePublication = async (publicationId) => {
+    const nextPublications = publications.filter(
+      (publication) => publication.id !== publicationId
     );
-
-    if (!publication) return;
-
-    const confirmed = window.confirm(
-      `Remove "${publication.title}" from publications?`
-    );
-
-    if (!confirmed) return;
-
-    setSaving(true);
 
     try {
-      const nextPublications =
-        publications.filter(
-          (item) => item.id !== id
-        );
+      setSaving(true);
 
-      /* Update screen immediately */
-      setPublications(nextPublications);
-
-      /* Save permanently to database */
+      /*
+       * Save the updated list first.
+       * If the backend save fails, the existing React list
+       * remains untouched.
+       */
       await saveContent({
         publications: nextPublications,
       });
 
-      setToast(
-        'Publication removed successfully'
-      );
-    } catch (error) {
-      console.error(
-        'Publication removal failed:',
-        error
-      );
+      setPublications(nextPublications);
 
+      setToast('Publication removed and saved successfully');
+    } catch (error) {
+      console.error('Failed to delete publication:', error);
       setToast(
         error?.message ||
-          'Unable to remove publication'
+          'Publication could not be removed'
       );
     } finally {
       setSaving(false);
     }
   };
+
+  const isSaving = saving || contentSaving;
 
   return (
     <AdminPage
@@ -160,23 +140,17 @@ export default function ManagePublications() {
       title="Manage publications"
     >
 
-      {/* =====================================
-          ADD PUBLICATION
-      ===================================== */}
       <ManagerForm
         title="Add faculty publication"
-        onSubmit={add}
+        onSubmit={addPublication}
       >
 
         <Field label="Book title">
           <input
             required
             value={form.title}
-            onChange={(e) =>
-              updateForm(
-                'title',
-                e.target.value
-              )
+            onChange={(event) =>
+              updateField('title', event.target.value)
             }
           />
         </Field>
@@ -184,11 +158,8 @@ export default function ManagePublications() {
         <Field label="Author">
           <input
             value={form.author}
-            onChange={(e) =>
-              updateForm(
-                'author',
-                e.target.value
-              )
+            onChange={(event) =>
+              updateField('author', event.target.value)
             }
           />
         </Field>
@@ -198,10 +169,10 @@ export default function ManagePublications() {
           <Field label="Department">
             <input
               value={form.department}
-              onChange={(e) =>
-                updateForm(
+              onChange={(event) =>
+                updateField(
                   'department',
-                  e.target.value
+                  event.target.value
                 )
               }
             />
@@ -209,11 +180,12 @@ export default function ManagePublications() {
 
           <Field label="Year">
             <input
+              type="number"
               value={form.year}
-              onChange={(e) =>
-                updateForm(
+              onChange={(event) =>
+                updateField(
                   'year',
-                  e.target.value
+                  event.target.value
                 )
               }
             />
@@ -224,10 +196,10 @@ export default function ManagePublications() {
         <Field label="Publisher">
           <input
             value={form.publisher}
-            onChange={(e) =>
-              updateForm(
+            onChange={(event) =>
+              updateField(
                 'publisher',
-                e.target.value
+                event.target.value
               )
             }
           />
@@ -236,10 +208,10 @@ export default function ManagePublications() {
         <Field label="Cover image path">
           <input
             value={form.cover}
-            onChange={(e) =>
-              updateForm(
+            onChange={(event) =>
+              updateField(
                 'cover',
-                e.target.value
+                event.target.value
               )
             }
           />
@@ -249,36 +221,30 @@ export default function ManagePublications() {
           <textarea
             rows="4"
             value={form.description}
-            onChange={(e) =>
-              updateForm(
+            onChange={(event) =>
+              updateField(
                 'description',
-                e.target.value
+                event.target.value
               )
             }
           />
         </Field>
 
         <button
-          type="submit"
           className="primary-btn full"
-          disabled={
-            saving ||
-            contentSaving
-          }
+          type="submit"
+          disabled={isSaving}
         >
-          <BookMarked size={17} />
+          <BookMarked size={16} />
 
-          {saving || contentSaving
-            ? 'Saving…'
+          {isSaving
+            ? 'Saving publication...'
             : 'Add publication'}
         </button>
 
       </ManagerForm>
 
 
-      {/* =====================================
-          PUBLICATION LIST
-      ===================================== */}
       <DataTable
         headers={[
           'Publication',
@@ -286,39 +252,31 @@ export default function ManagePublications() {
           'Year',
           'Action',
         ]}
-        rows={publications.map((p) => (
-          <React.Fragment key={p.id}>
+        rows={publications.map((publication) => (
+          <React.Fragment key={publication.id}>
 
             <td>
-              <b>{p.title}</b>
-
-              <small>
-                {p.author}
-              </small>
+              <b>{publication.title}</b>
+              <small>{publication.author}</small>
             </td>
 
             <td>
-              {p.department}
+              {publication.department}
             </td>
 
             <td>
-              {p.year}
+              {publication.year}
             </td>
 
             <td>
               <button
-                type="button"
                 className="danger"
-                title={`Remove ${p.title}`}
-                disabled={
-                  saving ||
-                  contentSaving
-                }
+                type="button"
+                disabled={isSaving}
                 onClick={() =>
-                  removePublication(
-                    p.id
-                  )
+                  deletePublication(publication.id)
                 }
+                aria-label={`Delete ${publication.title}`}
               >
                 <Trash2 size={14} />
               </button>
