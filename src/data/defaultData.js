@@ -1,12 +1,12 @@
 export const departments = [
-  ['electronics', 'Electronics', 'ECE'],
-  ['textile', 'Textile', 'TX'],
-  ['civil', 'Civil', 'CE'],
-  ['electrical', 'Electrical', 'EE'],
-  ['instrumentation', 'Instrumentation', 'IE'],
-  ['production', 'Production', 'PE'],
-  ['chemical', 'Chemical', 'CH'],
-  ['mechanical', 'Mechanical', 'ME'],
+  ['electronics', 'Electronics Engineering', 'ECE'],
+  ['textile', 'Textile Engineering', 'TX'],
+  ['civil', 'Civil Engineering', 'CE'],
+  ['electrical', 'Electrical Engineering', 'EE'],
+  ['instrumentation', 'Instrumentation Engineering', 'IE'],
+  ['production', 'Production Engineering', 'PE'],
+  ['chemical', 'Chemical Engineering', 'CH'],
+  ['mechanical', 'Mechanical Engineering', 'ME'],
   ['information-technology', 'Information Technology', 'IT'],
   ['computer-science', 'Computer Science & Engineering', 'CSE']
 ].map(([slug, name, short]) => ({
