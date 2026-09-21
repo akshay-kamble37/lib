@@ -9,6 +9,7 @@ export const departments = [
   ['mechanical', 'Mechanical Engineering', 'ME'],
   ['information-technology', 'Information Technology', 'IT'],
   ['computer-science', 'Computer Science & Engineering', 'CSE']
+  
 ].map(([slug, name, short]) => ({
   slug,
   name,
