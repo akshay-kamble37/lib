@@ -8,11 +8,16 @@ import {
 
 import { useLibrary } from '../../context/LibraryContext';
 import {
-  ManagerForm,
-  DataTable,
-  Field,
-  AdminPage
-} from '../../components/admin';
+  Plus,
+  Trash2,
+  Edit3,
+  ChevronUp,
+  ChevronDown,
+  Save,
+  X,
+} from 'lucide-react';
+import { useLibrary } from '../../context/LibraryContext';
+import { ManagerForm, DataTable, Field, AdminPage } from '../../components/admin';
 
 const emptyForm = {
   name: '',
@@ -29,7 +34,7 @@ const emptyForm = {
 
 export default function ManageResources() {
   const {
-    resources,
+    resources = [],
     setResources,
     setToast,
     saveContent
@@ -49,11 +54,11 @@ export default function ManageResources() {
     e.preventDefault();
 
     if (!form.name.trim()) {
+      setToast('Resource name is required');
       return;
     }
 
-    const newResource = {
-      id: `r${Date.now()}`,
+    const resourceData = {
       name: form.name.trim(),
       url: form.url.trim(),
       category: form.category,
@@ -93,9 +98,13 @@ export default function ManageResources() {
       resources: nextResources
     });
 
-    setForm(emptyForm);
+  const removeResource = async (id) => {
+    const resource = resources.find((item) => item.id === id);
+    if (!resource) return;
+    if (!window.confirm(`Remove "${resource.name}"?`)) return;
 
-    setToast('Resource added');
+    await persist(resources.filter((item) => item.id !== id), 'Resource removed successfully');
+    if (editingId === id) resetForm();
   };
 
   const startEdit = (resource) => {
@@ -239,7 +248,6 @@ export default function ManageResources() {
             placeholder="e.g. IEEE Xplore"
           />
         </Field>
-
         <Field label="URL">
           <input
             value={form.url}
@@ -252,7 +260,6 @@ export default function ManageResources() {
             placeholder="https://example.com"
           />
         </Field>
-
         <Field label="Category">
           <select
             value={form.category}
@@ -316,21 +323,9 @@ export default function ManageResources() {
             placeholder="Short description shown on the resource card."
           />
         </Field>
-
         <Field label="Detailed Description">
-          <textarea
-            rows="5"
-            value={form.detailedDescription}
-            onChange={(e) =>
-              updateField(
-                'detailedDescription',
-                e.target.value
-              )
-            }
-            placeholder="Detailed information shown on the resource details page."
-          />
+          <textarea rows="5" value={form.detailedDescription} onChange={(e) => updateField('detailedDescription', e.target.value)} />
         </Field>
-
         <Field label="Features">
           <textarea
             rows="5"
@@ -346,7 +341,6 @@ export default function ManageResources() {
             }
           />
         </Field>
-
         <Field label="Suitable For">
           <input
             value={form.audience}
@@ -359,7 +353,6 @@ export default function ManageResources() {
             placeholder="e.g. Engineering students and researchers"
           />
         </Field>
-
         <Field label="Access Information">
           <textarea
             rows="4"

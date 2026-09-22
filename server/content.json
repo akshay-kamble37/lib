@@ -387,6 +387,16 @@
   ],
   "publications": [
     {
+      "id": "pub1789903892330",
+      "title": "Akshay",
+      "author": "SGGS Faculty",
+      "department": "Computer Science & Engineering",
+      "year": 2026,
+      "publisher": "Akshay",
+      "description": "Akshay book",
+      "cover": "/images/bookshelves.jpg"
+    },
+    {
       "id": "pub1",
       "title": "Advances in Sustainable Engineering",
       "author": "Institute Faculty",

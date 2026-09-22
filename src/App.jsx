@@ -16,6 +16,7 @@ import QuestionPapers from './pages/public/QuestionPapers';
 import Departments from './pages/public/Departments';
 import DepartmentDetails from './pages/public/DepartmentDetails';
 import Publications from './pages/public/Publications';
+import PublicationDetails from './pages/public/PublicationDetails';
 import Announcements from './pages/public/Announcements';
 import About from './pages/public/About';
 import Contact from './pages/public/Contact';
@@ -102,9 +103,16 @@ export default function App() {
           element={<DepartmentDetails />}
         />
 
+        {/* Publications */}
         <Route
           path="/publications"
           element={<Publications />}
+        />
+
+        {/* Individual Publication */}
+        <Route
+          path="/publications/:id"
+          element={<PublicationDetails />}
         />
 
         <Route
