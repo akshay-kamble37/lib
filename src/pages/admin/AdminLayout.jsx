@@ -1,23 +1,6 @@
 import React from 'react';
-import {
-  Link,
-  Outlet,
-  useLocation,
-} from 'react-router-dom';
-
-import {
-  LayoutDashboard,
-  BookOpen,
-  Database,
-  FileText,
-  Megaphone,
-  BookMarked,
-  Building2,
-  LogOut,
-  Home,
-  Users,
-} from 'lucide-react';
-
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { LayoutDashboard, BookOpen, Database, FileText, Megaphone, BookMarked, Building2, LogOut, Home, PhoneCall, Info } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 
 export default function AdminLayout() {
@@ -26,59 +9,16 @@ export default function AdminLayout() {
   const location = useLocation();
 
   const links = [
-    [
-      '/admin',
-      'Dashboard',
-      LayoutDashboard,
-    ],
-
-    [
-      '/admin/homepage',
-      'Homepage',
-      Home,
-    ],
-
-    [
-      '/admin/books',
-      'Catalogue',
-      BookOpen,
-    ],
-
-    [
-      '/admin/resources',
-      'E-Resources',
-      Database,
-    ],
-
-    [
-      '/admin/papers',
-      'Question Papers',
-      FileText,
-    ],
-
-    [
-      '/admin/publications',
-      'Publications',
-      BookMarked,
-    ],
-
-    [
-      '/admin/announcements',
-      "What's New",
-      Megaphone,
-    ],
-
-    [
-      '/admin/departments',
-      'Departments',
-      Building2,
-    ],
-
-    [
-      '/admin/contacts',
-      'Contacts',
-      Users,
-    ],
+    ['/admin', 'Dashboard', LayoutDashboard],
+    ['/admin/homepage', 'Homepage', Home],
+    ['/admin/about', 'About Page', Info],
+    ['/admin/books', 'Catalogue', BookOpen],
+    ['/admin/resources', 'E-Resources', Database],
+    ['/admin/papers', 'Question Papers', FileText],
+    ['/admin/publications', 'Publications', BookMarked],
+    ['/admin/announcements', "What's New", Megaphone],
+    ['/admin/departments', 'Departments', Building2],
+    ['/admin/contacts', 'Contacts', PhoneCall]
   ];
 
   const handleLogout = async () => {

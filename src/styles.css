@@ -4584,3 +4584,32 @@ body{
     font-size:12px;
   }
 }
+/* ===== NAVIGATION FIX ===== */
+
+@media (min-width: 1001px) {
+  .nav-shell {
+    gap: 18px;
+  }
+
+  .brand {
+    flex-shrink: 0;
+    margin-right: auto;
+  }
+
+  .main-nav {
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .main-nav > a {
+    padding: 10px 9px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    margin-left: 5px;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+}

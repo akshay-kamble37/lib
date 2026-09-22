@@ -10,8 +10,9 @@ const navItems = [
   ['/question-papers', 'Question Papers'],
   ['/departments', 'Departments'],
   ['/publications', 'Publications'],
-  ['/about', 'About Us'],
-  ['/contact', 'Contact Us']
+  ['/announcements', "What's New"],
+  ['/about', 'About'],
+  ['/contact', 'Contact']
 ];
 
 export default function Header() {

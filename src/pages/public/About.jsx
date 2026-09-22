@@ -9,76 +9,75 @@ import {
   Layers, 
   Globe2, 
   Award, 
-  CheckCircle2, 
-  ExternalLink 
+  CheckCircle2 
 } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 import { PageHero, SectionTitle } from '../../components/site';
 
+const defaultLibraryStats = [
+  { label: 'Total Volumes', value: '75,770' },
+  { label: 'Unique Titles', value: '23,438' },
+  { label: 'Bound Journal Volumes', value: '3,959' },
+  { label: 'Reading Hall Capacity', value: '250 Seats' },
+];
+
+const defaultEResources = [
+  { name: 'IEEE IEL Online', count: '464 E-Journals' },
+  { name: 'Springer Link', count: '586 Journals + 2,080 E-Books' },
+  { name: 'ScienceDirect (Elsevier)', count: '252 Core Subscriptions' },
+  { name: 'IEEE Wiley E-Books', count: '550 Titles' },
+  { name: 'DELNET & N-LIST', count: 'National Consortium Interlending' },
+  { name: 'ASCE & ASME', count: '52 Specialized Civil/Mech Journals' },
+];
+
+const defaultFeatures = [
+  {
+    icon: <Building2 size={24} />,
+    title: 'Independent 2-Story Block',
+    text: 'Housed in a standalone 1,126.66 sq. m. two-storied building surrounded by green lawns, dedicated entirely to study and research.',
+  },
+  {
+    icon: <Globe2 size={24} />,
+    title: 'KOHA & Web OPAC Automation',
+    text: 'Fully computerized operations with KOHA Integrated Library System, barcode-driven circulation, and campus-wide intranet OPAC lookup.',
+  },
+  {
+    icon: <Layers size={24} />,
+    title: 'SC / ST Book Bank Scheme',
+    text: 'Specialized book bank facilities allocating full semester textbook bundles to eligible students for uninterrupted home study.',
+  },
+  {
+    icon: <Award size={24} />,
+    title: 'Competitive Exam Cell',
+    text: 'Special section equipped with standard reference guides for GATE, UPSC, MPSC, CAT, GRE, and PSU entrance tests.',
+  },
+  {
+    icon: <Users size={24} />,
+    title: 'Earn & Learn Scheme',
+    text: 'Encourages student self-reliance by offering paid library support duties to students from economically weaker backgrounds.',
+  },
+  {
+    icon: <BookOpen size={24} />,
+    title: 'Literature & Wellness Wing',
+    text: 'Extensive enrichment section featuring classic and contemporary Marathi literature, personal development, and sports/yoga treatises.',
+  },
+];
+
 export default function About() {
   const { site } = useLibrary();
 
-  // Official collection stats from SGGS Central Library
-  const libraryStats = [
-    { label: 'Total Volumes', value: '75,770' },
-    { label: 'Unique Titles', value: '23,438' },
-    { label: 'Bound Journal Volumes', value: '3,959' },
-    { label: 'Reading Hall Capacity', value: '250 Seats' },
-  ];
-
-  // Specific features & student initiatives
-  const features = [
-    {
-      icon: <Building2 size={24} />,
-      title: 'Independent 2-Story Block',
-      text: 'Housed in a standalone 1,126.66 sq. m. two-storied building surrounded by green lawns, dedicated entirely to study and research.',
-    },
-    {
-      icon: <Globe2 size={24} />,
-      title: 'KOHA & Web OPAC Automation',
-      text: 'Fully computerized operations with KOHA Integrated Library System, barcode-driven circulation, and campus-wide intranet OPAC lookup.',
-    },
-    {
-      icon: <Layers size={24} />,
-      title: 'SC / ST Book Bank Scheme',
-      text: 'Specialized book bank facilities allocating full semester textbook bundles to eligible students for uninterrupted home study.',
-    },
-    {
-      icon: <Award size={24} />,
-      title: 'Competitive Exam Cell',
-      text: 'Special section equipped with standard reference guides for GATE, UPSC, MPSC, CAT, GRE, and PSU entrance tests.',
-    },
-    {
-      icon: <Users size={24} />,
-      title: 'Earn & Learn Scheme',
-      text: 'Encourages student self-reliance by offering paid library support duties to students from economically weaker backgrounds.',
-    },
-    {
-      icon: <BookOpen size={24} />,
-      title: 'Literature & Wellness Wing',
-      text: 'Extensive enrichment section featuring classic and contemporary Marathi literature, personal development, and sports/yoga treatises.',
-    },
-  ];
-
-  // Major e-journal & e-book consortium packages
-  const eResourcePackages = [
-    { name: 'IEEE IEL Online', count: '464 E-Journals' },
-    { name: 'Springer Link', count: '586 Journals + 2,080 E-Books' },
-    { name: 'ScienceDirect (Elsevier)', count: '252 Core Subscriptions' },
-    { name: 'IEEE Wiley E-Books', count: '550 Titles' },
-    { name: 'DELNET & N-LIST', count: 'National Consortium Interlending' },
-    { name: 'ASCE & ASME', count: '52 Specialized Civil/Mech Journals' },
-  ];
+  const aboutData = site?.aboutData || {};
+  const libraryStats = aboutData.stats?.length ? aboutData.stats : defaultLibraryStats;
+  const eResourcePackages = aboutData.eResources?.length ? aboutData.eResources : defaultEResources;
+  const features = defaultFeatures;
 
   return (
     <>
-   <PageHero
+      <PageHero
         eyebrow="ABOUT THE LIBRARY"
-        title={
-          site?.aboutTitle ||
-          'Knowledge Center of SGGSIE&T'
-        }
+        title={aboutData.title || site?.aboutTitle || 'Knowledge Center of SGGSIE&T'}
         text={
+          aboutData.description ||
           site?.aboutDescription ||
           site?.about ||
           'Established in 1981, the Central Library supports engineering discovery, research innovation, and academic scholarship across Nanded.'
@@ -112,40 +111,33 @@ export default function About() {
         <div className="about-grid" style={{ marginBottom: '56px' }}>
           <div>
             <span className="eyebrow">OUR HERITAGE</span>
-            <h2>Serving Engineers & Researchers Since 1981</h2>
+            <h2>{aboutData.heritageHeading || 'Serving Engineers & Researchers Since 1981'}</h2>
             <p style={{ marginTop: '12px', lineHeight: 1.7, color: '#444' }}>
-              Situated in an independent, spacious two-storied building encompassing <strong>1,126.66 sq. m.</strong>, 
-              the Central Library serves over 3,300 registered students, faculty, and research scholars. 
-              The reading hall accommodates up to 250 students with quiet study zones and extended access during examinations.
+              {aboutData.heritageText ||
+                'Situated in an independent, spacious two-storied building encompassing 1,126.66 sq. m., the Central Library serves over 3,300 registered students, faculty, and research scholars. The reading hall accommodates up to 250 students with quiet study zones and extended access during examinations.'}
             </p>
-              <blockquote
-                style={{
-                  marginTop: '16px',
-                  padding: '12px 16px',
-                  borderLeft: '4px solid #0056b3',
-                  background: '#f8fafc',
-                  color: '#333',
-                  fontStyle: 'italic',
-                }}
-              >
-                {site?.aboutVision ||
-                  'To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services.'}
-              </blockquote>
-              {site?.aboutMission && (
-  <div style={{ marginTop: '20px' }}>
-    <span className="eyebrow">OUR MISSION</span>
-
-    <p
-      style={{
-        marginTop: '10px',
-        lineHeight: 1.7,
-        color: '#444'
-      }}
-    >
-      {site.aboutMission}
-    </p>
-  </div>
-)}
+            <blockquote
+              style={{
+                marginTop: '16px',
+                padding: '12px 16px',
+                borderLeft: '4px solid #0056b3',
+                background: '#f8fafc',
+                color: '#333',
+                fontStyle: 'italic',
+              }}
+            >
+              {aboutData.vision ||
+                site?.aboutVision ||
+                'To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services.'}
+            </blockquote>
+            {(aboutData.mission || site?.aboutMission) && (
+              <div style={{ marginTop: '20px' }}>
+                <span className="eyebrow">OUR MISSION</span>
+                <p style={{ marginTop: '10px', lineHeight: 1.7, color: '#444' }}>
+                  {aboutData.mission || site?.aboutMission}
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="about-cards">
@@ -194,13 +186,17 @@ export default function About() {
               <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', color: '#666', fontWeight: 600 }}>
                 Circulation Desk
               </span>
-              <p style={{ margin: '4px 0 0 0', fontWeight: 600 }}>09:30 AM – 06:00 PM</p>
+              <p style={{ margin: '4px 0 0 0', fontWeight: 600 }}>
+                {aboutData.circulationHours || '09:30 AM – 06:00 PM'}
+              </p>
             </div>
             <div>
               <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', color: '#666', fontWeight: 600 }}>
                 Reading Hall
               </span>
-              <p style={{ margin: '4px 0 0 0', fontWeight: 600 }}>09:30 AM – 10:00 PM</p>
+              <p style={{ margin: '4px 0 0 0', fontWeight: 600 }}>
+                {aboutData.readingHallHours || '09:30 AM – 10:00 PM'}
+              </p>
             </div>
           </div>
         </div>
