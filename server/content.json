@@ -1,95 +1,95 @@
 {
   "books": [
     {
-      "id": "b1",
+      "id": "b17900942455120",
       "title": "Data Structures Using C",
       "author": "Reema Thareja",
       "department": "Computer Science & Engineering",
       "year": 2024,
-      "isbn": "9780199478504",
-      "copies": 5,
+      "isbn": "9780199455681",
+      "copies": 4,
       "available": 3,
-      "rack": "CS-12",
-      "shelf": "03",
-      "description": "A practical introduction to data structures, algorithms and implementation using C."
+      "rack": "CS-01",
+      "shelf": "01",
+      "description": "Fundamentals of data structures and C programming."
     },
     {
-      "id": "b2",
+      "id": "b17900942455121",
       "title": "Operating System Concepts",
       "author": "Abraham Silberschatz",
       "department": "Computer Science & Engineering",
       "year": 2023,
-      "isbn": "9781119456339",
-      "copies": 4,
+      "isbn": "9781118063330",
+      "copies": 3,
       "available": 2,
-      "rack": "CS-08",
+      "rack": "CS-02",
       "shelf": "02",
-      "description": "Core operating-system concepts with examples and modern system design."
+      "description": "Concepts and principles of modern operating systems."
     },
     {
-      "id": "b3",
+      "id": "b17900942455122",
       "title": "Database System Concepts",
       "author": "Abraham Silberschatz",
       "department": "Computer Science & Engineering",
       "year": 2022,
       "isbn": "9780078022159",
-      "copies": 4,
+      "copies": 2,
       "available": 1,
-      "rack": "CS-15",
-      "shelf": "01",
-      "description": "Foundations of database architecture, SQL, transactions and storage."
+      "rack": "CS-03",
+      "shelf": "03",
+      "description": "Database management concepts, design and implementation."
     },
     {
-      "id": "b4",
+      "id": "b17900942455123",
       "title": "Engineering Mechanics",
       "author": "S. Timoshenko",
       "department": "Mechanical",
       "year": 2021,
-      "isbn": "9780070700044",
-      "copies": 6,
+      "isbn": "9780070700032",
+      "copies": 5,
       "available": 4,
-      "rack": "ME-07",
-      "shelf": "02",
-      "description": "Fundamental mechanics concepts for engineering students."
+      "rack": "ME-01",
+      "shelf": "01",
+      "description": "Engineering mechanics fundamentals and applications."
     },
     {
-      "id": "b5",
+      "id": "b17900942455124",
       "title": "Signals and Systems",
       "author": "Alan V. Oppenheim",
       "department": "Electronics",
       "year": 2022,
       "isbn": "9780138147570",
-      "copies": 5,
+      "copies": 3,
       "available": 2,
-      "rack": "EC-09",
+      "rack": "EC-01",
       "shelf": "01",
-      "description": "Signals, systems, transforms and continuous/discrete-time analysis."
+      "description": "Signals, systems and their analysis."
     },
     {
-      "id": "b6",
+      "id": "b17900942455125",
       "title": "Power System Analysis",
       "author": "Hadi Saadat",
       "department": "Electrical",
       "year": 2022,
-      "isbn": "9780073404559",
-      "copies": 3,
+      "isbn": "9780071364335",
+      "copies": 2,
       "available": 1,
-      "rack": "EE-10",
-      "shelf": "04",
-      "description": "Power-system modeling, analysis and operation."
+      "rack": "EE-01",
+      "shelf": "01",
+      "description": "Analysis and operation of electrical power systems."
     },
     {
-      "id": "b7",
+      "id": "b17900942455126",
       "title": "Structural Analysis",
-      "author": "R.C. Hibbeler",
+      "author": "R. C. Hibbeler",
       "department": "Civil",
-      "year": 2022,
+      "year": 2023,
       "isbn": "9780134610672",
       "copies": 4,
-      "available": 2,
-      "rack": "CE-05",
+      "available": 3,
+      "rack": "CE-01",
       "shelf": "01",
-      "description": "Analysis of trusses, beams, frames and structural systems."
+      "description": "Introduction to structural analysis and engineering applications."
     }
   ],
   "departments": [
@@ -377,8 +377,8 @@
     },
     {
       "id": "a3",
-      "title": "SGGS Faculty Publications",
-      "text": "Explore books and scholarly works published by SGGS faculty members.",
+      "title": "Institute Faculty Publications",
+      "text": "Explore books and scholarly works published by Shri Guru Gobind Singhji Institute faculty members.",
       "date": "01 Sep 2026",
       "tag": "Publication",
       "image": "/images/bookshelves.jpg",
@@ -389,7 +389,7 @@
     {
       "id": "pub1",
       "title": "Advances in Sustainable Engineering",
-      "author": "SGGS Faculty",
+      "author": "Institute Faculty",
       "department": "Chemical",
       "year": 2025,
       "publisher": "Academic Press",
@@ -399,7 +399,7 @@
     {
       "id": "pub2",
       "title": "Modern Embedded Systems",
-      "author": "SGGS Faculty",
+      "author": "Institute Faculty",
       "department": "Electronics",
       "year": 2024,
       "publisher": "Tech Knowledge Press",
@@ -409,7 +409,7 @@
     {
       "id": "pub3",
       "title": "Applied Manufacturing Systems",
-      "author": "SGGS Faculty",
+      "author": "Institute Faculty",
       "department": "Production",
       "year": 2024,
       "publisher": "Engineering Publications",
@@ -419,13 +419,13 @@
   ],
   "site": {
     "heroTitle": "Knowledge. Discovery. Innovation.",
-    "heroSubtitle": "The SGGS Central Library is a modern academic gateway for books, digital resources, examination archives and faculty publications.",
-    "heroImage": "/uploads/bookshelves-629ad3fa93.jpg",
+    "heroSubtitle": "The Central Library of Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded is a modern academic gateway for books, digital resources, examination archives and faculty publications.",
+    "heroImage": "/images/library-hero.webp",
     "logo": "/images/sggs-logo.jpeg",
     "video": "/library-tour.mp4",
     "contactPhone": "02462 269234",
     "contactEmail": "library@sggs.ac.in",
-    "address": "SGGS Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606",
-    "about": "The Central Library supports teaching, learning and research by connecting the SGGS community with curated print and digital knowledge resources."
+    "address": "Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606",
+    "about": "The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources."
   }
 }
