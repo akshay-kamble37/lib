@@ -1,19 +1,30 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+
 import Layout from './components/Layout';
 import { useLibrary } from './context/LibraryContext';
+
+// Public Pages
 import Home from './pages/public/Home';
 import Catalogue from './pages/public/Catalogue';
 import BookDetails from './pages/public/BookDetails';
+
 import EResources from './pages/public/EResources';
+import EResourceDetails from './pages/public/EResourceDetails';
+
 import QuestionPapers from './pages/public/QuestionPapers';
 import Departments from './pages/public/Departments';
 import DepartmentDetails from './pages/public/DepartmentDetails';
 import Publications from './pages/public/Publications';
+import PublicationDetails from './pages/public/PublicationDetails';
 import Announcements from './pages/public/Announcements';
 import About from './pages/public/About';
 import Contact from './pages/public/Contact';
+
+// Authentication
 import Login from './pages/Auth';
+
+// Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminOverview from './pages/admin/AdminOverview';
 import HomepageEditor from './pages/admin/HomepageEditor';
@@ -37,6 +48,7 @@ function Protected({ children }) {
   }
   return user?.role === 'admin' ? children : <Navigate to="/login" replace />;
 }
+
 
 export default function App() {
   return (
