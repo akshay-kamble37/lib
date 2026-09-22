@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Plus, Trash2, UserCheck, Save, MapPin, Phone, Mail } from 'lucide-react';
+import {
+  Save,
+  RotateCcw,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+} from 'lucide-react';
+
 import { useLibrary } from '../../context/LibraryContext';
+
 import {
   ManagerForm,
-  DataTable,
   Field,
   AdminPage,
 } from '../../components/admin';
 
 const emptyForm = {
-  name: '',
-  role: '',
-  designation: '',
-  phone1: '',
-  phone2: '',
-  email: '',
+  contactPhone: '',
+  contactEmail: '',
+  address: '',
+  officeHours: '',
 };
 
 export default function ManageContacts() {
@@ -29,551 +35,388 @@ export default function ManageContacts() {
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
 
-  const [contactInfo, setContactInfo] = useState({
-    address: '',
-    contactPhone: '',
-    contactEmail: '',
-  });
+  const isSaving =
+    saving || contentSaving;
 
-  const [savingContactInfo, setSavingContactInfo] = useState(false);
-
-  const contacts = Array.isArray(site?.contacts)
-    ? site.contacts
-    : [];
-
-  /* --------------------------------
-     Load Contact Information
-  -------------------------------- */
+  /*
+   * Load the current contact information
+   * whenever the site content becomes available.
+   */
   useEffect(() => {
-    setContactInfo({
-      address: site?.address || '',
-      contactPhone: site?.contactPhone || '',
-      contactEmail: site?.contactEmail || '',
-    });
-  }, [site?.address, site?.contactPhone, site?.contactEmail]);
+    setForm({
+      contactPhone:
+        site?.contactPhone || '',
 
-  /* --------------------------------
-     Contact Person Form
-  -------------------------------- */
-  const update = (field, value) => {
+      contactEmail:
+        site?.contactEmail || '',
+
+      address:
+        site?.address || '',
+
+      /*
+       * officeHours is optional because it may not
+       * exist in the original defaultSite object.
+       */
+      officeHours:
+        site?.officeHours || '',
+    });
+  }, [
+    site?.contactPhone,
+    site?.contactEmail,
+    site?.address,
+    site?.officeHours,
+  ]);
+
+  const updateField = (
+    field,
+    value
+  ) => {
     setForm((current) => ({
       ...current,
       [field]: value,
     }));
   };
 
-  const resetForm = () => {
-    setForm(emptyForm);
-  };
-
-  /* --------------------------------
-     General Contact Information
-  -------------------------------- */
-  const updateContactInfo = (field, value) => {
-    setContactInfo((current) => ({
-      ...current,
-      [field]: value,
-    }));
-  };
-
-  const saveContactInformation = async (event) => {
+  const saveContacts = async (
+    event
+  ) => {
     event.preventDefault();
 
-    if (!contactInfo.address.trim()) {
-      setToast('Address is required');
-      return;
-    }
+    const nextSite = {
+      ...(site || {}),
 
-    if (!contactInfo.contactPhone.trim()) {
-      setToast('Contact phone number is required');
-      return;
-    }
+      contactPhone:
+        form.contactPhone.trim(),
 
-    if (!contactInfo.contactEmail.trim()) {
-      setToast('Official email is required');
-      return;
-    }
+      contactEmail:
+        form.contactEmail.trim(),
 
-    setSavingContactInfo(true);
+      address:
+        form.address.trim(),
+
+      /*
+       * Only add officeHours when the field
+       * has actually been entered.
+       */
+      ...(form.officeHours.trim()
+        ? {
+            officeHours:
+              form.officeHours.trim(),
+          }
+        : {}),
+    };
+
+    setSaving(true);
 
     try {
-      const nextSite = {
-        ...site,
-        address: contactInfo.address.trim(),
-        contactPhone: contactInfo.contactPhone.trim(),
-        contactEmail: contactInfo.contactEmail.trim(),
-      };
-
-      setSite(nextSite);
-
+      /*
+       * Save to backend first.
+       * React state is changed only after the
+       * backend confirms the save.
+       */
       await saveContent({
         site: nextSite,
       });
 
-      setToast('Contact information updated successfully');
-    } catch (error) {
-      console.error('Contact information save failed:', error);
+      setSite(nextSite);
 
       setToast(
-        error?.message ||
-          'Unable to update contact information'
+        'Contact information saved successfully'
       );
-    } finally {
-      setSavingContactInfo(false);
-    }
-  };
-
-  /* --------------------------------
-     Add Contact Person
-  -------------------------------- */
-  const saveContacts = async (nextContacts) => {
-    const nextSite = {
-      ...site,
-      contacts: nextContacts,
-    };
-
-    setSite(nextSite);
-
-    await saveContent({
-      site: nextSite,
-    });
-  };
-
-  const addContact = async (event) => {
-    event.preventDefault();
-
-    if (!form.name.trim()) {
-      setToast('Contact name is required');
-      return;
-    }
-
-    if (!form.role.trim()) {
-      setToast('Contact role is required');
-      return;
-    }
-
-    setSaving(true);
-
-    try {
-      const newContact = {
-        id: `contact-${Date.now()}`,
-        name: form.name.trim(),
-        role: form.role.trim(),
-        designation: form.designation.trim(),
-        phone1: form.phone1.trim(),
-        phone2: form.phone2.trim(),
-        email: form.email.trim(),
-      };
-
-      await saveContacts([
-        ...contacts,
-        newContact,
-      ]);
-
-      resetForm();
-
-      setToast('Contact added successfully');
-    } catch (error) {
-      console.error('Contact save failed:', error);
-
-      setToast(
-        error?.message ||
-          'Unable to save contact'
-      );
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  /* --------------------------------
-     Delete Contact Person
-  -------------------------------- */
-  const removeContact = async (id) => {
-    const contact = contacts.find(
-      (item) => item.id === id
-    );
-
-    if (!contact) return;
-
-    const confirmed = window.confirm(
-      `Remove "${contact.name}" from the Contact Us page?`
-    );
-
-    if (!confirmed) return;
-
-    setSaving(true);
-
-    try {
-      await saveContacts(
-        contacts.filter(
-          (item) => item.id !== id
-        )
-      );
-
-      setToast('Contact removed successfully');
     } catch (error) {
       console.error(
-        'Contact removal failed:',
+        'Failed to save contact information:',
         error
       );
 
       setToast(
         error?.message ||
-          'Unable to remove contact'
+          'Contact information could not be saved'
       );
     } finally {
       setSaving(false);
     }
   };
 
+  const resetForm = () => {
+    setForm({
+      contactPhone:
+        site?.contactPhone || '',
+
+      contactEmail:
+        site?.contactEmail || '',
+
+      address:
+        site?.address || '',
+
+      officeHours:
+        site?.officeHours || '',
+    });
+
+    setToast(
+      'Contact form restored'
+    );
+  };
+
   return (
     <AdminPage
-      eyebrow="CONTACT MANAGEMENT"
-      title="Manage Contact Us"
+      eyebrow="LIBRARY INFORMATION"
+      title="Manage Contacts"
+      description="Update the Central Library contact details displayed across the public website."
     >
-
-      {/* =========================================
-          GENERAL CONTACT INFORMATION
-      ========================================= */}
       <ManagerForm
-        title="General Contact Information"
-        onSubmit={saveContactInformation}
+        title="Library contact information"
+        onSubmit={saveContacts}
       >
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px',
-            marginBottom: '20px',
-          }}
-        >
-
-          {/* Address */}
-          <Field label="Address" required>
+        <div className="form-two">
+          <Field label="Contact Phone">
             <div
               style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '10px',
-              }}
-            >
-              <MapPin
-                size={18}
-                style={{
-                  marginTop: '10px',
-                  flexShrink: 0,
-                }}
-              />
-
-              <textarea
-                required
-                rows={4}
-                value={contactInfo.address}
-                placeholder="Enter library address"
-                onChange={(e) =>
-                  updateContactInfo(
-                    'address',
-                    e.target.value
-                  )
-                }
-                style={{
-                  width: '100%',
-                  resize: 'vertical',
-                }}
-              />
-            </div>
-          </Field>
-
-          {/* Phone */}
-          <Field
-            label="Contact Phone Number"
-            required
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
+                position: 'relative',
               }}
             >
               <Phone
-                size={18}
-                style={{ flexShrink: 0 }}
+                size={16}
+                style={{
+                  position: 'absolute',
+                  left: '12px',
+                  top: '50%',
+                  transform:
+                    'translateY(-50%)',
+                  opacity: 0.6,
+                  pointerEvents: 'none',
+                }}
               />
 
               <input
                 type="tel"
-                required
-                value={contactInfo.contactPhone}
-                placeholder="Enter contact phone number"
-                onChange={(e) =>
-                  updateContactInfo(
+                value={
+                  form.contactPhone
+                }
+                onChange={(event) =>
+                  updateField(
                     'contactPhone',
-                    e.target.value
+                    event.target.value
                   )
                 }
+                placeholder="02462 269234"
+                style={{
+                  paddingLeft: '38px',
+                }}
               />
             </div>
           </Field>
 
-          {/* Email */}
-          <Field
-            label="Official Email"
-            required
-          >
+          <Field label="Contact Email">
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
+                position: 'relative',
               }}
             >
               <Mail
-                size={18}
-                style={{ flexShrink: 0 }}
+                size={16}
+                style={{
+                  position: 'absolute',
+                  left: '12px',
+                  top: '50%',
+                  transform:
+                    'translateY(-50%)',
+                  opacity: 0.6,
+                  pointerEvents: 'none',
+                }}
               />
 
               <input
                 type="email"
-                required
-                value={contactInfo.contactEmail}
-                placeholder="example@sggs.ac.in"
-                onChange={(e) =>
-                  updateContactInfo(
+                value={
+                  form.contactEmail
+                }
+                onChange={(event) =>
+                  updateField(
                     'contactEmail',
-                    e.target.value
+                    event.target.value
                   )
                 }
+                placeholder="library@sggs.ac.in"
+                style={{
+                  paddingLeft: '38px',
+                }}
               />
             </div>
           </Field>
-
         </div>
 
-        <button
-          type="submit"
-          className="primary-btn full"
-          disabled={
-            savingContactInfo ||
-            contentSaving
-          }
+        <Field label="Library Address">
+          <div
+            style={{
+              position: 'relative',
+            }}
+          >
+            <MapPin
+              size={16}
+              style={{
+                position: 'absolute',
+                left: '12px',
+                top: '16px',
+                opacity: 0.6,
+                pointerEvents: 'none',
+              }}
+            />
+
+            <textarea
+              rows="4"
+              value={
+                form.address
+              }
+              onChange={(event) =>
+                updateField(
+                  'address',
+                  event.target.value
+                )
+              }
+              placeholder="Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606"
+              style={{
+                paddingLeft: '38px',
+              }}
+            />
+          </div>
+        </Field>
+
+        <Field label="Library Office Hours">
+          <div
+            style={{
+              position: 'relative',
+            }}
+          >
+            <Clock
+              size={16}
+              style={{
+                position: 'absolute',
+                left: '12px',
+                top: '16px',
+                opacity: 0.6,
+                pointerEvents: 'none',
+              }}
+            />
+
+            <textarea
+              rows="3"
+              value={
+                form.officeHours
+              }
+              onChange={(event) =>
+                updateField(
+                  'officeHours',
+                  event.target.value
+                )
+              }
+              placeholder="Monday - Friday: 9:00 AM - 5:00 PM"
+              style={{
+                paddingLeft: '38px',
+              }}
+            />
+          </div>
+        </Field>
+
+        <div
+          style={{
+            display: 'flex',
+            gap: '10px',
+          }}
         >
-          <Save size={17} />
+          <button
+            type="submit"
+            className="primary-btn full"
+            disabled={isSaving}
+          >
+            <Save size={17} />
 
-          {savingContactInfo ||
-          contentSaving
-            ? 'Saving…'
-            : 'Save Contact Information'}
-        </button>
+            {isSaving
+              ? 'Saving contact information...'
+              : 'Save Contact Information'}
+          </button>
 
+          <button
+            type="button"
+            className="secondary-btn"
+            disabled={isSaving}
+            onClick={resetForm}
+          >
+            <RotateCcw size={16} />
+            Reset
+          </button>
+        </div>
       </ManagerForm>
 
-
-      {/* =========================================
-          ADD CONTACT PERSON
-      ========================================= */}
-      <ManagerForm
-        title="Add Contact Person"
-        onSubmit={addContact}
+      <section
+        className="portal-panel"
+        style={{
+          marginTop: '24px',
+        }}
       >
-
-        <div className="form-two">
-
-          <Field label="Name" required>
-            <input
-              required
-              value={form.name}
-              placeholder="Enter contact person's name"
-              onChange={(e) =>
-                update(
-                  'name',
-                  e.target.value
-                )
-              }
-            />
-          </Field>
-
-          <Field label="Role" required>
-            <input
-              required
-              value={form.role}
-              placeholder="Faculty In-charge / Librarian / Help Desk"
-              onChange={(e) =>
-                update(
-                  'role',
-                  e.target.value
-                )
-              }
-            />
-          </Field>
-
-        </div>
-
-        <Field label="Designation">
-          <input
-            value={form.designation}
-            placeholder="Professor / Librarian / Library Assistant"
-            onChange={(e) =>
-              update(
-                'designation',
-                e.target.value
-              )
-            }
-          />
-        </Field>
-
-        <div className="form-two">
-
-          <Field label="Phone Number 1">
-            <input
-              type="tel"
-              value={form.phone1}
-              placeholder="Enter phone number"
-              onChange={(e) =>
-                update(
-                  'phone1',
-                  e.target.value
-                )
-              }
-            />
-          </Field>
-
-          <Field label="Phone Number 2">
-            <input
-              type="tel"
-              value={form.phone2}
-              placeholder="Optional second number"
-              onChange={(e) =>
-                update(
-                  'phone2',
-                  e.target.value
-                )
-              }
-            />
-          </Field>
-
-        </div>
-
-        <Field label="Email">
-          <input
-            type="email"
-            value={form.email}
-            placeholder="example@sggs.ac.in"
-            onChange={(e) =>
-              update(
-                'email',
-                e.target.value
-              )
-            }
-          />
-        </Field>
-
-        <button
-          type="submit"
-          className="primary-btn full"
-          disabled={
-            saving ||
-            contentSaving
-          }
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '12px',
+          }}
         >
-          <Plus size={17} />
+          <MapPin size={20} />
 
-          {saving ||
-          contentSaving
-            ? 'Saving…'
-            : 'Add Contact'}
-        </button>
+          <div>
+            <h3>
+              Current contact details
+            </h3>
 
-      </ManagerForm>
+            <p>
+              These values are stored inside
+              the site's content and are used
+              by the public library pages.
+            </p>
 
-
-      {/* =========================================
-          CONTACT PERSON LIST
-      ========================================= */}
-      <DataTable
-        headers={[
-          'Contact Person',
-          'Role',
-          'Phone',
-          'Email',
-          'Action',
-        ]}
-        rows={contacts.map((contact) => (
-          <React.Fragment key={contact.id}>
-
-            <td>
-              <b>{contact.name}</b>
-
-              {contact.designation && (
-                <small>
-                  {contact.designation}
-                </small>
-              )}
-            </td>
-
-            <td>
-              {contact.role || '—'}
-            </td>
-
-            <td>
+            <div
+              style={{
+                display: 'grid',
+                gap: '8px',
+                marginTop: '14px',
+              }}
+            >
               <div>
-                {contact.phone1 || '—'}
+                <strong>
+                  Phone:
+                </strong>{' '}
+                {site?.contactPhone ||
+                  'Not configured'}
               </div>
 
-              {contact.phone2 && (
-                <small>
-                  {contact.phone2}
-                </small>
+              <div>
+                <strong>
+                  Email:
+                </strong>{' '}
+                {site?.contactEmail ||
+                  'Not configured'}
+              </div>
+
+              <div>
+                <strong>
+                  Address:
+                </strong>{' '}
+                {site?.address ||
+                  'Not configured'}
+              </div>
+
+              {site?.officeHours && (
+                <div>
+                  <strong>
+                    Office Hours:
+                  </strong>{' '}
+                  {site.officeHours}
+                </div>
               )}
-            </td>
-
-            <td>
-              {contact.email || '—'}
-            </td>
-
-            <td>
-              <button
-                type="button"
-                className="danger"
-                title={`Remove ${contact.name}`}
-                disabled={
-                  saving ||
-                  contentSaving
-                }
-                onClick={() =>
-                  removeContact(contact.id)
-                }
-              >
-                <Trash2 size={14} />
-              </button>
-            </td>
-
-          </React.Fragment>
-        ))}
-      />
-
-      {contacts.length === 0 && (
-        <div
-          className="portal-panel"
-          style={{ marginTop: '20px' }}
-        >
-          <UserCheck size={22} />
-
-          <h3>
-            No contact persons added
-          </h3>
-
-          <p>
-            Add the first contact person
-            using the form above. The person
-            will automatically appear on the
-            public Contact Us page.
-          </p>
+            </div>
+          </div>
         </div>
-      )}
-
+      </section>
     </AdminPage>
   );
 }

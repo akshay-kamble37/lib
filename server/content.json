@@ -1,19 +1,6 @@
 {
   "books": [
     {
-      "id": "b1",
-      "title": "Data Structures Using C",
-      "author": "Reema Thareja",
-      "department": "Computer Science & Engineering",
-      "year": 2024,
-      "isbn": "9780199478504",
-      "copies": 5,
-      "available": 3,
-      "rack": "CS-12",
-      "shelf": "03",
-      "description": "A practical introduction to data structures, algorithms and implementation using C."
-    },
-    {
       "id": "b2",
       "title": "Operating System Concepts",
       "author": "Abraham Silberschatz",
@@ -25,6 +12,19 @@
       "rack": "CS-08",
       "shelf": "02",
       "description": "Core operating-system concepts with examples and modern system design."
+    },
+    {
+      "id": "b1",
+      "title": "Data Structures Using C",
+      "author": "Reema Thareja",
+      "department": "Computer Science & Engineering",
+      "year": 2024,
+      "isbn": "9780199478504",
+      "copies": 5,
+      "available": 3,
+      "rack": "CS-12",
+      "shelf": "03",
+      "description": "A practical introduction to data structures, algorithms and implementation using C."
     },
     {
       "id": "b3",
