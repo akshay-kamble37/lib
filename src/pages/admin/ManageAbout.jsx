@@ -32,6 +32,7 @@ export default function ManageAbout() {
     mission: currentAbout.mission || site?.aboutMission || '',
     circulationHours: currentAbout.circulationHours || '09:30 AM – 06:00 PM',
     readingHallHours: currentAbout.readingHallHours || '09:30 AM – 10:00 PM',
+    volumeCardText: currentAbout.volumeCardText || 'Massive repository of technical textbooks, handbooks, and references.',
   });
 
   const [stats, setStats] = useState(currentAbout.stats?.length ? currentAbout.stats : initialStats);
@@ -119,7 +120,10 @@ export default function ManageAbout() {
         {/* Statistics Editor */}
         <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '20px', marginBottom: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Library Key Statistics</h3>
+            <div>
+              <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Library Key Statistics</h3>
+              <small style={{ color: '#64748b' }}>The "Total Volumes" value will automatically sync to the About highlight card.</small>
+            </div>
             <button
               type="button"
               onClick={addStat}
@@ -131,7 +135,7 @@ export default function ManageAbout() {
                 background: '#f1f5f9',
                 border: '1px solid #cbd5e1',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
               }}
             >
               <Plus size={16} /> Add Stat
@@ -210,6 +214,16 @@ export default function ManageAbout() {
                 value={formData.mission}
                 onChange={handleChange}
                 rows={2}
+                style={{ width: '100%', padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontWeight: 600, fontSize: '0.85rem', marginBottom: '4px' }}>Volume Card Description (Side Panel)</label>
+              <input
+                type="text"
+                name="volumeCardText"
+                value={formData.volumeCardText}
+                onChange={handleChange}
                 style={{ width: '100%', padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
               />
             </div>
