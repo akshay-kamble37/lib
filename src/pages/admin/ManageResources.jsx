@@ -7,17 +7,13 @@ import {
 } from 'lucide-react';
 
 import { useLibrary } from '../../context/LibraryContext';
+
 import {
-  Plus,
-  Trash2,
-  Edit3,
-  ChevronUp,
-  ChevronDown,
-  Save,
-  X,
-} from 'lucide-react';
-import { useLibrary } from '../../context/LibraryContext';
-import { ManagerForm, DataTable, Field, AdminPage } from '../../components/admin';
+  ManagerForm,
+  DataTable,
+  Field,
+  AdminPage
+} from '../../components/admin';
 
 const emptyForm = {
   name: '',
@@ -32,6 +28,43 @@ const emptyForm = {
   itemLabel: 'E-Journals'
 };
 
+const buildResource = (form, id) => ({
+  id,
+  name: form.name.trim(),
+  url: form.url.trim(),
+  category: form.category,
+
+  description:
+    form.description.trim() ||
+    'Academic resource maintained by SGGS Central Library.',
+
+  detailedDescription:
+    form.detailedDescription.trim() ||
+    form.description.trim() ||
+    'Academic resource maintained by SGGS Central Library.',
+
+  features: form.features
+    .split('\n')
+    .map((item) => item.trim())
+    .filter(Boolean),
+
+  audience:
+    form.audience.trim() ||
+    'Students, faculty members and researchers',
+
+  accessInfo:
+    form.accessInfo.trim() ||
+    'Visit the official resource website to access the available academic content.',
+
+  itemCount:
+    form.itemCount === ''
+      ? 0
+      : Number(form.itemCount),
+
+  itemLabel:
+    form.itemLabel.trim() || 'Resources'
+});
+
 export default function ManageResources() {
   const {
     resources = [],
@@ -40,7 +73,10 @@ export default function ManageResources() {
     saveContent
   } = useLibrary();
 
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState({
+    ...emptyForm
+  });
+
   const [editingId, setEditingId] = useState(null);
 
   const updateField = (field, value) => {
@@ -50,61 +86,57 @@ export default function ManageResources() {
     }));
   };
 
-  const add = async (e) => {
-    e.preventDefault();
+  const resetForm = () => {
+    setEditingId(null);
+    setForm({
+      ...emptyForm
+    });
+  };
+
+  const persistResources = async (
+    nextResources,
+    message
+  ) => {
+    setResources(nextResources);
+
+    try {
+      await saveContent({
+        resources: nextResources
+      });
+
+      setToast(message);
+    } catch (error) {
+      console.error(
+        'RESOURCE_SAVE_ERROR',
+        error
+      );
+    }
+  };
+
+  const add = async (event) => {
+    event.preventDefault();
 
     if (!form.name.trim()) {
       setToast('Resource name is required');
       return;
     }
 
-    const resourceData = {
-      name: form.name.trim(),
-      url: form.url.trim(),
-      category: form.category,
-      description:
-        form.description.trim() ||
-        'Academic resource maintained by SGGS Central Library.',
-      detailedDescription:
-        form.detailedDescription.trim() ||
-        form.description.trim() ||
-        'Academic resource maintained by SGGS Central Library.',
-      features: form.features
-        .split('\n')
-        .map((item) => item.trim())
-        .filter(Boolean),
-      audience:
-        form.audience.trim() ||
-        'Students, faculty members and researchers',
-      accessInfo:
-        form.accessInfo.trim() ||
-        'Visit the official resource website to access the available academic content.',
-      itemCount:
-        form.itemCount === ''
-          ? 0
-          : Number(form.itemCount),
-      itemLabel:
-        form.itemLabel.trim() || 'Resources'
-    };
+    const newResource = buildResource(
+      form,
+      `r${Date.now()}`
+    );
 
     const nextResources = [
       newResource,
       ...resources
     ];
 
-    setResources(nextResources);
+    await persistResources(
+      nextResources,
+      'Resource added'
+    );
 
-    await saveContent({
-      resources: nextResources
-    });
-
-  const removeResource = async (id) => {
-    const resource = resources.find((item) => item.id === id);
-    if (!resource) return;
-    if (!window.confirm(`Remove "${resource.name}"?`)) return;
-
-    await persist(resources.filter((item) => item.id !== id), 'Resource removed successfully');
-    if (editingId === id) resetForm();
+    resetForm();
   };
 
   const startEdit = (resource) => {
@@ -113,20 +145,32 @@ export default function ManageResources() {
     setForm({
       name: resource.name || '',
       url: resource.url || '',
-      category: resource.category || 'Academic Database',
-      description: resource.description || '',
+      category:
+        resource.category ||
+        'Academic Database',
+
+      description:
+        resource.description || '',
+
       detailedDescription:
         resource.detailedDescription || '',
+
       features: Array.isArray(resource.features)
         ? resource.features.join('\n')
         : '',
-      audience: resource.audience || '',
-      accessInfo: resource.accessInfo || '',
+
+      audience:
+        resource.audience || '',
+
+      accessInfo:
+        resource.accessInfo || '',
+
       itemCount:
         resource.itemCount !== undefined &&
         resource.itemCount !== null
           ? String(resource.itemCount)
           : '',
+
       itemLabel:
         resource.itemLabel || 'Resources'
     });
@@ -138,84 +182,66 @@ export default function ManageResources() {
   };
 
   const cancelEdit = () => {
-    setEditingId(null);
-    setForm(emptyForm);
+    resetForm();
   };
 
-  const updateResource = async (e) => {
-    e.preventDefault();
+  const updateResource = async (event) => {
+    event.preventDefault();
 
     if (!editingId || !form.name.trim()) {
       return;
     }
 
-    const updatedResources = resources.map(
-      (resource) => {
+    const updatedResources =
+      resources.map((resource) => {
         if (resource.id !== editingId) {
           return resource;
         }
 
-        return {
-          ...resource,
-          name: form.name.trim(),
-          url: form.url.trim(),
-          category: form.category,
-          description:
-            form.description.trim() ||
-            'Academic resource maintained by SGGS Central Library.',
-          detailedDescription:
-            form.detailedDescription.trim() ||
-            form.description.trim() ||
-            'Academic resource maintained by SGGS Central Library.',
-          features: form.features
-            .split('\n')
-            .map((item) => item.trim())
-            .filter(Boolean),
-          audience:
-            form.audience.trim() ||
-            'Students, faculty members and researchers',
-          accessInfo:
-            form.accessInfo.trim() ||
-            'Visit the official resource website to access the available academic content.',
-          itemCount:
-            form.itemCount === ''
-              ? 0
-              : Number(form.itemCount),
-          itemLabel:
-            form.itemLabel.trim() || 'Resources'
-        };
-      }
+        return buildResource(
+          form,
+          resource.id
+        );
+      });
+
+    await persistResources(
+      updatedResources,
+      'Resource updated'
     );
 
-    setResources(updatedResources);
-
-    await saveContent({
-      resources: updatedResources
-    });
-
-    setEditingId(null);
-    setForm(emptyForm);
-
-    setToast('Resource updated');
+    resetForm();
   };
 
   const removeResource = async (id) => {
-    const updatedResources = resources.filter(
-      (resource) => resource.id !== id
+    const resource = resources.find(
+      (item) => item.id === id
     );
 
-    setResources(updatedResources);
-
-    await saveContent({
-      resources: updatedResources
-    });
-
-    if (editingId === id) {
-      setEditingId(null);
-      setForm(emptyForm);
+    if (!resource) {
+      return;
     }
 
-    setToast('Resource removed');
+    const confirmed = window.confirm(
+      `Remove "${resource.name}"?`
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    const updatedResources =
+      resources.filter(
+        (item) => item.id !== id
+      );
+
+    await persistResources(
+      updatedResources,
+      'Resource removed'
+    );
+
+    if (editingId === id) {
+      resetForm();
+    }
   };
 
   return (
@@ -239,43 +265,47 @@ export default function ManageResources() {
           <input
             required
             value={form.name}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'name',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="e.g. IEEE Xplore"
           />
         </Field>
+
         <Field label="URL">
           <input
             value={form.url}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'url',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="https://example.com"
           />
         </Field>
+
         <Field label="Category">
           <select
             value={form.category}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'category',
-                e.target.value
+                event.target.value
               )
             }
           >
             <option>
               Academic Database
             </option>
+
             <option>
               Engineering Database
             </option>
+
             <option>
               Discovery
             </option>
@@ -287,10 +317,10 @@ export default function ManageResources() {
             type="number"
             min="0"
             value={form.itemCount}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'itemCount',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="e.g. 464"
@@ -300,10 +330,10 @@ export default function ManageResources() {
         <Field label="Count Label">
           <input
             value={form.itemLabel}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'itemLabel',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="e.g. E-Journals"
@@ -314,26 +344,38 @@ export default function ManageResources() {
           <textarea
             rows="3"
             value={form.description}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'description',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="Short description shown on the resource card."
           />
         </Field>
+
         <Field label="Detailed Description">
-          <textarea rows="5" value={form.detailedDescription} onChange={(e) => updateField('detailedDescription', e.target.value)} />
+          <textarea
+            rows="5"
+            value={form.detailedDescription}
+            onChange={(event) =>
+              updateField(
+                'detailedDescription',
+                event.target.value
+              )
+            }
+            placeholder="Detailed information shown on the resource details page."
+          />
         </Field>
+
         <Field label="Features">
           <textarea
             rows="5"
             value={form.features}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'features',
-                e.target.value
+                event.target.value
               )
             }
             placeholder={
@@ -341,26 +383,28 @@ export default function ManageResources() {
             }
           />
         </Field>
+
         <Field label="Suitable For">
           <input
             value={form.audience}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'audience',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="e.g. Engineering students and researchers"
           />
         </Field>
+
         <Field label="Access Information">
           <textarea
             rows="4"
             value={form.accessInfo}
-            onChange={(e) =>
+            onChange={(event) =>
               updateField(
                 'accessInfo',
-                e.target.value
+                event.target.value
               )
             }
             placeholder="Explain how users should access the resource."
@@ -459,13 +503,13 @@ export default function ManageResources() {
                 </button>
 
                 <button
+                  type="button"
                   className="danger"
                   onClick={() =>
                     removeResource(
                       resource.id
                     )
                   }
-                  type="button"
                   title="Remove resource"
                 >
                   <Trash2 size={14} />
