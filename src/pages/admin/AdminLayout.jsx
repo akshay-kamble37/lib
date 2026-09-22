@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, Database, FileText, Megaphone, BookMarked, Building2, LogOut, Home } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Database, FileText, Megaphone, BookMarked, Building2, LogOut, Home, PhoneCall, Info } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 
 export default function AdminLayout() {
@@ -9,12 +9,14 @@ export default function AdminLayout() {
   const links = [
     ['/admin', 'Dashboard', LayoutDashboard],
     ['/admin/homepage', 'Homepage', Home],
+    ['/admin/about', 'About Page', Info],
     ['/admin/books', 'Catalogue', BookOpen],
     ['/admin/resources', 'E-Resources', Database],
     ['/admin/papers', 'Question Papers', FileText],
     ['/admin/publications', 'Publications', BookMarked],
     ['/admin/announcements', "What's New", Megaphone],
-    ['/admin/departments', 'Departments', Building2]
+    ['/admin/departments', 'Departments', Building2],
+    ['/admin/contacts', 'Contacts', PhoneCall]
   ];
   const handleLogout = async () => { await logout(); window.location.href = '/'; };
   return <div className="portal">

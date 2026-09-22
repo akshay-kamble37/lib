@@ -23,39 +23,58 @@ import ManagePapers from './pages/admin/ManagePapers';
 import ManageAnnouncements from './pages/admin/ManageAnnouncements';
 import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
+import ManageContacts from './pages/admin/ManageContacts';
+import ManageAbout from './pages/admin/ManageAbout';
 
 function Protected({ children }) {
   const { user, authReady } = useLibrary();
-  if (!authReady) return <div className="route-loading"><span className="loading-spinner" /> Checking administrator session…</div>;
+  if (!authReady) {
+    return (
+      <div className="route-loading">
+        <span className="loading-spinner" /> Checking administrator session…
+      </div>
+    );
+  }
   return user?.role === 'admin' ? children : <Navigate to="/login" replace />;
 }
 
 export default function App() {
-  return <Routes>
-    <Route element={<Layout />}>
-      <Route path="/" element={<Home />} />
-      <Route path="/catalogue" element={<Catalogue />} />
-      <Route path="/catalogue/book/:id" element={<BookDetails />} />
-      <Route path="/e-resources" element={<EResources />} />
-      <Route path="/question-papers" element={<QuestionPapers />} />
-      <Route path="/departments" element={<Departments />} />
-      <Route path="/departments/:slug" element={<DepartmentDetails />} />
-      <Route path="/publications" element={<Publications />} />
-      <Route path="/announcements" element={<Announcements />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/login" element={<Login />} />
-    </Route>
-    <Route path="/admin" element={<Protected><AdminLayout /></Protected>}>
-      <Route index element={<AdminOverview />} />
-      <Route path="homepage" element={<HomepageEditor />} />
-      <Route path="books" element={<ManageBooks />} />
-      <Route path="resources" element={<ManageResources />} />
-      <Route path="papers" element={<ManagePapers />} />
-      <Route path="announcements" element={<ManageAnnouncements />} />
-      <Route path="publications" element={<ManagePublications />} />
-      <Route path="departments" element={<ManageDepartments />} />
-    </Route>
-    <Route path="*" element={<Navigate to="/" replace />} />
-  </Routes>;
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/catalogue/book/:id" element={<BookDetails />} />
+        <Route path="/e-resources" element={<EResources />} />
+        <Route path="/question-papers" element={<QuestionPapers />} />
+        <Route path="/departments" element={<Departments />} />
+        <Route path="/departments/:slug" element={<DepartmentDetails />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/announcements" element={<Announcements />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
+      <Route
+        path="/admin"
+        element={
+          <Protected>
+            <AdminLayout />
+          </Protected>
+        }
+      >
+        <Route index element={<AdminOverview />} />
+        <Route path="homepage" element={<HomepageEditor />} />
+        <Route path="about" element={<ManageAbout />} />
+        <Route path="books" element={<ManageBooks />} />
+        <Route path="resources" element={<ManageResources />} />
+        <Route path="papers" element={<ManagePapers />} />
+        <Route path="announcements" element={<ManageAnnouncements />} />
+        <Route path="publications" element={<ManagePublications />} />
+        <Route path="departments" element={<ManageDepartments />} />
+        <Route path="contacts" element={<ManageContacts />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 }
