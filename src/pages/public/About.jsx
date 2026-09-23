@@ -71,6 +71,10 @@ export default function About() {
   const eResourcePackages = aboutData.eResources?.length ? aboutData.eResources : defaultEResources;
   const features = defaultFeatures;
 
+  // Find the 'Total Volumes' stat dynamically (or fallback to the first stat entry)
+  const volumeStat = libraryStats.find((s) => s.label?.toLowerCase().includes('volume')) || libraryStats[0];
+  const dynamicVolumeCount = volumeStat?.value ? `${volumeStat.value}+ Volumes` : '75,770+ Volumes';
+
   return (
     <>
       <PageHero
@@ -140,11 +144,12 @@ export default function About() {
             )}
           </div>
 
+          {/* Dynamic Side Cards */}
           <div className="about-cards">
             <div>
               <BookOpen />
-              <b>75,770+ Volumes</b>
-              <span>Massive repository of technical textbooks, handbooks, and references.</span>
+              <b>{dynamicVolumeCount}</b>
+              <span>{aboutData.volumeCardText || 'Massive repository of technical textbooks, handbooks, and references.'}</span>
             </div>
             <div>
               <GraduationCap />
