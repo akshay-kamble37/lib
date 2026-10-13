@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Link,
   Outlet,
@@ -15,7 +16,9 @@ import {
   Building2,
   LogOut,
   Home,
-  Users,
+  PhoneCall,
+  Info,
+  Images,
 } from 'lucide-react';
 
 import { useLibrary } from '../../context/LibraryContext';
@@ -36,6 +39,12 @@ export default function AdminLayout() {
       '/admin/homepage',
       'Homepage',
       Home,
+    ],
+
+    [
+      '/admin/about',
+      'About Page',
+      Info,
     ],
 
     [
@@ -77,7 +86,13 @@ export default function AdminLayout() {
     [
       '/admin/contacts',
       'Contacts',
-      Users,
+      PhoneCall,
+    ],
+
+    [
+      '/admin/facilities',
+      'Facilities',
+      Images,
     ],
   ];
 

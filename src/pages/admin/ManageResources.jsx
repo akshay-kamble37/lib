@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import {
   Plus,
   Trash2,
-  Edit3,
-  ChevronUp,
-  ChevronDown,
-  Save,
-  X,
+  Pencil,
+  X
 } from 'lucide-react';
+
 import { useLibrary } from '../../context/LibraryContext';
-import { ManagerForm, DataTable, Field, AdminPage } from '../../components/admin';
+
+import {
+  ManagerForm,
+  DataTable,
+  Field,
+  AdminPage
+} from '../../components/admin';
 
 const emptyForm = {
   name: '',
@@ -20,161 +24,496 @@ const emptyForm = {
   features: '',
   audience: '',
   accessInfo: '',
+  itemCount: '',
+  itemLabel: 'E-Journals'
 };
+
+const buildResource = (form, id) => ({
+  id,
+  name: form.name.trim(),
+  url: form.url.trim(),
+  category: form.category,
+
+  description:
+    form.description.trim() ||
+    'Academic resource maintained by SGGS Central Library.',
+
+  detailedDescription:
+    form.detailedDescription.trim() ||
+    form.description.trim() ||
+    'Academic resource maintained by SGGS Central Library.',
+
+  features: form.features
+    .split('\n')
+    .map((item) => item.trim())
+    .filter(Boolean),
+
+  audience:
+    form.audience.trim() ||
+    'Students, faculty members and researchers',
+
+  accessInfo:
+    form.accessInfo.trim() ||
+    'Visit the official resource website to access the available academic content.',
+
+  itemCount:
+    form.itemCount === ''
+      ? 0
+      : Number(form.itemCount),
+
+  itemLabel:
+    form.itemLabel.trim() || 'Resources'
+});
 
 export default function ManageResources() {
   const {
     resources = [],
     setResources,
-    saveContent,
-    contentSaving,
     setToast,
+    saveContent
   } = useLibrary();
 
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState({
+    ...emptyForm
+  });
+
   const [editingId, setEditingId] = useState(null);
-  const [saving, setSaving] = useState(false);
 
-  const isEditing = Boolean(editingId);
-  const isSaving = saving || contentSaving;
+  const updateField = (field, value) => {
+    setForm((current) => ({
+      ...current,
+      [field]: value
+    }));
+  };
 
-  const updateField = (field, value) => setForm((current) => ({ ...current, [field]: value }));
-  const resetForm = () => { setForm(emptyForm); setEditingId(null); };
+  const resetForm = () => {
+    setEditingId(null);
+    setForm({
+      ...emptyForm
+    });
+  };
 
-  const persist = async (nextResources, message) => {
-    setSaving(true);
+  const persistResources = async (
+    nextResources,
+    message
+  ) => {
+    setResources(nextResources);
+
     try {
-      await saveContent({ resources: nextResources });
-      setResources(nextResources);
+      await saveContent({
+        resources: nextResources
+      });
+
       setToast(message);
     } catch (error) {
-      console.error('Resource save failed:', error);
-      setToast(error?.message || 'Unable to save resource');
-    } finally {
-      setSaving(false);
+      console.error(
+        'RESOURCE_SAVE_ERROR',
+        error
+      );
     }
   };
 
-  const submit = async (event) => {
+  const add = async (event) => {
     event.preventDefault();
+
     if (!form.name.trim()) {
       setToast('Resource name is required');
       return;
     }
 
-    const resourceData = {
-      name: form.name.trim(),
-      url: form.url.trim(),
-      category: form.category || 'Academic Database',
-      description: form.description.trim() || 'Academic resource maintained by SGGS Central Library.',
-      detailedDescription: form.detailedDescription.trim() || form.description.trim() || 'Academic resource maintained by SGGS Central Library.',
-      features: form.features.split('\n').map((item) => item.trim()).filter(Boolean),
-      audience: form.audience.trim() || 'Students, faculty members and researchers',
-      accessInfo: form.accessInfo.trim() || 'Visit the official resource website to access the available academic content.',
-    };
+    const newResource = buildResource(
+      form,
+      `r${Date.now()}`
+    );
 
-    if (isEditing) {
-      await persist(
-        resources.map((resource) => resource.id === editingId ? { ...resource, ...resourceData } : resource),
-        'Resource updated successfully'
-      );
-    } else {
-      await persist([{ id: `r${Date.now()}`, ...resourceData }, ...resources], 'Resource added successfully');
-    }
+    const nextResources = [
+      newResource,
+      ...resources
+    ];
+
+    await persistResources(
+      nextResources,
+      'Resource added'
+    );
 
     resetForm();
   };
 
-  const editResource = (resource) => {
+  const startEdit = (resource) => {
     setEditingId(resource.id);
+
     setForm({
       name: resource.name || '',
       url: resource.url || '',
-      category: resource.category || 'Academic Database',
-      description: resource.description || '',
-      detailedDescription: resource.detailedDescription || '',
-      features: Array.isArray(resource.features) ? resource.features.join('\n') : '',
-      audience: resource.audience || '',
-      accessInfo: resource.accessInfo || '',
+      category:
+        resource.category ||
+        'Academic Database',
+
+      description:
+        resource.description || '',
+
+      detailedDescription:
+        resource.detailedDescription || '',
+
+      features: Array.isArray(resource.features)
+        ? resource.features.join('\n')
+        : '',
+
+      audience:
+        resource.audience || '',
+
+      accessInfo:
+        resource.accessInfo || '',
+
+      itemCount:
+        resource.itemCount !== undefined &&
+        resource.itemCount !== null
+          ? String(resource.itemCount)
+          : '',
+
+      itemLabel:
+        resource.itemLabel || 'Resources'
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const cancelEdit = () => {
+    resetForm();
+  };
+
+  const updateResource = async (event) => {
+    event.preventDefault();
+
+    if (!editingId || !form.name.trim()) {
+      return;
+    }
+
+    const updatedResources =
+      resources.map((resource) => {
+        if (resource.id !== editingId) {
+          return resource;
+        }
+
+        return buildResource(
+          form,
+          resource.id
+        );
+      });
+
+    await persistResources(
+      updatedResources,
+      'Resource updated'
+    );
+
+    resetForm();
   };
 
   const removeResource = async (id) => {
-    const resource = resources.find((item) => item.id === id);
-    if (!resource) return;
-    if (!window.confirm(`Remove "${resource.name}"?`)) return;
+    const resource = resources.find(
+      (item) => item.id === id
+    );
 
-    await persist(resources.filter((item) => item.id !== id), 'Resource removed successfully');
-    if (editingId === id) resetForm();
-  };
+    if (!resource) {
+      return;
+    }
 
-  const moveResource = async (index, direction) => {
-    const targetIndex = direction === 'up' ? index - 1 : index + 1;
-    if (targetIndex < 0 || targetIndex >= resources.length) return;
+    const confirmed = window.confirm(
+      `Remove "${resource.name}"?`
+    );
 
-    const nextResources = [...resources];
-    [nextResources[index], nextResources[targetIndex]] = [nextResources[targetIndex], nextResources[index]];
-    await persist(nextResources, 'Resource order updated');
+    if (!confirmed) {
+      return;
+    }
+
+    const updatedResources =
+      resources.filter(
+        (item) => item.id !== id
+      );
+
+    await persistResources(
+      updatedResources,
+      'Resource removed'
+    );
+
+    if (editingId === id) {
+      resetForm();
+    }
   };
 
   return (
-    <AdminPage eyebrow="E-RESOURCES" title="Manage digital resources" description="Add, edit, remove and reorder digital resources.">
-      <ManagerForm title={isEditing ? 'Edit resource' : 'Add resource'} onSubmit={submit}>
+    <AdminPage
+      eyebrow="E-RESOURCES"
+      title="Manage digital resources"
+    >
+      <ManagerForm
+        title={
+          editingId
+            ? 'Edit resource'
+            : 'Add resource'
+        }
+        onSubmit={
+          editingId
+            ? updateResource
+            : add
+        }
+      >
         <Field label="Name">
-          <input required value={form.name} onChange={(e) => updateField('name', e.target.value)} placeholder="e.g. IEEE Xplore" />
+          <input
+            required
+            value={form.name}
+            onChange={(event) =>
+              updateField(
+                'name',
+                event.target.value
+              )
+            }
+            placeholder="e.g. IEEE Xplore"
+          />
         </Field>
+
         <Field label="URL">
-          <input value={form.url} onChange={(e) => updateField('url', e.target.value)} placeholder="https://example.com" />
+          <input
+            value={form.url}
+            onChange={(event) =>
+              updateField(
+                'url',
+                event.target.value
+              )
+            }
+            placeholder="https://example.com"
+          />
         </Field>
+
         <Field label="Category">
-          <select value={form.category} onChange={(e) => updateField('category', e.target.value)}>
-            <option>Academic Database</option>
-            <option>Engineering Database</option>
-            <option>Discovery</option>
-            <option>Computing Database</option>
-            <option>E-Books</option>
+          <select
+            value={form.category}
+            onChange={(event) =>
+              updateField(
+                'category',
+                event.target.value
+              )
+            }
+          >
+            <option>
+              Academic Database
+            </option>
+
+            <option>
+              Engineering Database
+            </option>
+
+            <option>
+              Discovery
+            </option>
           </select>
         </Field>
+
+        <Field label="Resource Count">
+          <input
+            type="number"
+            min="0"
+            value={form.itemCount}
+            onChange={(event) =>
+              updateField(
+                'itemCount',
+                event.target.value
+              )
+            }
+            placeholder="e.g. 464"
+          />
+        </Field>
+
+        <Field label="Count Label">
+          <input
+            value={form.itemLabel}
+            onChange={(event) =>
+              updateField(
+                'itemLabel',
+                event.target.value
+              )
+            }
+            placeholder="e.g. E-Journals"
+          />
+        </Field>
+
         <Field label="Short Description">
-          <textarea rows="3" value={form.description} onChange={(e) => updateField('description', e.target.value)} />
+          <textarea
+            rows="3"
+            value={form.description}
+            onChange={(event) =>
+              updateField(
+                'description',
+                event.target.value
+              )
+            }
+            placeholder="Short description shown on the resource card."
+          />
         </Field>
+
         <Field label="Detailed Description">
-          <textarea rows="5" value={form.detailedDescription} onChange={(e) => updateField('detailedDescription', e.target.value)} />
+          <textarea
+            rows="5"
+            value={form.detailedDescription}
+            onChange={(event) =>
+              updateField(
+                'detailedDescription',
+                event.target.value
+              )
+            }
+            placeholder="Detailed information shown on the resource details page."
+          />
         </Field>
+
         <Field label="Features">
-          <textarea rows="5" value={form.features} onChange={(e) => updateField('features', e.target.value)} placeholder={'Enter one feature per line.\nIEEE journals\nConference papers\nTechnical standards'} />
+          <textarea
+            rows="5"
+            value={form.features}
+            onChange={(event) =>
+              updateField(
+                'features',
+                event.target.value
+              )
+            }
+            placeholder={
+              'Enter one feature per line.\nIEEE journals\nConference papers\nTechnical standards'
+            }
+          />
         </Field>
+
         <Field label="Suitable For">
-          <input value={form.audience} onChange={(e) => updateField('audience', e.target.value)} />
+          <input
+            value={form.audience}
+            onChange={(event) =>
+              updateField(
+                'audience',
+                event.target.value
+              )
+            }
+            placeholder="e.g. Engineering students and researchers"
+          />
         </Field>
+
         <Field label="Access Information">
-          <textarea rows="4" value={form.accessInfo} onChange={(e) => updateField('accessInfo', e.target.value)} />
+          <textarea
+            rows="4"
+            value={form.accessInfo}
+            onChange={(event) =>
+              updateField(
+                'accessInfo',
+                event.target.value
+              )
+            }
+            placeholder="Explain how users should access the resource."
+          />
         </Field>
-        <div className="admin-form-actions">
-          <button type="submit" className="primary-btn full" disabled={isSaving}>
-            {isEditing ? <Save size={17} /> : <Plus size={17} />}
-            {isSaving ? 'Saving...' : isEditing ? 'Update resource' : 'Add resource'}
+
+        <div
+          style={{
+            display: 'flex',
+            gap: '10px'
+          }}
+        >
+          <button
+            type="submit"
+            className="primary-btn full"
+          >
+            {editingId ? (
+              <Pencil />
+            ) : (
+              <Plus />
+            )}
+
+            {editingId
+              ? 'Update resource'
+              : 'Add resource'}
           </button>
-          {isEditing && (
-            <button type="button" className="secondary-btn" onClick={resetForm} disabled={isSaving}><X size={17} /> Cancel</button>
+
+          {editingId && (
+            <button
+              type="button"
+              className="danger"
+              onClick={cancelEdit}
+              title="Cancel editing"
+            >
+              <X size={18} />
+            </button>
           )}
         </div>
       </ManagerForm>
 
       <DataTable
-        headers={['Name', 'Category', 'URL', 'Action']}
-        rows={resources.map((resource, index) => (
-          <React.Fragment key={resource.id}>
-            <td><b>{resource.name}</b><small>{resource.description}</small></td>
-            <td>{resource.category}</td>
-            <td>{resource.url || '—'}</td>
+        headers={[
+          'Name',
+          'Category',
+          'URL',
+          'Count',
+          'Action'
+        ]}
+        rows={resources.map((resource) => (
+          <React.Fragment
+            key={resource.id}
+          >
             <td>
-              <div className="admin-row-actions">
-                <button type="button" className="secondary-btn" title="Move up" disabled={isSaving || index === 0} onClick={() => moveResource(index, 'up')}><ChevronUp size={14} /></button>
-                <button type="button" className="secondary-btn" title="Move down" disabled={isSaving || index === resources.length - 1} onClick={() => moveResource(index, 'down')}><ChevronDown size={14} /></button>
-                <button type="button" className="secondary-btn" title="Edit resource" disabled={isSaving} onClick={() => editResource(resource)}><Edit3 size={14} /></button>
-                <button type="button" className="danger" title="Remove resource" disabled={isSaving} onClick={() => removeResource(resource.id)}><Trash2 size={14} /></button>
+              <b>{resource.name}</b>
+
+              <small>
+                {resource.description}
+              </small>
+            </td>
+
+            <td>
+              {resource.category}
+            </td>
+
+            <td>
+              {resource.url}
+            </td>
+
+            <td>
+              <b>
+                {resource.itemCount ?? 0}
+              </b>
+
+              <small>
+                {resource.itemLabel ||
+                  'Resources'}
+              </small>
+            </td>
+
+            <td>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '8px'
+                }}
+              >
+                <button
+                  type="button"
+                  className="primary-btn"
+                  onClick={() =>
+                    startEdit(resource)
+                  }
+                  title="Edit resource"
+                >
+                  <Pencil size={14} />
+                </button>
+
+                <button
+                  type="button"
+                  className="danger"
+                  onClick={() =>
+                    removeResource(
+                      resource.id
+                    )
+                  }
+                  title="Remove resource"
+                >
+                  <Trash2 size={14} />
+                </button>
               </div>
             </td>
           </React.Fragment>

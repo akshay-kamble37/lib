@@ -1,17 +1,17 @@
 import React from 'react';
+
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
+
 import { useLibrary } from './context/LibraryContext';
 
 // Public Pages
 import Home from './pages/public/Home';
 import Catalogue from './pages/public/Catalogue';
 import BookDetails from './pages/public/BookDetails';
-
 import EResources from './pages/public/EResources';
 import EResourceDetails from './pages/public/EResourceDetails';
-
 import QuestionPapers from './pages/public/QuestionPapers';
 import Departments from './pages/public/Departments';
 import DepartmentDetails from './pages/public/DepartmentDetails';
@@ -20,6 +20,7 @@ import PublicationDetails from './pages/public/PublicationDetails';
 import Announcements from './pages/public/Announcements';
 import About from './pages/public/About';
 import Contact from './pages/public/Contact';
+import Facilities from './pages/public/Facilities';
 
 // Authentication
 import Login from './pages/Auth';
@@ -35,7 +36,8 @@ import ManageAnnouncements from './pages/admin/ManageAnnouncements';
 import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
 import ManageContacts from './pages/admin/ManageContacts';
-
+import ManageAbout from './pages/admin/ManageAbout';
+import ManageFacilities from './pages/admin/ManageFacilities';
 
 function Protected({ children }) {
   const { user, authReady } = useLibrary();
@@ -54,17 +56,10 @@ function Protected({ children }) {
     : <Navigate to="/login" replace />;
 }
 
-
 export default function App() {
   return (
     <Routes>
-
-      {/* =========================
-          PUBLIC WEBSITE
-          ========================= */}
-
       <Route element={<Layout />}>
-
         <Route path="/" element={<Home />} />
 
         <Route
@@ -130,17 +125,17 @@ export default function App() {
           element={<Contact />}
         />
 
+        {/* Facilities */}
+        <Route
+          path="/facilities"
+          element={<Facilities />}
+        />
+
         <Route
           path="/login"
           element={<Login />}
         />
-
       </Route>
-
-
-      {/* =========================
-          ADMIN PANEL
-          ========================= */}
 
       <Route
         path="/admin"
@@ -150,7 +145,6 @@ export default function App() {
           </Protected>
         }
       >
-
         <Route
           index
           element={<AdminOverview />}
@@ -159,6 +153,11 @@ export default function App() {
         <Route
           path="homepage"
           element={<HomepageEditor />}
+        />
+
+        <Route
+          path="about"
+          element={<ManageAbout />}
         />
 
         <Route
@@ -193,21 +192,20 @@ export default function App() {
 
         <Route
           path="contacts"
-          element={<ManageContacts/>}
+          element={<ManageContacts />}
         />
 
+        {/* Facilities */}
+        <Route
+          path="facilities"
+          element={<ManageFacilities />}
+        />
       </Route>
-
-
-      {/* =========================
-          FALLBACK
-          ========================= */}
 
       <Route
         path="*"
         element={<Navigate to="/" replace />}
       />
-
     </Routes>
   );
 }

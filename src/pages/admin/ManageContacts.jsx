@@ -1,422 +1,212 @@
-import React, { useEffect, useState } from 'react';
-import {
-  Save,
-  RotateCcw,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-} from 'lucide-react';
-
+import React, { useState } from 'react';
+import { Trash2, Plus, PhoneCall } from 'lucide-react';
 import { useLibrary } from '../../context/LibraryContext';
 
-import {
-  ManagerForm,
-  Field,
-  AdminPage,
-} from '../../components/admin';
-
-const emptyForm = {
-  contactPhone: '',
-  contactEmail: '',
-  address: '',
-  officeHours: '',
-};
+const initialDefaultContacts = [
+  {
+    id: 'c-1',
+    role: 'Faculty In-charge (Library)',
+    name: 'Dr. A. B. Gonde',
+    designation: 'Professor & Dean R&D / Library In-charge',
+    phone: '02462-269219 / 02462-269335',
+    email: 'dean.rd@sggs.ac.in',
+  },
+  {
+    id: 'c-2',
+    role: 'In-charge Librarian',
+    name: 'Shri G. M. Narlawar',
+    designation: 'Central Library Administration',
+    phone: '+91 91562 08601',
+    email: 'librarian@sggs.ac.in',
+  },
+  {
+    id: 'c-3',
+    role: 'Circulation & Reference Desk',
+    name: 'Library Help Desk',
+    designation: 'Book Issue, Return & Digital ID Queries',
+    phone: '02462-269141 (Ext. 141)',
+    email: 'librarian@sggs.ac.in',
+  },
+];
 
 export default function ManageContacts() {
-  const {
-    site,
-    setSite,
-    saveContent,
-    contentSaving,
-    setToast,
-  } = useLibrary();
+  const { site, setSite, saveContent, contentSaving } = useLibrary();
 
-  const [form, setForm] = useState(emptyForm);
-  const [saving, setSaving] = useState(false);
+  const contacts = site?.contacts?.length ? site.contacts : initialDefaultContacts;
 
-  const isSaving =
-    saving || contentSaving;
+  const [form, setForm] = useState({
+    role: '',
+    name: '',
+    designation: '',
+    phone: '',
+    email: '',
+  });
 
-  /*
-   * Load the current contact information
-   * whenever the site content becomes available.
-   */
-  useEffect(() => {
-    setForm({
-      contactPhone:
-        site?.contactPhone || '',
-
-      contactEmail:
-        site?.contactEmail || '',
-
-      address:
-        site?.address || '',
-
-      /*
-       * officeHours is optional because it may not
-       * exist in the original defaultSite object.
-       */
-      officeHours:
-        site?.officeHours || '',
-    });
-  }, [
-    site?.contactPhone,
-    site?.contactEmail,
-    site?.address,
-    site?.officeHours,
-  ]);
-
-  const updateField = (
-    field,
-    value
-  ) => {
-    setForm((current) => ({
-      ...current,
-      [field]: value,
-    }));
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const saveContacts = async (
-    event
-  ) => {
-    event.preventDefault();
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.role.trim()) return;
 
-    const nextSite = {
-      ...(site || {}),
-
-      contactPhone:
-        form.contactPhone.trim(),
-
-      contactEmail:
-        form.contactEmail.trim(),
-
-      address:
-        form.address.trim(),
-
-      /*
-       * Only add officeHours when the field
-       * has actually been entered.
-       */
-      ...(form.officeHours.trim()
-        ? {
-            officeHours:
-              form.officeHours.trim(),
-          }
-        : {}),
+    const newContact = {
+      ...form,
+      id: `contact-${Date.now()}`,
     };
 
-    setSaving(true);
+    const updatedSite = {
+      ...site,
+      contacts: [...contacts, newContact],
+    };
 
-    try {
-      /*
-       * Save to backend first.
-       * React state is changed only after the
-       * backend confirms the save.
-       */
-      await saveContent({
-        site: nextSite,
-      });
-
-      setSite(nextSite);
-
-      setToast(
-        'Contact information saved successfully'
-      );
-    } catch (error) {
-      console.error(
-        'Failed to save contact information:',
-        error
-      );
-
-      setToast(
-        error?.message ||
-          'Contact information could not be saved'
-      );
-    } finally {
-      setSaving(false);
-    }
+    setSite(updatedSite);
+    await saveContent({ site: updatedSite });
+    setForm({ role: '', name: '', designation: '', phone: '', email: '' });
   };
 
-  const resetForm = () => {
-    setForm({
-      contactPhone:
-        site?.contactPhone || '',
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to remove this contact?')) return;
 
-      contactEmail:
-        site?.contactEmail || '',
+    const updatedContacts = contacts.filter((c) => c.id !== id);
+    const updatedSite = {
+      ...site,
+      contacts: updatedContacts,
+    };
 
-      address:
-        site?.address || '',
-
-      officeHours:
-        site?.officeHours || '',
-    });
-
-    setToast(
-      'Contact form restored'
-    );
+    setSite(updatedSite);
+    await saveContent({ site: updatedSite });
   };
 
   return (
-    <AdminPage
-      eyebrow="LIBRARY INFORMATION"
-      title="Manage Contacts"
-      description="Update the Central Library contact details displayed across the public website."
-    >
-      <ManagerForm
-        title="Library contact information"
-        onSubmit={saveContacts}
-      >
-        <div className="form-two">
-          <Field label="Contact Phone">
-            <div
-              style={{
-                position: 'relative',
-              }}
-            >
-              <Phone
-                size={16}
-                style={{
-                  position: 'absolute',
-                  left: '12px',
-                  top: '50%',
-                  transform:
-                    'translateY(-50%)',
-                  opacity: 0.6,
-                  pointerEvents: 'none',
-                }}
-              />
+    <div style={{ padding: '24px', maxWidth: '1000px' }}>
+      <div style={{ marginBottom: '24px' }}>
+        <h1 style={{ fontSize: '1.75rem', fontWeight: 700, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <PhoneCall size={26} /> Manage Key Contacts & Desks
+        </h1>
+        <p style={{ color: '#666', marginTop: '6px' }}>
+          Add or remove contact cards displayed on the public Contact Us page.
+        </p>
+      </div>
 
-              <input
-                type="tel"
-                value={
-                  form.contactPhone
-                }
-                onChange={(event) =>
-                  updateField(
-                    'contactPhone',
-                    event.target.value
-                  )
-                }
-                placeholder="02462 269234"
-                style={{
-                  paddingLeft: '38px',
-                }}
-              />
-            </div>
-          </Field>
-
-          <Field label="Contact Email">
-            <div
-              style={{
-                position: 'relative',
-              }}
-            >
-              <Mail
-                size={16}
-                style={{
-                  position: 'absolute',
-                  left: '12px',
-                  top: '50%',
-                  transform:
-                    'translateY(-50%)',
-                  opacity: 0.6,
-                  pointerEvents: 'none',
-                }}
-              />
-
-              <input
-                type="email"
-                value={
-                  form.contactEmail
-                }
-                onChange={(event) =>
-                  updateField(
-                    'contactEmail',
-                    event.target.value
-                  )
-                }
-                placeholder="library@sggs.ac.in"
-                style={{
-                  paddingLeft: '38px',
-                }}
-              />
-            </div>
-          </Field>
-        </div>
-
-        <Field label="Library Address">
-          <div
-            style={{
-              position: 'relative',
-            }}
-          >
-            <MapPin
-              size={16}
-              style={{
-                position: 'absolute',
-                left: '12px',
-                top: '16px',
-                opacity: 0.6,
-                pointerEvents: 'none',
-              }}
-            />
-
-            <textarea
-              rows="4"
-              value={
-                form.address
-              }
-              onChange={(event) =>
-                updateField(
-                  'address',
-                  event.target.value
-                )
-              }
-              placeholder="Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606"
-              style={{
-                paddingLeft: '38px',
-              }}
-            />
-          </div>
-        </Field>
-
-        <Field label="Library Office Hours">
-          <div
-            style={{
-              position: 'relative',
-            }}
-          >
-            <Clock
-              size={16}
-              style={{
-                position: 'absolute',
-                left: '12px',
-                top: '16px',
-                opacity: 0.6,
-                pointerEvents: 'none',
-              }}
-            />
-
-            <textarea
-              rows="3"
-              value={
-                form.officeHours
-              }
-              onChange={(event) =>
-                updateField(
-                  'officeHours',
-                  event.target.value
-                )
-              }
-              placeholder="Monday - Friday: 9:00 AM - 5:00 PM"
-              style={{
-                paddingLeft: '38px',
-              }}
-            />
-          </div>
-        </Field>
-
-        <div
-          style={{
-            display: 'flex',
-            gap: '10px',
-          }}
-        >
+      {/* Add Contact Card */}
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '20px', marginBottom: '32px' }}>
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '1.15rem' }}>Add New Contact</h3>
+        <form onSubmit={handleAdd} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
+          <input
+            type="text"
+            name="role"
+            placeholder="Role / Title (e.g. In-charge Librarian)"
+            value={form.role}
+            onChange={handleChange}
+            required
+            style={{ padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name (e.g. Dr. John Doe)"
+            value={form.name}
+            onChange={handleChange}
+            required
+            style={{ padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+          />
+          <input
+            type="text"
+            name="designation"
+            placeholder="Department / Designation"
+            value={form.designation}
+            onChange={handleChange}
+            style={{ padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+          />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone / Extension"
+            value={form.phone}
+            onChange={handleChange}
+            style={{ padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Official Email"
+            value={form.email}
+            onChange={handleChange}
+            style={{ padding: '8px 12px', border: '1px solid #ccc', borderRadius: '4px' }}
+          />
           <button
             type="submit"
-            className="primary-btn full"
-            disabled={isSaving}
+            disabled={contentSaving}
+            style={{
+              padding: '8px 16px',
+              backgroundColor: '#0056b3',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+            }}
           >
-            <Save size={17} />
-
-            {isSaving
-              ? 'Saving contact information...'
-              : 'Save Contact Information'}
+            <Plus size={16} /> {contentSaving ? 'Saving…' : 'Add Contact'}
           </button>
+        </form>
+      </div>
 
-          <button
-            type="button"
-            className="secondary-btn"
-            disabled={isSaving}
-            onClick={resetForm}
-          >
-            <RotateCcw size={16} />
-            Reset
-          </button>
-        </div>
-      </ManagerForm>
-
-      <section
-        className="portal-panel"
-        style={{
-          marginTop: '24px',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '12px',
-          }}
-        >
-          <MapPin size={20} />
-
-          <div>
-            <h3>
-              Current contact details
-            </h3>
-
-            <p>
-              These values are stored inside
-              the site's content and are used
-              by the public library pages.
-            </p>
-
-            <div
-              style={{
-                display: 'grid',
-                gap: '8px',
-                marginTop: '14px',
-              }}
-            >
-              <div>
-                <strong>
-                  Phone:
-                </strong>{' '}
-                {site?.contactPhone ||
-                  'Not configured'}
-              </div>
-
-              <div>
-                <strong>
-                  Email:
-                </strong>{' '}
-                {site?.contactEmail ||
-                  'Not configured'}
-              </div>
-
-              <div>
-                <strong>
-                  Address:
-                </strong>{' '}
-                {site?.address ||
-                  'Not configured'}
-              </div>
-
-              {site?.officeHours && (
-                <div>
-                  <strong>
-                    Office Hours:
-                  </strong>{' '}
-                  {site.officeHours}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-    </AdminPage>
+      {/* Current Contacts Table */}
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '20px' }}>
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '1.15rem' }}>Active Contacts ({contacts.length})</h3>
+        {contacts.length === 0 ? (
+          <p style={{ color: '#888' }}>No contacts found. Add one above.</p>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
+                <th style={{ padding: '10px' }}>Role</th>
+                <th style={{ padding: '10px' }}>Name</th>
+                <th style={{ padding: '10px' }}>Designation</th>
+                <th style={{ padding: '10px' }}>Phone</th>
+                <th style={{ padding: '10px' }}>Email</th>
+                <th style={{ padding: '10px', textAlign: 'right' }}>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {contacts.map((contact) => (
+                <tr key={contact.id} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ padding: '10px', fontWeight: 600 }}>{contact.role}</td>
+                  <td style={{ padding: '10px' }}>{contact.name}</td>
+                  <td style={{ padding: '10px', color: '#555' }}>{contact.designation || '—'}</td>
+                  <td style={{ padding: '10px' }}>{contact.phone || '—'}</td>
+                  <td style={{ padding: '10px' }}>{contact.email || '—'}</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(contact.id)}
+                      disabled={contentSaving}
+                      style={{
+                        background: '#fee2e2',
+                        color: '#dc2626',
+                        border: 'none',
+                        padding: '6px 10px',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                      }}
+                    >
+                      <Trash2 size={14} /> Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
   );
 }
