@@ -7,7 +7,7 @@ const navItems = [
   ['/', 'Home'],
   ['/catalogue', 'Catalogue'],
   ['/e-resources', 'E-Resources'],
-  ['/question-papers', 'Question Papers'],
+  // ['/question-papers', 'Question Papers'],
   ['/departments', 'Departments'],
   ['/publications', 'Publications'],
   ['/about', 'About Us'],
