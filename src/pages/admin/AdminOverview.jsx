@@ -17,7 +17,7 @@ export default function AdminOverview() {
   const {
     books,
     resources,
-    papers,
+    // papers,
     announcements,
     publications,
     departments,
@@ -73,10 +73,10 @@ export default function AdminOverview() {
           label="Digital resources"
         />
 
-        <Stat
+        {/* <Stat
           value={papers.length}
           label="Question papers"
-        />
+        /> */}
 
         <Stat
           value={publications.length}
@@ -115,18 +115,18 @@ export default function AdminOverview() {
               t="Academic directory"
             />
 
-            <Step
+            {/* <Step
               n="03"
               t="Question paper archive"
-            />
+            /> */}
 
             <Step
-              n="04"
+              n="03"
               t="Faculty publications"
             />
 
             <Step
-              n="05"
+              n="04"
               t="Announcements"
             />
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -62,6 +62,7 @@ export default function Home() {
   } = useLibrary();
 
   const [query, setQuery] = useState('');
+  /* QUESTION-PAPER FEATURE TEMPORARILY DISABLED.
   const [papers, setPapers] = useState([]);
 
   const [papersLoading, setPapersLoading] =
@@ -118,6 +119,7 @@ export default function Home() {
       loadQuestionPapers();
     }
   }, [query]);
+  END QUESTION-PAPER FEATURE */
 
   const searchResults = useMemo(() => {
     const normalizedQuery =
@@ -126,7 +128,7 @@ export default function Home() {
     if (!normalizedQuery) {
       return {
         books: [],
-        papers: [],
+        // papers: [], // Question-paper search disabled.
         publications: []
       };
     }
@@ -134,8 +136,7 @@ export default function Home() {
     const matchingBooks = books
       .filter((book) => {
         const haystack = normalise(
-          `${book.title || ''} ${
-            book.author || ''
+          `${book.title || ''} ${book.author || ''
           } ${book.department || ''}`
         );
 
@@ -145,6 +146,7 @@ export default function Home() {
       })
       .slice(0, 5);
 
+    /* Question-paper search disabled.
     const matchingPapers = papers
       .filter((paper) => {
         const haystack = normalise(
@@ -162,19 +164,16 @@ export default function Home() {
         );
       })
       .slice(0, 5);
+    */
 
     const matchingPublications =
       publications
         .filter((publication) => {
           const haystack = normalise(
-            `${publication.title || ''} ${
-              publication.author || ''
-            } ${
-              publication.description || ''
-            } ${
-              publication.department || ''
-            } ${
-              publication.publisher || ''
+            `${publication.title || ''} ${publication.author || ''
+            } ${publication.description || ''
+            } ${publication.department || ''
+            } ${publication.publisher || ''
             } ${publication.year || ''}`
           );
 
@@ -186,12 +185,12 @@ export default function Home() {
 
     return {
       books: matchingBooks,
-      papers: matchingPapers,
+      // papers: matchingPapers, // Question-paper search disabled.
       publications: matchingPublications
     };
   }, [
     books,
-    papers,
+    // papers, // Question-paper search disabled.
     publications,
     query
   ]);
@@ -201,9 +200,9 @@ export default function Home() {
 
   const hasResults =
     searchResults.books.length > 0 ||
-    searchResults.papers.length > 0 ||
+    // searchResults.papers.length > 0 || // Question-paper search disabled.
     searchResults.publications.length >
-      0;
+    0;
 
   const search = () => {
     if (!query.trim()) {
@@ -218,7 +217,7 @@ export default function Home() {
      * Search button and Enter key continue
      * to work naturally.
      */
-    loadQuestionPapers();
+    // loadQuestionPapers(); // Question-paper search disabled.
   };
 
   const clearSearch = () => {
@@ -255,7 +254,7 @@ export default function Home() {
 
             <p>
               {site?.heroSubtitle ||
-                'A modern academic gateway to books, digital resources, examination archives and faculty publications.'}
+                'A modern academic gateway to books, digital resources and faculty publications.'}
             </p>
 
             <div className="hero-search-wrap">
@@ -276,7 +275,7 @@ export default function Home() {
                       search();
                     }
                   }}
-                  placeholder="Search books, question papers, publications..."
+                  placeholder="Search books and publications..."
                 />
 
                 {query && (
@@ -310,16 +309,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {papersLoading &&
-                  !hasResults ? (
-                    <div className="home-search-empty">
-                      <Search size={18} />
-                      <span>
-                        Searching library
-                        resources...
-                      </span>
-                    </div>
-                  ) : !hasResults ? (
+                  {!hasResults ? (
                     <div className="home-search-empty">
                       <Search size={18} />
                       <span>
@@ -330,44 +320,45 @@ export default function Home() {
                     <>
                       {searchResults.books
                         .length > 0 && (
-                        <div className="home-search-group">
-                          <div className="home-search-group-title">
-                            <BookOpen
-                              size={16}
-                            />
-                            <span>
-                              Catalogue
-                            </span>
+                          <div className="home-search-group">
+                            <div className="home-search-group-title">
+                              <BookOpen
+                                size={16}
+                              />
+                              <span>
+                                Catalogue
+                              </span>
+                            </div>
+
+                            {searchResults.books.map(
+                              (book) => (
+                                <Link
+                                  key={book.id}
+                                  to={`/catalogue/book/${book.id}`}
+                                  className="home-search-result"
+                                >
+                                  <div>
+                                    <strong>
+                                      {book.title}
+                                    </strong>
+
+                                    <small>
+                                      by{' '}
+                                      {book.author ||
+                                        'Unknown author'}
+                                    </small>
+                                  </div>
+
+                                  <ArrowUpRight
+                                    size={16}
+                                  />
+                                </Link>
+                              )
+                            )}
                           </div>
+                        )}
 
-                          {searchResults.books.map(
-                            (book) => (
-                              <Link
-                                key={book.id}
-                                to={`/catalogue/book/${book.id}`}
-                                className="home-search-result"
-                              >
-                                <div>
-                                  <strong>
-                                    {book.title}
-                                  </strong>
-
-                                  <small>
-                                    by{' '}
-                                    {book.author ||
-                                      'Unknown author'}
-                                  </small>
-                                </div>
-
-                                <ArrowUpRight
-                                  size={16}
-                                />
-                              </Link>
-                            )
-                          )}
-                        </div>
-                      )}
-
+                      {/* QUESTION-PAPER SEARCH RESULTS DISABLED.
                       {searchResults.papers
                         .length > 0 && (
                         <div className="home-search-group">
@@ -416,53 +407,55 @@ export default function Home() {
                         </div>
                       )}
 
+                      */}
+
                       {searchResults
                         .publications
                         .length > 0 && (
-                        <div className="home-search-group">
-                          <div className="home-search-group-title">
-                            <BookMarked
-                              size={16}
-                            />
-                            <span>
-                              Faculty Publications
-                            </span>
+                          <div className="home-search-group">
+                            <div className="home-search-group-title">
+                              <BookMarked
+                                size={16}
+                              />
+                              <span>
+                                Faculty Publications
+                              </span>
+                            </div>
+
+                            {searchResults.publications.map(
+                              (publication) => (
+                                <Link
+                                  key={
+                                    publication.id
+                                  }
+                                  to="/publications"
+                                  className="home-search-result"
+                                >
+                                  <div>
+                                    <strong>
+                                      {
+                                        publication.title
+                                      }
+                                    </strong>
+
+                                    <small>
+                                      by{' '}
+                                      {publication.author ||
+                                        'Faculty'}
+                                      {publication.year
+                                        ? ` • ${publication.year}`
+                                        : ''}
+                                    </small>
+                                  </div>
+
+                                  <ArrowUpRight
+                                    size={16}
+                                  />
+                                </Link>
+                              )
+                            )}
                           </div>
-
-                          {searchResults.publications.map(
-                            (publication) => (
-                              <Link
-                                key={
-                                  publication.id
-                                }
-                                to="/publications"
-                                className="home-search-result"
-                              >
-                                <div>
-                                  <strong>
-                                    {
-                                      publication.title
-                                    }
-                                  </strong>
-
-                                  <small>
-                                    by{' '}
-                                    {publication.author ||
-                                      'Faculty'}
-                                    {publication.year
-                                      ? ` • ${publication.year}`
-                                      : ''}
-                                  </small>
-                                </div>
-
-                                <ArrowUpRight
-                                  size={16}
-                                />
-                              </Link>
-                            )
-                          )}
-                        </div>
-                      )}
+                        )}
                     </>
                   )}
                 </div>
@@ -478,12 +471,14 @@ export default function Home() {
                 <ArrowRight size={17} />
               </Link>
 
+              {/* QUESTION-PAPER HERO BUTTON DISABLED.
               <Link
                 className="ghost-btn"
                 to="/question-papers"
               >
                 Browse Question Papers
               </Link>
+              */}
             </div>
           </div>
 
@@ -544,12 +539,14 @@ export default function Home() {
             <span>Academic Years</span>
           </div>
 
+          {/* QUESTION-PAPER STATISTIC DISABLED.
           <div>
             <b>B.Tech + M.Tech</b>
             <span>
               Question Paper Archive
             </span>
           </div>
+          */}
 
           <div>
             <b>Faculty</b>
@@ -581,12 +578,14 @@ export default function Home() {
               text="Access digital learning and research resources."
             />
 
+            {/* QUESTION-PAPER QUICK CARD DISABLED.
             <QuickCard
               to="/question-papers"
               icon={FileText}
               title="Question Papers"
               text="Browse B.Tech and M.Tech papers."
             />
+            */}
 
             <QuickCard
               to="/departments"
@@ -625,7 +624,7 @@ export default function Home() {
                 .map((department) => {
                   const Icon =
                     deptIcons[
-                      department.slug
+                    department.slug
                     ] || Building2;
 
                   return (

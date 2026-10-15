@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="footer-column">
           <h4>Explore</h4>
           <Link to="/catalogue">Catalogue</Link>
-          <Link to="/question-papers">Question Papers</Link>
+          {/* <Link to="/question-papers">Question Papers</Link> */}
           <Link to="/departments">Departments</Link>
           <Link to="/publications">Publications</Link>
         </div>
