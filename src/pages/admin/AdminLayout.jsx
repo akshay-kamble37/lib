@@ -59,11 +59,11 @@ export default function AdminLayout() {
       Database,
     ],
 
-    [
-      '/admin/papers',
-      'Question Papers',
-      FileText,
-    ],
+    // [
+    //   '/admin/papers',
+    //   'Question Papers',
+    //   FileText,
+    // ],
 
     [
       '/admin/publications',

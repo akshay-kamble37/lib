@@ -12,7 +12,7 @@ import Catalogue from './pages/public/Catalogue';
 import BookDetails from './pages/public/BookDetails';
 import EResources from './pages/public/EResources';
 import EResourceDetails from './pages/public/EResourceDetails';
-import QuestionPapers from './pages/public/QuestionPapers';
+// import QuestionPapers from './pages/public/QuestionPapers';
 import Departments from './pages/public/Departments';
 import DepartmentDetails from './pages/public/DepartmentDetails';
 import Publications from './pages/public/Publications';
@@ -31,7 +31,7 @@ import AdminOverview from './pages/admin/AdminOverview';
 import HomepageEditor from './pages/admin/HomepageEditor';
 import ManageBooks from './pages/admin/ManageBooks';
 import ManageResources from './pages/admin/ManageResources';
-import ManagePapers from './pages/admin/ManagePapers';
+// import ManagePapers from './pages/admin/ManagePapers';
 import ManageAnnouncements from './pages/admin/ManageAnnouncements';
 import ManagePublications from './pages/admin/ManagePublications';
 import ManageDepartments from './pages/admin/ManageDepartments';
@@ -83,10 +83,10 @@ export default function App() {
           element={<EResourceDetails />}
         />
 
-        <Route
+        {/* <Route
           path="/question-papers"
           element={<QuestionPapers />}
-        />
+        /> */}
 
         <Route
           path="/departments"
@@ -170,10 +170,10 @@ export default function App() {
           element={<ManageResources />}
         />
 
-        <Route
+        {/* <Route
           path="papers"
           element={<ManagePapers />}
-        />
+        /> */}
 
         <Route
           path="announcements"

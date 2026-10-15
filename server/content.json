@@ -387,16 +387,6 @@
   ],
   "publications": [
     {
-      "id": "pub1789903892330",
-      "title": "Akshay",
-      "author": "SGGS Faculty",
-      "department": "Computer Science & Engineering",
-      "year": 2026,
-      "publisher": "Akshay",
-      "description": "Akshay book",
-      "cover": "/images/bookshelves.jpg"
-    },
-    {
       "id": "pub1",
       "title": "Advances in Sustainable Engineering",
       "author": "Institute Faculty",
@@ -436,6 +426,101 @@
     "contactPhone": "02462 269234",
     "contactEmail": "library@sggs.ac.in",
     "address": "Shri Guru Gobind Singhji Institute of Engineering & Technology, Vishnupuri, Nanded, Maharashtra 431606",
-    "about": "The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources."
+    "about": "The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources.",
+    "aboutTitle": "Knowledge Center of SGGSIE&T",
+    "aboutDescription": "The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources.",
+    "aboutVision": "To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services.",
+    "aboutMission": "",
+    "aboutData": {
+      "title": "Knowledge Center of SGGSIE&T",
+      "description": "The Central Library supports teaching, learning and research by connecting the institute community with curated print and digital knowledge resources.",
+      "heritageHeading": "Serving Engineers & Researchers Since 1981",
+      "heritageText": "Situated in an independent, spacious two-storied building encompassing 1,126.66 sq. m., the Central Library serves over 3,300 registered students, faculty, and research scholars. The reading hall accommodates up to 250 students with quiet study zones and extended access during examinations.",
+      "vision": "To facilitate the creation of new knowledge through the acquisition, organization, and dissemination of knowledge resources and providing value-added services.",
+      "mission": "",
+      "circulationHours": "09:30 AM – 06:00 PM",
+      "readingHallHours": "09:30 AM – 10:00 PM",
+      "volumeCardText": "Massive repository of technical textbooks, handbooks, and references.",
+      "stats": [
+        {
+          "label": "Total Volumes",
+          "value": "75,770"
+        },
+        {
+          "label": "Unique Titles",
+          "value": "23,438"
+        },
+        {
+          "label": "Bound Journal Volumes",
+          "value": "3,959"
+        },
+        {
+          "label": "Reading Hall Capacity",
+          "value": "250 Seats"
+        }
+      ],
+      "features": [
+        {
+          "icon": "Building2",
+          "title": "Independent 2-Story Block",
+          "text": "Housed in a standalone 1,126.66 sq. m. two-storied building surrounded by green lawns, dedicated entirely to study and research."
+        },
+        {
+          "icon": "Globe2",
+          "title": "KOHA & Web OPAC Automation",
+          "text": "Fully computerized operations with KOHA Integrated Library System, barcode-driven circulation, and campus-wide intranet OPAC lookup."
+        },
+        {
+          "icon": "Layers",
+          "title": "SC / ST Book Bank Scheme",
+          "text": "Specialized book bank facilities allocating full semester textbook bundles to eligible students for uninterrupted home study."
+        },
+        {
+          "icon": "Award",
+          "title": "Competitive Exam Cell",
+          "text": "Special section equipped with standard reference guides for GATE, UPSC, MPSC, CAT, GRE, and PSU entrance tests."
+        },
+        {
+          "icon": "Users",
+          "title": "Earn & Learn Scheme",
+          "text": "Encourages student self-reliance by offering paid library support duties to students from economically weaker backgrounds."
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Literature & Wellness Wing",
+          "text": "Extensive enrichment section featuring classic and contemporary Marathi literature, personal development, and sports/yoga treatises."
+        }
+      ],
+      "eResources": [
+        {
+          "name": "IEEE IEL Online",
+          "count": "464 E-Journals"
+        },
+        {
+          "name": "Springer Link",
+          "count": "586 Journals + 2,080 E-Books"
+        },
+        {
+          "name": "ScienceDirect (Elsevier)",
+          "count": "252 Core Subscriptions"
+        },
+        {
+          "name": "IEEE Wiley E-Books",
+          "count": "550 Titles"
+        },
+        {
+          "name": "DELNET & N-LIST",
+          "count": "National Consortium Interlending"
+        },
+        {
+          "name": "ASCE & ASME",
+          "count": "52 Specialized Civil/Mech Journals"
+        }
+      ],
+      "facilitiesHeading": "Designed for Student Success",
+      "facilitiesDescription": "Explore specialized departments, student welfare funds, and round-the-clock learning facilities.",
+      "eResourcesHeading": "Major Subscribed Consortiums & E-Databases",
+      "eResourcesDescription": "IP-authenticated across the campus network and accessible via institutional logins."
+    }
   }
 }

@@ -1,6 +1,84 @@
-import React,{useMemo,useState} from 'react';
-import {Link,useParams,useSearchParams} from 'react-router-dom';
-import {ArrowRight,ArrowUpRight,BookOpen,Building2,FileText,GraduationCap,LibraryBig,MapPin,PlayCircle,Search,ShieldCheck,Star,BookMarked,Download,ExternalLink,ChevronRight} from 'lucide-react';
-import {useLibrary} from '../../context/LibraryContext';
-import {PageHero,SectionTitle,QuickCard,BookCard,Empty,ResourceCard} from '../../components/site';
-export default function DepartmentDetails(){const {slug}=useParams();const {departments,papers,books}=useLibrary();const d=departments.find(x=>x.slug===slug);if(!d)return <section className="container section"><Empty title="Department not found"/></section>;const dp=papers.filter(p=>p.department===d.name),db=books.filter(b=>b.department===d.name);return <><PageHero eyebrow={`DEPARTMENT / ${d.short}`} title={d.name} text={d.description} image={d.image}/><section className="container section"><div className="dept-summary"><div><span className="eyebrow">RESOURCE SNAPSHOT</span><h2>Academic resources for {d.name}</h2><p>Use this page as the department's starting point for catalogue records and examination archives.</p></div><div className="mini-stats"><span><b>{db.length}</b>Books</span><span><b>{dp.length}</b>Papers</span></div></div><SectionTitle eyebrow="QUESTION PAPERS" title="Recent papers"/><div className="paper-list">{dp.length?dp.map(p=><div className="paper-row" key={p.id}><FileText/><div><b>{p.subject}</b><span>{p.programme} • {p.year} • Semester {p.semester}</span></div><a href={p.pdf} target="_blank" rel="noreferrer"><ExternalLink/></a></div>):<Empty title="No papers yet" text="The administrator can publish papers for this department."/>}</div><SectionTitle eyebrow="CATALOGUE" title="Books in this department"/><div className="book-grid">{db.length?db.map(b=><BookCard key={b.id} book={b}/>):<Empty title="No books yet"/>}</div></section></>}
+// import React,{useMemo,useState} from 'react';
+// import {Link,useParams,useSearchParams} from 'react-router-dom';
+// import {ArrowRight,ArrowUpRight,BookOpen,Building2,FileText,GraduationCap,LibraryBig,MapPin,PlayCircle,Search,ShieldCheck,Star,BookMarked,Download,ExternalLink,ChevronRight} from 'lucide-react';
+// import {useLibrary} from '../../context/LibraryContext';
+// import {PageHero,SectionTitle,QuickCard,BookCard,Empty,ResourceCard} from '../../components/site';
+// export default function DepartmentDetails(){const {slug}=useParams();const {departments,papers,books}=useLibrary();const d=departments.find(x=>x.slug===slug);if(!d)return <section className="container section"><Empty title="Department not found"/></section>;const dp=papers.filter(p=>p.department===d.name),db=books.filter(b=>b.department===d.name);return <><PageHero eyebrow={`DEPARTMENT / ${d.short}`} title={d.name} text={d.description} image={d.image}/><section className="container section"><div className="dept-summary"><div><span className="eyebrow">RESOURCE SNAPSHOT</span><h2>Academic resources for {d.name}</h2><p>Use this page as the department's starting point for catalogue records and examination archives.</p></div><div className="mini-stats"><span><b>{db.length}</b>Books</span><span><b>{dp.length}</b>Papers</span></div></div><SectionTitle eyebrow="QUESTION PAPERS" title="Recent papers"/><div className="paper-list">{dp.length?dp.map(p=><div className="paper-row" key={p.id}><FileText/><div><b>{p.subject}</b><span>{p.programme} • {p.year} • Semester {p.semester}</span></div><a href={p.pdf} target="_blank" rel="noreferrer"><ExternalLink/></a></div>):<Empty title="No papers yet" text="The administrator can publish papers for this department."/>}</div><SectionTitle eyebrow="CATALOGUE" title="Books in this department"/><div className="book-grid">{db.length?db.map(b=><BookCard key={b.id} book={b}/>):<Empty title="No books yet"/>}</div></section></>}
+
+
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useLibrary } from '../../context/LibraryContext';
+import {
+    PageHero,
+    SectionTitle,
+    BookCard,
+    Empty,
+} from '../../components/site';
+
+export default function DepartmentDetails() {
+    const { slug } = useParams();
+    const { departments, books } = useLibrary();
+
+    const department = departments.find(
+        (item) => item.slug === slug
+    );
+
+    if (!department) {
+        return (
+            <section className="container section">
+                <Empty title="Department not found" />
+            </section>
+        );
+    }
+
+    const departmentBooks = books.filter(
+        (book) => book.department === department.name
+    );
+
+    return (
+        <>
+            <PageHero
+                eyebrow={`DEPARTMENT / ${department.short}`}
+                title={department.name}
+                text={department.description}
+                image={department.image}
+            />
+
+            <section className="container section">
+                <div className="dept-summary">
+                    <div>
+                        <span className="eyebrow">RESOURCE SNAPSHOT</span>
+                        <h2>Academic resources for {department.name}</h2>
+                        <p>
+                            Explore the available catalogue records for this department.
+                        </p>
+                    </div>
+
+                    <div className="mini-stats">
+                        <span>
+                            <b>{departmentBooks.length}</b>
+                            Books
+                        </span>
+                    </div>
+                </div>
+
+                <SectionTitle
+                    eyebrow="CATALOGUE"
+                    title="Books in this department"
+                />
+
+                <div className="book-grid">
+                    {departmentBooks.length > 0 ? (
+                        departmentBooks.map((book) => (
+                            <BookCard key={book.id} book={book} />
+                        ))
+                    ) : (
+                        <Empty title="No books yet" />
+                    )}
+                </div>
+            </section>
+        </>
+    );
+}
+

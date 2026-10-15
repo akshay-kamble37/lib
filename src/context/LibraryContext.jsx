@@ -9,7 +9,7 @@ import React, {
 import {
   defaultAnnouncements,
   defaultBooks,
-  defaultPapers,
+  // defaultPapers,
   defaultResources,
   defaultPublications,
   defaultSite,
@@ -35,7 +35,7 @@ const initialContent = {
   books: loadLocal('sggs_books', defaultBooks),
   departments: loadLocal('sggs_departments', departments),
   resources: loadLocal('sggs_resources', defaultResources),
-  papers: loadLocal('sggs_papers', defaultPapers),
+  // papers: loadLocal('sggs_papers', defaultPapers),
   announcements: loadLocal(
     'sggs_announcements',
     defaultAnnouncements
@@ -58,9 +58,9 @@ export function LibraryProvider({ children }) {
     initialContent.resources
   );
 
-  const [papers, setPapers] = useState(
-    initialContent.papers
-  );
+  // const [papers, setPapers] = useState(
+  //   initialContent.papers
+  // );
 
   const [announcements, setAnnouncements] = useState(
     initialContent.announcements
@@ -186,14 +186,14 @@ export function LibraryProvider({ children }) {
           );
         }
 
-        if (Array.isArray(data.papers)) {
-          setPapers(data.papers);
+        // if (Array.isArray(data.papers)) {
+        //   setPapers(data.papers);
 
-          localStorage.setItem(
-            'sggs_papers',
-            JSON.stringify(data.papers)
-          );
-        }
+        //   localStorage.setItem(
+        //     'sggs_papers',
+        //     JSON.stringify(data.papers)
+        //   );
+        // }
 
         if (Array.isArray(data.announcements)) {
           setAnnouncements(data.announcements);
@@ -316,10 +316,10 @@ export function LibraryProvider({ children }) {
             ? overrides.resources
             : resources,
 
-        papers:
-          overrides.papers !== undefined
-            ? overrides.papers
-            : papers,
+        // papers:
+        //   overrides.papers !== undefined
+        //     ? overrides.papers
+        //     : papers,
 
         announcements:
           overrides.announcements !== undefined
@@ -356,7 +356,7 @@ export function LibraryProvider({ children }) {
       if (!response.ok) {
         throw new Error(
           data.error ||
-            `Save failed with status ${response.status}`
+          `Save failed with status ${response.status}`
         );
       }
 
@@ -379,10 +379,10 @@ export function LibraryProvider({ children }) {
         JSON.stringify(content.resources)
       );
 
-      localStorage.setItem(
-        'sggs_papers',
-        JSON.stringify(content.papers)
-      );
+      // localStorage.setItem(
+      //   'sggs_papers',
+      //   JSON.stringify(content.papers)
+      // );
 
       localStorage.setItem(
         'sggs_announcements',
@@ -410,7 +410,7 @@ export function LibraryProvider({ children }) {
 
       setToast(
         error.message ||
-          'Unable to save changes'
+        'Unable to save changes'
       );
 
       throw error;
@@ -459,7 +459,7 @@ export function LibraryProvider({ children }) {
     if (!response.ok) {
       throw new Error(
         data.error ||
-          `Upload failed with status ${response.status}`
+        `Upload failed with status ${response.status}`
       );
     }
 
@@ -507,7 +507,7 @@ export function LibraryProvider({ children }) {
     if (!response.ok) {
       throw new Error(
         data.error ||
-          'Invalid administrator credentials'
+        'Invalid administrator credentials'
       );
     }
 
@@ -573,7 +573,7 @@ export function LibraryProvider({ children }) {
     const nextBooks = clone(defaultBooks);
     const nextDepartments = clone(departments);
     const nextResources = clone(defaultResources);
-    const nextPapers = clone(defaultPapers);
+    // const nextPapers = clone(defaultPapers);
     const nextAnnouncements =
       clone(defaultAnnouncements);
     const nextPublications =
@@ -583,7 +583,7 @@ export function LibraryProvider({ children }) {
     setBooks(nextBooks);
     setDepartmentsData(nextDepartments);
     setResources(nextResources);
-    setPapers(nextPapers);
+    // setPapers(nextPapers);
     setAnnouncements(nextAnnouncements);
     setPublications(nextPublications);
     setSite(nextSite);
@@ -592,7 +592,7 @@ export function LibraryProvider({ children }) {
       books: nextBooks,
       departments: nextDepartments,
       resources: nextResources,
-      papers: nextPapers,
+      // papers: nextPapers,
       announcements: nextAnnouncements,
       publications: nextPublications,
       site: nextSite,
@@ -622,8 +622,8 @@ export function LibraryProvider({ children }) {
       resources,
       setResources,
 
-      papers,
-      setPapers,
+      // papers,
+      // setPapers,
 
       announcements,
       setAnnouncements,
@@ -662,7 +662,7 @@ export function LibraryProvider({ children }) {
       books,
       departmentsData,
       resources,
-      papers,
+      // papers,
       announcements,
       publications,
       site,
